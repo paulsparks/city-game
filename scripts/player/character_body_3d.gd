@@ -2,15 +2,15 @@ extends CharacterBody3D
 
 
 const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 5.0
 const SENSITIVITY = 0.003
 const BOB_FREQ = 3.0
-const BOB_AMP = 0.008
-const GRAVITY = 12.0
-const TERMINAL_VELOCITY = 20.0
+const BOB_AMP = 0.01
+const GRAVITY = 16.0
+const TERMINAL_VELOCITY = 26.0
 
-var t_bob = 0.0
-var current_gravity = 12.0
+var t_bob := 0.0
+var current_gravity := 12.0
 
 @onready var camera: Camera3D = $Camera3D
 
@@ -32,14 +32,11 @@ func _physics_process(delta: float) -> void:
 		current_gravity = clamp(pow(current_gravity, 1.01), GRAVITY, TERMINAL_VELOCITY)
 		velocity += Vector3.DOWN * current_gravity * delta
 
-	print(current_gravity)
-
 	# Handle jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("left", "right", "forwards", "backwards")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
@@ -57,7 +54,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _headbob(time) -> Vector3:
-	var pos = Vector3.ZERO
+	var pos := Vector3.ZERO
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
-	pos.x = sin(time * BOB_FREQ) * BOB_AMP
+	pos.x = sin(time * BOB_FREQ / 1.5) * BOB_AMP
 	return pos
