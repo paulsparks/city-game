@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+class_name PlayerController
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 5.0
@@ -8,9 +8,12 @@ const BOB_FREQ = 3.0
 const BOB_AMP = 0.01
 const GRAVITY = 16.0
 const TERMINAL_VELOCITY = 26.0
+const REACH_DISTANCE = 1.5
 
 var t_bob := 0.0
 var current_gravity := 12.0
+var held_prop: Prop = null
+var held_prop_mesh: MeshInstance3D = null
 
 @onready var camera: Camera3D = $Camera3D
 
@@ -24,7 +27,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void:	
+	_handle_raycast()
+	
 	# Add the gravity
 	if is_on_floor():
 		current_gravity = GRAVITY
@@ -58,3 +63,25 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = sin(time * BOB_FREQ / 1.5) * BOB_AMP
 	return pos
+
+func _handle_raycast() -> void:
+	var space_state = get_world_3d().direct_space_state
+	var mousepos = get_viewport().get_mouse_position()
+	var origin = camera.project_ray_origin(mousepos)
+	var end = origin + camera.project_ray_normal(mousepos) * REACH_DISTANCE
+	var query = PhysicsRayQueryParameters3D.create(origin, end)
+	var result: Dictionary = space_state.intersect_ray(query)
+	var collider = result.get("collider")
+	
+	if held_prop != null:
+		held_prop.position = end
+		if Input.is_action_just_pressed("interact"):
+			held_prop.freeze = false
+			held_prop = null
+	elif collider is Prop:
+			_handle_prop_pickup(collider)
+
+func _handle_prop_pickup(prop: Prop) -> void:	
+	if Input.is_action_just_pressed("interact"):
+		held_prop = prop
+		held_prop.freeze = true
