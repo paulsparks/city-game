@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://crqba7aw5sw3h"]
+[gd_scene load_steps=6 format=3 uid="uid://crqba7aw5sw3h"]
 
 [ext_resource type="Script" path="res://scripts/player/player_controller.gd" id="1_u1fqc"]
 [ext_resource type="Script" path="res://scripts/player/wallet_component.gd" id="2_vl4rv"]
+[ext_resource type="Script" path="res://scripts/player/inventory_component.gd" id="3_vudaf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rgylw"]
 radius = 0.3
@@ -45,3 +46,23 @@ offset_right = 760.0
 offset_bottom = 57.0
 text = "Money: 0"
 label_settings = SubResource("LabelSettings_t2b47")
+
+[node name="InventoryComponent" type="Node" parent="." node_paths=PackedStringArray("bag_label")]
+script = ExtResource("3_vudaf")
+bag_label = NodePath("../ReferenceRect/BagLabel")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+offset_left = 173.0
+offset_top = 847.0
+offset_right = 293.0
+offset_bottom = 967.0
+border_color = Color(0.743082, 0.6164, 0.929512, 1)
+border_width = 4.0
+editor_only = false
+
+[node name="BagLabel" type="Label" parent="ReferenceRect"]
+offset_left = 21.0
+offset_top = 48.0
+offset_right = 103.0
+offset_bottom = 71.0
+horizontal_alignment = 1

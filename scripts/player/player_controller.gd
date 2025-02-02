@@ -17,6 +17,7 @@ var held_prop_mesh: MeshInstance3D = null
 
 @onready var camera: Camera3D = $Camera3D
 @onready var wallet: WalletComponent = $WalletComponent
+@onready var inventory: InventoryComponent = $InventoryComponent
 
 
 func _ready():
@@ -77,10 +78,20 @@ func _handle_raycast() -> void:
 	var origin = camera.project_ray_origin(mousepos)
 	var end = origin + camera.project_ray_normal(mousepos) * REACH_DISTANCE
 	var hold_pos = origin + camera.project_ray_normal(mousepos) * REACH_DISTANCE / 2
+	var place_pos = origin + camera.project_ray_normal(mousepos) * REACH_DISTANCE / 3
 	var query = PhysicsRayQueryParameters3D.create(origin, end, 2)
 	var result: Dictionary = space_state.intersect_ray(query)
 	var collider = result.get("collider")
-		
+	
+	if Input.is_action_just_pressed("use"):
+		var item = inventory.equipped
+		match item:
+			item when item is Bag: inventory.place_bag(place_pos, self)
+	if Input.is_action_just_pressed("use_special"):
+		var item = inventory.equipped
+		match item:
+			item when item is Bag: inventory.place_next_bag_item(place_pos, self)
+	
 	if held_prop != null:
 		held_prop.global_position = hold_pos
 		if Input.is_action_just_pressed("interact"):
@@ -91,6 +102,9 @@ func _handle_raycast() -> void:
 			match collider:
 				collider when collider is Prop: _handle_prop_pickup(collider)
 				collider when collider is Trigger: collider.perform_task()
+		if Input.is_action_just_pressed("pocket"):
+			match collider:
+				collider when collider is Bag: inventory.add_to_inventory(collider)
 
 
 func _handle_prop_pickup(prop: Prop) -> void:

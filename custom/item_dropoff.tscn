@@ -24,6 +24,7 @@ script = ExtResource("1_8mq3i")
 
 [node name="DropoffZone" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.472076, 0)
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DropoffZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00464475, 0.127899, 0)

@@ -183,16 +183,20 @@ shape = SubResource("ConvexPolygonShape3D_w3tqw")
 [node name="ItemDropoff" parent="." instance=ExtResource("3_lavsv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.995, 0.395596, 0.606191)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("player", "item_dropoff")]
+[node name="BuyButton" type="StaticBody3D" parent="." node_paths=PackedStringArray("player", "item_dropoff", "bag_location")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 1.6, 0.859361, -0.9)
 collision_layer = 3
 script = ExtResource("4_7n4bx")
 player = NodePath("../Player")
 item_dropoff = NodePath("../ItemDropoff")
+bag_location = NodePath("BagLocation")
 
-[node name="BuyButton" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="BuyButton" type="MeshInstance3D" parent="BuyButton"]
 mesh = SubResource("BoxMesh_6ndjf")
 skeleton = NodePath("../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BuyButton"]
 shape = SubResource("ConvexPolygonShape3D_13gos")
+
+[node name="BagLocation" type="Node3D" parent="BuyButton"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.3, 3)
