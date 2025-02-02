@@ -8,7 +8,7 @@ const BOB_FREQ = 3.0
 const BOB_AMP = 0.01
 const GRAVITY = 16.0
 const TERMINAL_VELOCITY = 26.0
-const REACH_DISTANCE = 1.2
+const REACH_DISTANCE = 2
 
 var t_bob := 0.0
 var current_gravity := 12.0
@@ -20,16 +20,16 @@ var held_prop_mesh: MeshInstance3D = null
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
+
 func _physics_process(delta: float) -> void:	
-	_handle_raycast()
-	
 	# Add the gravity
 	if is_on_floor():
 		current_gravity = GRAVITY
@@ -58,23 +58,30 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+
 func _headbob(time) -> Vector3:
 	var pos := Vector3.ZERO
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = sin(time * BOB_FREQ / 1.5) * BOB_AMP
 	return pos
 
+
+func _process(_delta):
+	_handle_raycast()
+
+
 func _handle_raycast() -> void:
 	var space_state = get_world_3d().direct_space_state
 	var mousepos = get_viewport().get_mouse_position()
 	var origin = camera.project_ray_origin(mousepos)
 	var end = origin + camera.project_ray_normal(mousepos) * REACH_DISTANCE
+	var hold_pos = origin + camera.project_ray_normal(mousepos) * REACH_DISTANCE / 2
 	var query = PhysicsRayQueryParameters3D.create(origin, end)
 	var result: Dictionary = space_state.intersect_ray(query)
 	var collider = result.get("collider")
 	
 	if held_prop != null:
-		held_prop.position = end
+		held_prop.position = hold_pos
 		if Input.is_action_just_pressed("interact"):
 			held_prop.freeze = false
 			held_prop = null
@@ -82,6 +89,7 @@ func _handle_raycast() -> void:
 		match collider:
 			collider when collider is Prop: _handle_prop_pickup(collider)
 			#collider when collider is ShoppingCart: _handle_shopping_cart(collider)
+
 
 func _handle_prop_pickup(prop: Prop) -> void:	
 	if Input.is_action_just_pressed("interact"):

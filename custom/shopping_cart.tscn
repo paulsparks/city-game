@@ -124,5 +124,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.1, 0.2)
 [node name="item-15" type="Node3D" parent="ItemLocations"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.1, 0.4)
 
+[node name="ExpelLocation" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+
 [connection signal="body_shape_entered" from="Area3D" to="." method="_on_area_3d_body_shape_entered"]
 [connection signal="body_shape_exited" from="Area3D" to="." method="_on_area_3d_body_shape_exited"]
