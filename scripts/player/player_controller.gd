@@ -8,7 +8,7 @@ const BOB_FREQ = 3.0
 const BOB_AMP = 0.01
 const GRAVITY = 16.0
 const TERMINAL_VELOCITY = 26.0
-const REACH_DISTANCE = 1.5
+const REACH_DISTANCE = 1.2
 
 var t_bob := 0.0
 var current_gravity := 12.0
