@@ -16,6 +16,7 @@ var held_prop: Prop = null
 var held_prop_mesh: MeshInstance3D = null
 
 @onready var camera: Camera3D = $Camera3D
+@onready var wallet: WalletComponent = $WalletComponent
 
 
 func _ready():
