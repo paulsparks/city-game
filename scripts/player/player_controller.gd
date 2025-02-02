@@ -1,14 +1,14 @@
 extends CharacterBody3D
 class_name PlayerController
 
-const SPEED = 3.5
-const JUMP_VELOCITY = 4.0
+const SPEED = 4.5
+const JUMP_VELOCITY = 7.0
 const SENSITIVITY = 0.003
 const BOB_FREQ = 3.0
 const BOB_AMP = 0.01
-const GRAVITY = 16.0
-const TERMINAL_VELOCITY = 26.0
-const REACH_DISTANCE = 2
+const GRAVITY = 25.0
+const TERMINAL_VELOCITY = 35.0
+const REACH_DISTANCE = 3
 
 var t_bob := 0.0
 var current_gravity := 12.0
@@ -16,6 +16,7 @@ var held_prop: Prop = null
 var held_prop_mesh: MeshInstance3D = null
 
 @onready var camera: Camera3D = $Camera3D
+@onready var wallet: WalletComponent = $WalletComponent
 
 
 func _ready():
@@ -29,7 +30,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 
-func _physics_process(delta: float) -> void:	
+func _physics_process(delta: float) -> void:
 	# Add the gravity
 	if is_on_floor():
 		current_gravity = GRAVITY
@@ -76,22 +77,22 @@ func _handle_raycast() -> void:
 	var origin = camera.project_ray_origin(mousepos)
 	var end = origin + camera.project_ray_normal(mousepos) * REACH_DISTANCE
 	var hold_pos = origin + camera.project_ray_normal(mousepos) * REACH_DISTANCE / 2
-	var query = PhysicsRayQueryParameters3D.create(origin, end)
+	var query = PhysicsRayQueryParameters3D.create(origin, end, 2)
 	var result: Dictionary = space_state.intersect_ray(query)
 	var collider = result.get("collider")
-	
+		
 	if held_prop != null:
-		held_prop.position = hold_pos
+		held_prop.global_position = hold_pos
 		if Input.is_action_just_pressed("interact"):
 			held_prop.freeze = false
 			held_prop = null
 	else:
-		match collider:
-			collider when collider is Prop: _handle_prop_pickup(collider)
-			#collider when collider is ShoppingCart: _handle_shopping_cart(collider)
+		if Input.is_action_just_pressed("interact"):
+			match collider:
+				collider when collider is Prop: _handle_prop_pickup(collider)
+				collider when collider is Trigger: collider.perform_task()
 
 
-func _handle_prop_pickup(prop: Prop) -> void:	
-	if Input.is_action_just_pressed("interact"):
+func _handle_prop_pickup(prop: Prop) -> void:
 		held_prop = prop
 		held_prop.freeze = true

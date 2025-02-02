@@ -1,8 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://crqba7aw5sw3h"]
+[gd_scene load_steps=5 format=3 uid="uid://crqba7aw5sw3h"]
 
 [ext_resource type="Script" path="res://scripts/player/player_controller.gd" id="1_u1fqc"]
+[ext_resource type="Script" path="res://scripts/player/wallet_component.gd" id="2_vl4rv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rgylw"]
+radius = 0.3
+
+[sub_resource type="LabelSettings" id="LabelSettings_t2b47"]
+font_size = 32
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -28,3 +33,15 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(3.08037e-06, 0.974131, 0.913307, 1)
+
+[node name="WalletComponent" type="Node" parent="." node_paths=PackedStringArray("_money_label")]
+script = ExtResource("2_vl4rv")
+_money_label = NodePath("../MoneyLabel")
+
+[node name="MoneyLabel" type="Label" parent="."]
+offset_left = 442.0
+offset_top = 7.0
+offset_right = 760.0
+offset_bottom = 57.0
+text = "Money: 0"
+label_settings = SubResource("LabelSettings_t2b47")
