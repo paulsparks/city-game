@@ -87,11 +87,12 @@ func _handle_raycast() -> void:
 			held_prop.freeze = false
 			held_prop = null
 	else:
-		match collider:
-			collider when collider is Prop: _handle_prop_pickup(collider)
+		if Input.is_action_just_pressed("interact"):
+			match collider:
+				collider when collider is Prop: _handle_prop_pickup(collider)
+				collider when collider is Trigger: collider.perform_task()
 
 
 func _handle_prop_pickup(prop: Prop) -> void:
-	if Input.is_action_just_pressed("interact"):
 		held_prop = prop
 		held_prop.freeze = true

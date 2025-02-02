@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://j1lt5dle6013"]
+[gd_scene load_steps=17 format=3 uid="uid://j1lt5dle6013"]
 
 [ext_resource type="PackedScene" uid="uid://crqba7aw5sw3h" path="res://custom/player.tscn" id="1_7cyqx"]
 [ext_resource type="PackedScene" uid="uid://d1kc035eod413" path="res://custom/grocery.tscn" id="2_ngggj"]
 [ext_resource type="PackedScene" uid="uid://drb2k3ldr6k68" path="res://custom/item_dropoff.tscn" id="3_lavsv"]
+[ext_resource type="Script" path="res://scripts/trigger/shop_buy_trigger.gd" id="4_7n4bx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ms4rl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -36,6 +37,16 @@ size = Vector3(1, 0.8, 4)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_w3tqw"]
 points = PackedVector3Array(0.5, 0.4, 2, 0.5, -0.4, 2, 0.5, 0.4, -2, -0.5, 0.4, 2, -0.5, -0.4, 2, 0.5, -0.4, -2, -0.5, 0.4, -2, -0.5, -0.4, -2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mkf1l"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6ndjf"]
+material = SubResource("StandardMaterial3D_mkf1l")
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_13gos"]
+points = PackedVector3Array(0.05, 0.05, 0.05, 0.05, 0.05, -0.05, -0.05, 0.05, 0.05, 0.05, -0.05, 0.05, 0.05, -0.05, -0.05, -0.05, 0.05, -0.05, -0.05, -0.05, 0.05, -0.05, -0.05, -0.05)
 
 [node name="GroceryStore" type="Node"]
 
@@ -171,3 +182,17 @@ shape = SubResource("ConvexPolygonShape3D_w3tqw")
 
 [node name="ItemDropoff" parent="." instance=ExtResource("3_lavsv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.995, 0.395596, 0.606191)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("player", "item_dropoff")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 1.6, 0.859361, -0.9)
+collision_layer = 3
+script = ExtResource("4_7n4bx")
+player = NodePath("../Player")
+item_dropoff = NodePath("../ItemDropoff")
+
+[node name="BuyButton" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_6ndjf")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_13gos")

@@ -34,8 +34,9 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(3.08037e-06, 0.974131, 0.913307, 1)
 
-[node name="WalletComponent" type="Node" parent="."]
+[node name="WalletComponent" type="Node" parent="." node_paths=PackedStringArray("_money_label")]
 script = ExtResource("2_vl4rv")
+_money_label = NodePath("../MoneyLabel")
 
 [node name="MoneyLabel" type="Label" parent="."]
 offset_left = 442.0

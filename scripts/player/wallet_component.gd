@@ -2,7 +2,7 @@ extends Node
 class_name WalletComponent
 ## Controls the players wallet
 
-var _money: int = 1000
+var _money: float = 10
 
 @export var _money_label: Label
 
@@ -14,8 +14,8 @@ func _process(_delta):
 
 ## Spends the specified amount of money from the wallet if you have enough.
 ## Returns false if you don't have enough money. Returns true if you do, and the money was spent.
-func spend_money(amount: int) -> bool:
-	if amount > _money:
+func spend_money(amount: float) -> bool:
+	if not can_afford(amount):
 		return false
 	
 	_money -= amount
@@ -23,5 +23,12 @@ func spend_money(amount: int) -> bool:
 
 
 ## Returns the amount of money currently in the wallet
-func get_money() -> int:
+func get_money() -> float:
 	return _money
+
+
+## Returns a boolean representing whether or not the wallet has enough money to afford the specified cost.
+func can_afford(cost: float) -> bool:
+	if cost > _money:
+		return false
+	return true
