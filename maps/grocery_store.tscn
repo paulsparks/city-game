@@ -34,8 +34,8 @@ albedo_color = Color(1, 1, 0.466667, 1)
 material = SubResource("StandardMaterial3D_7l1ml")
 size = Vector3(1, 0.8, 4)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gm5ma"]
-points = PackedVector3Array(0.25, 0.2, 1, 0.25, -0.2, 1, 0.25, 0.2, -1, -0.25, 0.2, 1, -0.25, -0.2, 1, 0.25, -0.2, -1, -0.25, 0.2, -1, -0.25, -0.2, -1)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_w3tqw"]
+points = PackedVector3Array(0.5, 0.4, 2, 0.5, -0.4, 2, 0.5, 0.4, -2, -0.5, 0.4, 2, -0.5, -0.4, 2, 0.5, -0.4, -2, -0.5, 0.4, -2, -0.5, -0.4, -2)
 
 [node name="GroceryStore" type="Node"]
 
@@ -167,7 +167,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.4, -2.59)
 mesh = SubResource("BoxMesh_ywuqy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Store Counter"]
-shape = SubResource("ConvexPolygonShape3D_gm5ma")
+shape = SubResource("ConvexPolygonShape3D_w3tqw")
 
 [node name="ItemDropoff" parent="." instance=ExtResource("3_lavsv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.995, 0.395596, 0.606191)
