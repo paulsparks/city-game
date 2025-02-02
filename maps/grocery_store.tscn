@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://j1lt5dle6013"]
 
-[ext_resource type="PackedScene" uid="uid://crqba7aw5sw3h" path="res://custom/player.tscn" id="1_j263n"]
-[ext_resource type="PackedScene" uid="uid://d1kc035eod413" path="res://custom/grocery.tscn" id="2_mr1nb"]
-[ext_resource type="PackedScene" uid="uid://drb2k3ldr6k68" path="res://custom/shopping_cart.tscn" id="3_4mn52"]
+[ext_resource type="PackedScene" uid="uid://crqba7aw5sw3h" path="res://custom/player.tscn" id="1_7cyqx"]
+[ext_resource type="PackedScene" uid="uid://d1kc035eod413" path="res://custom/grocery.tscn" id="2_ngggj"]
+[ext_resource type="PackedScene" uid="uid://drb2k3ldr6k68" path="res://custom/shopping_cart.tscn" id="3_lavsv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ms4rl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -37,7 +37,7 @@ size = Vector3(0.5, 0.4, 2)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gm5ma"]
 points = PackedVector3Array(0.25, 0.2, 1, 0.25, -0.2, 1, 0.25, 0.2, -1, -0.25, 0.2, 1, -0.25, -0.2, 1, 0.25, -0.2, -1, -0.25, 0.2, -1, -0.25, -0.2, -1)
 
-[node name="Home" type="Node"]
+[node name="GroceryStore" type="Node"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -46,7 +46,7 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0ompw")
 
-[node name="Player" parent="." instance=ExtResource("1_j263n")]
+[node name="Player" parent="." instance=ExtResource("1_7cyqx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.40999)
 
 [node name="Plane" type="StaticBody3D" parent="."]
@@ -109,52 +109,52 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plane5"]
 shape = SubResource("ConvexPolygonShape3D_q0l3x")
 
-[node name="Grocery" parent="." instance=ExtResource("2_mr1nb")]
+[node name="Grocery" parent="." instance=ExtResource("2_ngggj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.9, -2.69001)
 
-[node name="Grocery2" parent="." instance=ExtResource("2_mr1nb")]
+[node name="Grocery2" parent="." instance=ExtResource("2_ngggj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.9, -2.69001)
 
-[node name="Grocery3" parent="." instance=ExtResource("2_mr1nb")]
+[node name="Grocery3" parent="." instance=ExtResource("2_ngggj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.9, -2.39001)
 
-[node name="Grocery4" parent="." instance=ExtResource("2_mr1nb")]
+[node name="Grocery4" parent="." instance=ExtResource("2_ngggj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.9, -2.39001)
 
-[node name="Grocery5" parent="." instance=ExtResource("2_mr1nb")]
+[node name="Grocery5" parent="." instance=ExtResource("2_ngggj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.9, -2.09001)
 
-[node name="Grocery6" parent="." instance=ExtResource("2_mr1nb")]
+[node name="Grocery6" parent="." instance=ExtResource("2_ngggj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.9, -2.09001)
 
-[node name="Grocery7" parent="." instance=ExtResource("2_mr1nb")]
+[node name="Grocery7" parent="." instance=ExtResource("2_ngggj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.9, -1.79001)
 
-[node name="Grocery8" parent="." instance=ExtResource("2_mr1nb")]
+[node name="Grocery8" parent="." instance=ExtResource("2_ngggj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.9, -1.79001)
 
-[node name="Grocery9" parent="." instance=ExtResource("2_mr1nb")]
+[node name="Grocery9" parent="." instance=ExtResource("2_ngggj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.9, -2.69001)
 
-[node name="Grocery10" parent="." instance=ExtResource("2_mr1nb")]
+[node name="Grocery10" parent="." instance=ExtResource("2_ngggj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.9, -2.69001)
 
-[node name="Grocery11" parent="." instance=ExtResource("2_mr1nb")]
+[node name="Grocery11" parent="." instance=ExtResource("2_ngggj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.9, -2.39001)
 
-[node name="Grocery12" parent="." instance=ExtResource("2_mr1nb")]
+[node name="Grocery12" parent="." instance=ExtResource("2_ngggj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.9, -2.39001)
 
-[node name="Grocery13" parent="." instance=ExtResource("2_mr1nb")]
+[node name="Grocery13" parent="." instance=ExtResource("2_ngggj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.9, -2.09001)
 
-[node name="Grocery14" parent="." instance=ExtResource("2_mr1nb")]
+[node name="Grocery14" parent="." instance=ExtResource("2_ngggj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.9, -2.09001)
 
-[node name="Grocery15" parent="." instance=ExtResource("2_mr1nb")]
+[node name="Grocery15" parent="." instance=ExtResource("2_ngggj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.9, -1.79001)
 
-[node name="Grocery16" parent="." instance=ExtResource("2_mr1nb")]
+[node name="Grocery16" parent="." instance=ExtResource("2_ngggj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.9, -1.79001)
 
 [node name="Store Counter" type="StaticBody3D" parent="."]
@@ -166,5 +166,5 @@ mesh = SubResource("BoxMesh_ywuqy")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Store Counter"]
 shape = SubResource("ConvexPolygonShape3D_gm5ma")
 
-[node name="Shopping Cart" parent="." instance=ExtResource("3_4mn52")]
+[node name="Shopping Cart" parent="." instance=ExtResource("3_lavsv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.1, -0.890009)

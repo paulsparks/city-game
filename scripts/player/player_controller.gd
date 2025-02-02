@@ -1,8 +1,8 @@
 extends CharacterBody3D
 class_name PlayerController
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 5.0
+const SPEED = 3.5
+const JUMP_VELOCITY = 4.0
 const SENSITIVITY = 0.003
 const BOB_FREQ = 3.0
 const BOB_AMP = 0.01
