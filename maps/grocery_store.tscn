@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://j1lt5dle6013"]
+[gd_scene load_steps=18 format=3 uid="uid://j1lt5dle6013"]
 
 [ext_resource type="PackedScene" uid="uid://crqba7aw5sw3h" path="res://custom/player.tscn" id="1_7cyqx"]
 [ext_resource type="PackedScene" uid="uid://d1kc035eod413" path="res://custom/grocery.tscn" id="2_ngggj"]
@@ -24,6 +24,9 @@ albedo_color = Color(0.339867, 0.356786, 0.345996, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_rxg67"]
 material = SubResource("StandardMaterial3D_iiqv7")
 size = Vector2(10, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qsscd"]
+size = Vector3(10, 0.2, 10)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_q0l3x"]
 points = PackedVector3Array(-5, 0, -5, -5, 0, 5, 5, 0, -5, 5, 0, 5)
@@ -68,7 +71,8 @@ mesh = SubResource("PlaneMesh_rxg67")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plane"]
-shape = SubResource("ConvexPolygonShape3D_q0l3x")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_qsscd")
 
 [node name="Plane6" type="StaticBody3D" parent="."]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 5, 0)
@@ -183,16 +187,20 @@ shape = SubResource("ConvexPolygonShape3D_w3tqw")
 [node name="ItemDropoff" parent="." instance=ExtResource("3_lavsv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.995, 0.395596, 0.606191)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("player", "item_dropoff")]
+[node name="BuyButton" type="StaticBody3D" parent="." node_paths=PackedStringArray("player", "item_dropoff", "bag_location")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 1.6, 0.859361, -0.9)
 collision_layer = 3
 script = ExtResource("4_7n4bx")
 player = NodePath("../Player")
 item_dropoff = NodePath("../ItemDropoff")
+bag_location = NodePath("BagLocation")
 
-[node name="BuyButton" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="BuyButton" type="MeshInstance3D" parent="BuyButton"]
 mesh = SubResource("BoxMesh_6ndjf")
 skeleton = NodePath("../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BuyButton"]
 shape = SubResource("ConvexPolygonShape3D_13gos")
+
+[node name="BagLocation" type="Node3D" parent="BuyButton"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.3, 3)
