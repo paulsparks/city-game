@@ -1,8 +1,27 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=3 format=3 uid="uid://crqba7aw5sw3h"]
+=======
+[gd_scene load_steps=7 format=3 uid="uid://crqba7aw5sw3h"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://scripts/player/player_controller.gd" id="1_u1fqc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rgylw"]
+<<<<<<< Updated upstream
+=======
+radius = 0.3
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_h5yjc"]
+exposure_multiplier = 1.68
+auto_exposure_scale = 0.1
+auto_exposure_speed = 1.0
+dof_blur_far_distance = 18.07
+dof_blur_far_transition = 10.0
+dof_blur_near_distance = 0.01
+
+[sub_resource type="LabelSettings" id="LabelSettings_t2b47"]
+font_size = 32
+>>>>>>> Stashed changes
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -13,6 +32,8 @@ shape = SubResource("CapsuleShape3D_rgylw")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+attributes = SubResource("CameraAttributesPractical_h5yjc")
+fov = 76.3
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 8
