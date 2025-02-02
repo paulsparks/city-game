@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=3 uid="uid://drb2k3ldr6k68"]
+
+[ext_resource type="Script" path="res://scripts/shop/item_dropoff.gd" id="1_8mq3i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_60q18"]
+size = Vector3(1.04274, 0.407141, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mjgix"]
+transparency = 1
+albedo_color = Color(0.545098, 0.0117647, 0.788235, 0.101961)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pi5jr"]
+material = SubResource("StandardMaterial3D_mjgix")
+size = Vector3(1, 0.4, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jj5er"]
+size = Vector3(1, 0.8, 2)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fqe7h"]
+points = PackedVector3Array(0.5, 0.4, 1, 0.5, -0.4, 1, 0.5, 0.4, -1, -0.5, 0.4, 1, -0.5, -0.4, 1, 0.5, -0.4, -1, -0.5, 0.4, -1, -0.5, -0.4, -1)
+
+[node name="ItemDropoff" type="StaticBody3D"]
+script = ExtResource("1_8mq3i")
+
+[node name="DropoffZone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.472076, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DropoffZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00464475, 0.127899, 0)
+shape = SubResource("BoxShape3D_60q18")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DropoffZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00366068, 0.127924, -0.00293803)
+mesh = SubResource("BoxMesh_pi5jr")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_jj5er")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_fqe7h")
+
+[node name="ItemLocations" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+
+[node name="item1" type="Node3D" parent="ItemLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0.8)
+
+[node name="item2" type="Node3D" parent="ItemLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0.4)
+
+[node name="item3" type="Node3D" parent="ItemLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
+
+[node name="item4" type="Node3D" parent="ItemLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, -0.4)
+
+[node name="item5" type="Node3D" parent="ItemLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, -0.8)
+
+[node name="item6" type="Node3D" parent="ItemLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8)
+
+[node name="item7" type="Node3D" parent="ItemLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
+
+[node name="item8" type="Node3D" parent="ItemLocations"]
+
+[node name="item9" type="Node3D" parent="ItemLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+
+[node name="item10" type="Node3D" parent="ItemLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
+
+[node name="item11" type="Node3D" parent="ItemLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0.8)
+
+[node name="item12" type="Node3D" parent="ItemLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0.4)
+
+[node name="item13" type="Node3D" parent="ItemLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
+
+[node name="item14" type="Node3D" parent="ItemLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, -0.4)
+
+[node name="item15" type="Node3D" parent="ItemLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, -0.8)
+
+[node name="ExpelLocation" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0.2, 0)
+
+[connection signal="body_shape_entered" from="DropoffZone" to="." method="_on_area_3d_body_shape_entered"]
+[connection signal="body_shape_exited" from="DropoffZone" to="." method="_on_area_3d_body_shape_exited"]

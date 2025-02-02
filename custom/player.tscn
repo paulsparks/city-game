@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/player/wallet_component.gd" id="2_vl4rv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rgylw"]
+radius = 0.3
 
 [sub_resource type="LabelSettings" id="LabelSettings_t2b47"]
 font_size = 32

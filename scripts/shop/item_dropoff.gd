@@ -1,5 +1,5 @@
-extends AnimatableBody3D
-class_name ShoppingCart
+extends StaticBody3D
+class_name ItemDropoff
 
 
 var item_locations: PackedVector3Array
@@ -17,6 +17,7 @@ func _ready() -> void:
 
 func _on_area_3d_body_shape_entered(_body_rid: RID, body: Node3D, _body_shape_index: int, _local_shape_index: int) -> void:
 	if body is Grocery:
+		
 		if len(groceries) == len(item_locations):
 			body.global_position = expel_location
 			return
@@ -34,4 +35,4 @@ func _on_area_3d_body_shape_exited(_body_rid: RID, body: Node3D, _body_shape_ind
 func _update_locations() -> void:
 	for i in len(groceries):
 		# HACK: using a magic number 0.1 for now
-		groceries[i].global_position = Vector3(item_locations[i].x, item_locations[i].y + 0.1, item_locations[i].z)
+		groceries[i].global_position = Vector3(item_locations[i].x, item_locations[i].y + 0.2, item_locations[i].z)
