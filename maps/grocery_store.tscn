@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://j1lt5dle6013"]
+[gd_scene load_steps=19 format=3 uid="uid://j1lt5dle6013"]
 
 [ext_resource type="PackedScene" uid="uid://crqba7aw5sw3h" path="res://custom/player.tscn" id="1_7cyqx"]
 [ext_resource type="PackedScene" uid="uid://d1kc035eod413" path="res://custom/grocery.tscn" id="2_ngggj"]
 [ext_resource type="PackedScene" uid="uid://drb2k3ldr6k68" path="res://custom/item_dropoff.tscn" id="3_lavsv"]
 [ext_resource type="Script" path="res://scripts/trigger/shop_buy_trigger.gd" id="4_7n4bx"]
+[ext_resource type="PackedScene" uid="uid://6j5mmrh2k7hp" path="res://store_clerk.tscn" id="5_oqjwd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ms4rl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -224,3 +225,6 @@ shape = SubResource("ConvexPolygonShape3D_13gos")
 
 [node name="BagLocation" type="Node3D" parent="BuyButton"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.3, 3)
+
+[node name="store_clerk_scene" parent="." instance=ExtResource("5_oqjwd")]
+transform = Transform3D(-0.0110652, 0, 0.999939, 0, 1, 0, -0.999939, 0, -0.0110652, 4.219, 0, -2.137)
