@@ -18,6 +18,7 @@ run/main_scene="res://maps/scenes/grocery_store.tscn"
 >>>>>>> Stashed changes
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://textures/projector/icon.svg"
+config/icon="res://textures/projector/icon.svg"
 
 [input]
 
