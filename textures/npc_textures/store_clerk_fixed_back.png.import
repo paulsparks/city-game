@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsdwhl7nrbhsp"
-path.s3tc="res://.godot/imported/store_clerk_front.png-422e9948010aad9949d1d457a6cfbe48.s3tc.ctex"
+uid="uid://sx4m0iymjm82"
+path.s3tc="res://.godot/imported/store_clerk_fixed_back.png-4775f0101dc80fcef92581fca9509506.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "85d2e0cb293ded18874a77d97d3d9188"
+"md5": "a3bda661cc9e665e6665c7063ae060a7"
 }
 
 [deps]
 
-source_file="res://textures/npc_textures/store_clerk/store_clerk_front.png"
-dest_files=["res://.godot/imported/store_clerk_front.png-422e9948010aad9949d1d457a6cfbe48.s3tc.ctex"]
+source_file="res://textures/npc_textures/store_clerk_fixed_back.png"
+dest_files=["res://.godot/imported/store_clerk_fixed_back.png-4775f0101dc80fcef92581fca9509506.s3tc.ctex"]
 
 [params]
 
