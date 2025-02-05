@@ -2158,3 +2158,20 @@ modulate = Color(1, 1, 1, 0.396078)
 pixel_size = 0.005
 double_sided = false
 texture = ExtResource("5_dcr7j")
+
+[node name="Grocery" parent="." instance=ExtResource("6_6f023")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
+
+[node name="Grocery2" parent="." instance=ExtResource("6_6f023")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 1)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0788733, 2.5287)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("BoxMesh_5ie72")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("ConvexPolygonShape3D_1kijn")
