@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c5k2mdaahtjsx"
-path="res://.godot/imported/player_traphouse.glb-1cbcfb63a47d3d258eb257a3151b0539.scn"
+uid="uid://p4ea5mmfgg3s"
+path="res://.godot/imported/player_house1991s_fixed_scale.glb-6d25783f49f2070af80b5f0c55f8d2a5.scn"
 
 [deps]
 
-source_file="res://maps/player_traphouse.glb"
-dest_files=["res://.godot/imported/player_traphouse.glb-1cbcfb63a47d3d258eb257a3151b0539.scn"]
+source_file="res://maps/player_house1991s_fixed_scale.glb"
+dest_files=["res://.godot/imported/player_house1991s_fixed_scale.glb-6d25783f49f2070af80b5f0c55f8d2a5.scn"]
 
 [params]
 

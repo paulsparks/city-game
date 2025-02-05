@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1c6fvicwr24t"
-path.s3tc="res://.godot/imported/store_clerk_face.png-d1f814577826ec8212584a12f26b1230.s3tc.ctex"
+uid="uid://ckfnrvrt077v7"
+path.s3tc="res://.godot/imported/player_house1991s_fixed_scale_texture_08.png-f9a8eb568e82e8eb48a77661c1458a3d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "eec0f102dbdc89959ecb6d4e841ddd9e"
+"md5": "4c7dcd87a5d569806f41207c26e48f50"
 }
 
 [deps]
 
-source_file="res://textures/npc_textures/store_clerk/store_clerk_face.png"
-dest_files=["res://.godot/imported/store_clerk_face.png-d1f814577826ec8212584a12f26b1230.s3tc.ctex"]
+source_file="res://maps/player_house1991s_fixed_scale_texture_08.png"
+dest_files=["res://.godot/imported/player_house1991s_fixed_scale_texture_08.png-f9a8eb568e82e8eb48a77661c1458a3d.s3tc.ctex"]
 
 [params]
 

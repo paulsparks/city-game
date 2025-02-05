@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bbmgcm0tiklim"
-path="res://.godot/imported/store_clerk.glb-d90441eb329302421ed56d728bd1e9dc.scn"
+uid="uid://c0c62hoyqu1i3"
+path="res://.godot/imported/store_clerk_fixed.glb-7ff89859565fd40f837dc1a9d20490d4.scn"
 
 [deps]
 
-source_file="res://textures/npc_textures/store_clerk/store_clerk.glb"
-dest_files=["res://.godot/imported/store_clerk.glb-d90441eb329302421ed56d728bd1e9dc.scn"]
+source_file="res://textures/npc_textures/store_clerk_fixed.glb"
+dest_files=["res://.godot/imported/store_clerk_fixed.glb-7ff89859565fd40f837dc1a9d20490d4.scn"]
 
 [params]
 

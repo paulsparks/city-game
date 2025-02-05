@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcgqoihoxlefk"
-path.s3tc="res://.godot/imported/store_clerk_back.png-29f7ab467de006e84ca6f5d65c25e0ab.s3tc.ctex"
+uid="uid://2l8vv4xay7x1"
+path.s3tc="res://.godot/imported/fishies_bag_shopping_bag_back.png-257e157ba92db3bbf311cf8b90a6c7e7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "a3bda661cc9e665e6665c7063ae060a7"
+"md5": "bc1ca0f3f5cd2b86415ffdba9f492d8f"
 }
 
 [deps]
 
-source_file="res://textures/npc_textures/store_clerk/store_clerk_back.png"
-dest_files=["res://.godot/imported/store_clerk_back.png-29f7ab467de006e84ca6f5d65c25e0ab.s3tc.ctex"]
+source_file="res://assets/items/fishyies_bag/fishies_bag_shopping_bag_back.png"
+dest_files=["res://.godot/imported/fishies_bag_shopping_bag_back.png-257e157ba92db3bbf311cf8b90a6c7e7.s3tc.ctex"]
 
 [params]
 
