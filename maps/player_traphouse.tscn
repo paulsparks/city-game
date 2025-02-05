@@ -1,10 +1,11 @@
-[gd_scene load_steps=115 format=4 uid="uid://d21ugm1ryi0i7"]
+[gd_scene load_steps=118 format=4 uid="uid://d21ugm1ryi0i7"]
 
 [ext_resource type="Texture2D" uid="uid://rsctvwm6xlx1" path="res://maps/player_traphouse_texture_08.png" id="1_c4gxu"]
 [ext_resource type="PackedScene" uid="uid://crqba7aw5sw3h" path="res://custom/player.tscn" id="2_744yp"]
 [ext_resource type="Texture2D" uid="uid://b2qgc47bxs77b" path="res://textures/projector/window light.jpeg" id="3_jea60"]
 [ext_resource type="Texture2D" uid="uid://cpnv7gf54540o" path="res://textures/Untitled_Artwork.png" id="4_0c0db"]
 [ext_resource type="Texture2D" uid="uid://ct3n0is55qq5m" path="res://textures/lap_ray.png" id="5_dcr7j"]
+[ext_resource type="PackedScene" uid="uid://d1kc035eod413" path="res://custom/grocery.tscn" id="6_6f023"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpa2t"]
 resource_name = "Material.002"
@@ -765,8 +766,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jff47")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_o5vkm"]
-points = PackedVector3Array(-1, -0.878428, -0.745563, 0.42309, 3.8832, 3.94226, 0.42309, 3.8832, -0.818446, 0.444745, -1.04323, 4.0136, -1, 3.81763, 3.86938, 0.431455, -0.993202, -0.846, -1, -0.878428, 3.86938, -1, 3.81763, -0.745563, -0.605936, 4.56008, 0.686443, 0.357176, 4.56008, 0.686443, -0.605936, 4.56008, 0.0735205, 0.338069, 3.8832, 3.94226, 0.338069, 3.8832, -0.818446, 0.3114, 4.36478, 0.177272)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ell8r"]
+size = Vector3(3.5, 0.54, 13.5)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1wtbi"]
 points = PackedVector3Array(0.44, 3.88277, 0.85, -1, 3.88277, 0.85, 0.44, -1, 0.85, 0.44, 3.88277, -1, -1, 3.88277, -1, -1, -1, 0.85, 0.44, -1, -1, -1, -1, -1)
@@ -1539,6 +1540,11 @@ fog_density = 0.007
 adjustment_enabled = true
 adjustment_contrast = 1.1
 
+[sub_resource type="BoxMesh" id="BoxMesh_5ie72"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1kijn"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
 [node name="player_traphouse_map" type="Node3D"]
 
 [node name="player_traphouse" type="Node3D" parent="."]
@@ -1662,10 +1668,11 @@ skeleton = NodePath("")
 [node name="static_collisions_walls&floor" type="Node3D" parent="player_traphouse"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="player_traphouse/static_collisions_walls&floor"]
-transform = Transform3D(0, 0, -2, 2.5, 0, 0, 0, -0.0693663, 0, 5.6, 2.5, 4.1)
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 5.6, 2.5, 4.1)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="player_traphouse/static_collisions_walls&floor/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_o5vkm")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="player_traphouse/static_collisions_walls&floor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0, 5.25)
+shape = SubResource("BoxShape3D_ell8r")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="player_traphouse/static_collisions_walls&floor"]
 transform = Transform3D(0, 0, 2, 2.5, 0, 0, 0, 0.0693663, 0, -4.36898, 2.56937, -1.21813)
@@ -1705,7 +1712,7 @@ transform = Transform3D(0, 0, -2, 2.5, 0, 0, 0, -0.0693663, 0, 12.4597, 2.5, 6.3
 shape = SubResource("ConvexPolygonShape3D_2s1xp")
 
 [node name="StaticBody3D8" type="StaticBody3D" parent="player_traphouse/static_collisions_walls&floor"]
-transform = Transform3D(0, 0, 2, 2.5, 0, 0, 0, 0.0693663, 0, 10.7945, 2.5, -3.97722)
+transform = Transform3D(4.77671e-15, 3.0321e-09, 2, 2.5, -3.0321e-09, 0, 1.09278e-07, 0.0693663, -8.74228e-08, 10.7945, 2.5, -3.97722)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player_traphouse/static_collisions_walls&floor/StaticBody3D8"]
 shape = SubResource("ConvexPolygonShape3D_pmjmb")
@@ -1833,7 +1840,7 @@ mesh = SubResource("ArrayMesh_v6g4k")
 skeleton = NodePath("")
 
 [node name="wall_1x2_006" type="MeshInstance3D" parent="player_traphouse/walls&floor"]
-transform = Transform3D(0, -0.0693663, 0, 2.5, 0, 0, 0, 0, 4, 7.56131, 2.5, 1.8394)
+transform = Transform3D(-1.09278e-07, -0.0693663, 0, 2.5, -3.0321e-09, 0, 0, 0, 4, 7.56131, 2.5, 1.8394)
 mesh = SubResource("ArrayMesh_1gbte")
 skeleton = NodePath("")
 
@@ -2055,3 +2062,20 @@ modulate = Color(1, 1, 1, 0.396078)
 pixel_size = 0.005
 double_sided = false
 texture = ExtResource("5_dcr7j")
+
+[node name="Grocery" parent="." instance=ExtResource("6_6f023")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
+
+[node name="Grocery2" parent="." instance=ExtResource("6_6f023")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 1)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0788733, 2.5287)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("BoxMesh_5ie72")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("ConvexPolygonShape3D_1kijn")
