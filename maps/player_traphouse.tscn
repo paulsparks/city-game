@@ -1,9 +1,10 @@
-[gd_scene load_steps=125 format=4 uid="uid://d21ugm1ryi0i7"]
+[gd_scene load_steps=126 format=4 uid="uid://d21ugm1ryi0i7"]
 
 [ext_resource type="PackedScene" uid="uid://crqba7aw5sw3h" path="res://custom/player.tscn" id="2_744yp"]
 [ext_resource type="Texture2D" uid="uid://b2qgc47bxs77b" path="res://textures/projector/window light.jpeg" id="3_jea60"]
 [ext_resource type="Texture2D" uid="uid://cpnv7gf54540o" path="res://textures/Untitled_Artwork.png" id="4_0c0db"]
 [ext_resource type="Texture2D" uid="uid://ct3n0is55qq5m" path="res://textures/lap_ray.png" id="5_dcr7j"]
+[ext_resource type="PackedScene" uid="uid://crm517otaufj5" path="res://custom/portal.tscn" id="6_cp0h0"]
 [ext_resource type="Texture2D" uid="uid://ckfnrvrt077v7" path="res://maps/player_house1991s_fixed_scale_texture_08.png" id="6_m0qip"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n5m23"]
@@ -1592,7 +1593,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1rhjr")
 
-[node name="player_traphouse_map" type="Node3D"]
+[node name="PlayerTraphouse" type="Node"]
 
 [node name="player_house1991s_fixed_scale" type="Node3D" parent="."]
 
@@ -2158,3 +2159,7 @@ modulate = Color(1, 1, 1, 0.396078)
 pixel_size = 0.005
 double_sided = false
 texture = ExtResource("5_dcr7j")
+
+[node name="Portal" parent="." instance=ExtResource("6_cp0h0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9, 0.9, -3.7)
+destination = "res://maps/grocery_store.tscn"
