@@ -114,7 +114,7 @@ func _handle_raycast() -> void:
 		held_prop.position = hold_pos
 		if not held_prop_y_rotation:
 			held_prop.rotation.y = rotation.y
-		held_prop.rotation.x = camera.rotation.x
+			held_prop.rotation.x = camera.rotation.x
 		if Input.is_action_just_pressed("scroll_up"):
 			_scroll_to_rotate(-ITEM_SCROLL_ROTATE_SPEED)
 		if Input.is_action_just_pressed("scroll_down"):
