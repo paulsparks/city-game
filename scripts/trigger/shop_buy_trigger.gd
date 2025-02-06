@@ -8,11 +8,12 @@ class_name ShopBuyTrigger
 
 
 func perform_task():
-	if (len(item_dropoff.groceries) == 0) or (not player.wallet):
+	if (len(item_dropoff.items) == 0) or (not player.wallet):
 		return false
 	
 	var combined_price: float = 0
-	for grocery in item_dropoff.groceries:
+	var groceries = item_dropoff.items.map(func (item: Item): return item.find_child("GroceryComponent"))
+	for grocery in groceries:
 		combined_price += grocery.cost
 	
 	if not player.wallet.can_afford(combined_price):
@@ -21,11 +22,12 @@ func perform_task():
 	var grocery_bag = load("res://custom/grocery_bag.tscn").instantiate()
 	
 	# These two for loops need to be separated
-	for grocery in item_dropoff.groceries:
-		grocery_bag.items.append(grocery)
+	for item: Item in item_dropoff.items:
+		item.remove_child(item.find_child("GroceryComponent"))
+		grocery_bag.items.append(item)
 	
-	for i in range(len(item_dropoff.groceries)):
-		item_dropoff.groceries.front().get_parent().remove_child(item_dropoff.groceries.front())
+	for i in range(len(item_dropoff.items)):
+		item_dropoff.items.front().get_parent().remove_child(item_dropoff.items.front())
 	
 	player.get_parent().add_child(grocery_bag)
 	grocery_bag.global_position = bag_location.global_position

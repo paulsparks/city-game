@@ -109,7 +109,9 @@ func _handle_raycast() -> void:
 			item when item is Bag: inventory.place_next_bag_item(place_pos, self)
 	
 	if held_prop != null:
-		held_prop.global_position = hold_pos
+		held_prop.position = hold_pos
+		held_prop.rotation.y = rotation.y
+		held_prop.rotation.x = camera.rotation.x
 		if Input.is_action_just_pressed("interact"):
 			held_prop.freeze = false
 			held_prop = null
