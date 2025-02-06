@@ -1,9 +1,11 @@
-extends Prop
-class_name Grocery
-## A grocery prop
+extends Node
+class_name GroceryComponent
+## Place this under an Item to make it purchasable.
+
 
 @export var cost: float = 3.99
-@export var item_name: String = "Grocery Item"
+
+@onready var item: Item = get_parent()
 
 
 ## Attempt to purchase the grocery item.

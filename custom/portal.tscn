@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://crm517otaufj5"]
+
+[ext_resource type="Script" path="res://scripts/util/portal.gd" id="1_6q4fv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_33fft"]
+size = Vector3(1, 2, 0.5)
+
+[node name="Portal" type="Area3D"]
+script = ExtResource("1_6q4fv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.25)
+shape = SubResource("BoxShape3D_33fft")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

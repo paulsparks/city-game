@@ -10,6 +10,7 @@ const BOB_AMP = 0.01
 const GRAVITY = 25.0
 const TERMINAL_VELOCITY = 35.0
 const REACH_DISTANCE = 3
+const ITEM_SCROLL_ROTATE_SPEED = 0.2
 
 var speed = WALK_SPEED
 var t_bob := 0.0
@@ -17,6 +18,7 @@ var current_gravity := 12.0
 var held_prop: Prop = null
 var held_prop_mesh: MeshInstance3D = null
 var can_stand: bool = true
+var held_prop_y_rotation = null
 
 @onready var camera: Camera3D = $Camera3D
 @onready var wallet: WalletComponent = $WalletComponent
@@ -109,7 +111,14 @@ func _handle_raycast() -> void:
 			item when item is Bag: inventory.place_next_bag_item(place_pos, self)
 	
 	if held_prop != null:
-		held_prop.global_position = hold_pos
+		held_prop.position = hold_pos
+		if not held_prop_y_rotation:
+			held_prop.rotation.y = rotation.y
+			held_prop.rotation.x = camera.rotation.x
+		if Input.is_action_just_pressed("scroll_up"):
+			_scroll_to_rotate(-ITEM_SCROLL_ROTATE_SPEED)
+		if Input.is_action_just_pressed("scroll_down"):
+			_scroll_to_rotate(ITEM_SCROLL_ROTATE_SPEED)
 		if Input.is_action_just_pressed("interact"):
 			held_prop.freeze = false
 			held_prop = null
@@ -123,9 +132,17 @@ func _handle_raycast() -> void:
 				collider when collider is Bag: inventory.add_to_inventory(collider)
 
 
+func _scroll_to_rotate(modifier: float):
+	if held_prop_y_rotation == null:
+		held_prop_y_rotation = rotation.y
+	else:
+		held_prop_y_rotation = held_prop_y_rotation + modifier
+		held_prop.rotation.y = held_prop_y_rotation
+
 func _handle_prop_pickup(prop: Prop) -> void:
 		held_prop = prop
 		held_prop.freeze = true
+		held_prop_y_rotation = null
 
 
 func _on_top_half_area_body_entered(body: Node3D) -> void:
