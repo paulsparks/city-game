@@ -11,8 +11,8 @@ collision_layer = 6
 script = ExtResource("1_lyo0w")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00378418, 0.390825, -0.0181885)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00378418, 0.0520502, -0.0181885)
 shape = SubResource("BoxShape3D_mvoim")
 
 [node name="fishies_bag" parent="." instance=ExtResource("2_n4jo3")]
-transform = Transform3D(0.22, 0, 0, 0, 0.22, 0, 0, 0, 0.22, 0, 0, 0.0593501)
+transform = Transform3D(0.22, 0, 0, 0, 0.22, 0, 0, 0, 0.22, 0, -0.338775, 0)
