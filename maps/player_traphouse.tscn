@@ -2162,4 +2162,4 @@ texture = ExtResource("5_dcr7j")
 
 [node name="Portal" parent="." instance=ExtResource("6_cp0h0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9, 0.9, -3.7)
-destination = "res://maps/grocery_store.tscn"
+destination = "res://maps/fishies_minimart.tscn"
