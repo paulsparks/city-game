@@ -2,9 +2,17 @@ extends Node
 class_name WalletComponent
 ## Controls the players wallet
 
-var _money: float = 20
+var _money: float
 
 @export var _money_label: Label
+
+
+func _ready():
+	_money = PlayerData.money
+
+
+func _save_wallet():
+	PlayerData.money = _money
 
 
 func _process(_delta):
@@ -19,6 +27,7 @@ func spend_money(amount: float) -> bool:
 		return false
 	
 	_money -= amount
+	_save_wallet()
 	return true
 
 

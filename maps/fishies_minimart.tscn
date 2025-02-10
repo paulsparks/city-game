@@ -1,4 +1,4 @@
-[gd_scene load_steps=213 format=4 uid="uid://d3ha0183w1cfa"]
+[gd_scene load_steps=214 format=4 uid="uid://d3ha0183w1cfa"]
 
 [ext_resource type="PackedScene" uid="uid://6j5mmrh2k7hp" path="res://store_clerk.tscn" id="1_akqtp"]
 [ext_resource type="PackedScene" uid="uid://crqba7aw5sw3h" path="res://custom/player.tscn" id="2_vwb8t"]
@@ -7,12 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://vxprete12rj0" path="res://assets/items/sign/bus_sign.glb" id="5_de0w2"]
 [ext_resource type="Script" path="res://scripts/trigger/shop_buy_trigger.gd" id="5_uojly"]
 [ext_resource type="PackedScene" uid="uid://cddrf2wntcvhe" path="res://custom/items/screwdriver.tscn" id="6_7oig2"]
-[ext_resource type="PackedScene" path="res://custom/items/bus.tscn" id="6_elmhp"]
+[ext_resource type="PackedScene" uid="uid://cw5j04u40nqg3" path="res://custom/bus.tscn" id="6_elmhp"]
 [ext_resource type="Script" path="res://scripts/items/grocery_component.gd" id="7_0fh0f"]
 [ext_resource type="Texture2D" uid="uid://qp2x8xdjt31a" path="res://maps/addons/fishies_minimart_textured_1_texture (61)_new.jpg" id="7_aeqij"]
 [ext_resource type="Texture2D" uid="uid://cnbpk5pelw175" path="res://maps/addons/fishies_minimart_textured_1_texture_07.png" id="8_lgjum"]
 [ext_resource type="Texture2D" uid="uid://btllwprq2383i" path="res://maps/addons/fishies_minimart_textured_1_texture (13).jpg" id="9_ky0gt"]
 [ext_resource type="Texture2D" uid="uid://ctuqptv04pgip" path="res://maps/addons/fishies_minimart_textured_1_texture (9).jpg" id="10_in0gy"]
+[ext_resource type="PackedScene" uid="uid://crm517otaufj5" path="res://custom/portal.tscn" id="10_pio2o"]
 [ext_resource type="Texture2D" uid="uid://dbcbe0gggmlmf" path="res://maps/addons/fishies_minimart_textured_1_texture (2).jpg" id="11_6peye"]
 [ext_resource type="Texture2D" uid="uid://c0fbme7mt7fpr" path="res://maps/addons/fishies_minimart_textured_1_texture (8).jpg" id="12_aperj"]
 [ext_resource type="Texture2D" uid="uid://dyb21v8tuy43x" path="res://maps/addons/fishies_minimart_textured_1_texture (84).jpg" id="13_m6rcx"]
@@ -2306,7 +2307,7 @@ shadow_mesh = SubResource("ArrayMesh_4bqfu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.58747, 0.380523, 1.66219)
 
 [node name="Player" parent="." instance=ExtResource("2_vwb8t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.92512, 2.29308, 4.73067)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.2888, 1.21782, 6.96473)
 
 [node name="collision" type="Node3D" parent="."]
 
@@ -2792,13 +2793,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.111889, -0.339301, 1.60481)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0.2, 0)
 
 [node name="Screwdriver" parent="." instance=ExtResource("6_7oig2")]
-transform = Transform3D(0.381119, 0, 0.924526, 0, 1, 0, -0.924526, 0, 0.381119, -5.76087, 1.4389, -4.00873)
+transform = Transform3D(0.147837, 0.139329, 0.979149, -0.0618566, 0.989392, -0.131447, -0.987076, -0.0411341, 0.154887, -5.60555, 1.4389, -3.98082)
 
 [node name="GroceryComponent" type="Node" parent="Screwdriver"]
 script = ExtResource("7_0fh0f")
 
 [node name="BUS" parent="." instance=ExtResource("6_elmhp")]
 transform = Transform3D(-0.0343064, 0, 0.999411, 0, 1, 0, -0.999411, 0, -0.0343064, 14.7146, -0.540756, 2.72914)
+
+[node name="Portal" parent="." instance=ExtResource("10_pio2o")]
+transform = Transform3D(-0.0343064, 0, 0.999411, 0, 1, 0, -0.999411, 0, -0.0343064, 13.4548, 1.03622, 7.14205)
+destination = "res://maps/player_traphouse.tscn"
 
 [node name="fishies_minimart_textured_1" type="Node3D" parent="."]
 
