@@ -15,6 +15,10 @@ run/main_scene="res://maps/player_traphouse.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PlayerData="*res://scripts/autoload/player_data.gd"
+
 [input]
 
 left={

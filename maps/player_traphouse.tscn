@@ -1978,7 +1978,7 @@ transform = Transform3D(0, 1, -1.62921e-07, 1, 0, 1.62921e-07, 1.62921e-07, -1.6
 shape = SubResource("ConcavePolygonShape3D_57b6j")
 
 [node name="Player" parent="." instance=ExtResource("2_744yp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87784, 1.75063, 0)
+transform = Transform3D(-1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 4.82393, 1.26937, -2.45889)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_w3qdf")

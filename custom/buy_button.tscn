@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7ddpc51nrg3w"]
+
+[ext_resource type="Script" path="res://scripts/trigger/shop_buy_trigger.gd" id="1_d7du0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mkf1l"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6ndjf"]
+material = SubResource("StandardMaterial3D_mkf1l")
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_13gos"]
+points = PackedVector3Array(0.05, 0.05, 0.05, 0.05, 0.05, -0.05, -0.05, 0.05, 0.05, 0.05, -0.05, 0.05, 0.05, -0.05, -0.05, -0.05, 0.05, -0.05, -0.05, -0.05, 0.05, -0.05, -0.05, -0.05)
+
+[node name="BuyButton" type="StaticBody3D" node_paths=PackedStringArray("player", "item_dropoff", "bag_location")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 2.9, 0.859361, -0.9)
+collision_layer = 3
+script = ExtResource("1_d7du0")
+player = NodePath("")
+item_dropoff = NodePath("")
+bag_location = NodePath("BagLocation")
+
+[node name="BuyButton" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_6ndjf")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_13gos")
+
+[node name="BagLocation" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.3, 3)

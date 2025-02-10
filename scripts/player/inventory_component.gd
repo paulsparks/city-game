@@ -4,10 +4,20 @@ class_name InventoryComponent
 
 const MAX_BAGS: int = 1
 
-var bags: Array = []
+var _bags: Array = []
 var equipped: Variant = null
 
 @export var bag_label: Label
+
+
+func _ready():
+	_bags = PlayerData.bags
+	if len(_bags) > 0:
+		equip(_bags[0])
+
+
+func get_bags() -> Array:
+	return _bags
 
 
 func _process(_delta):
@@ -17,13 +27,13 @@ func _process(_delta):
 ## Delete bag prop and add it to the inventory.
 ## Returns true or false depending on if this was successful (enough room in bag).
 func add_to_inventory(bag: Bag) -> bool:
-	if len(bags) == MAX_BAGS:
+	if len(_bags) == MAX_BAGS:
 		return false
 	
-	bags.append(bag)
+	_bags.append(bag)
 	bag.get_parent().remove_child(bag)
 	
-	equip(bags[0])
+	equip(_bags[0])
 	return true
 
 
@@ -42,7 +52,7 @@ func place_bag(pos: Vector3, source: Node3D):
 
 
 func remove_equipped_bag_from_inventory():
-	bags.remove_at(bags.find(equipped))
+	_bags.remove_at(_bags.find(equipped))
 
 
 func place_next_bag_item(pos: Vector3, source: Node3D):
