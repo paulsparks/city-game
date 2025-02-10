@@ -1,11 +1,14 @@
-[gd_scene load_steps=208 format=4 uid="uid://d3ha0183w1cfa"]
+[gd_scene load_steps=213 format=4 uid="uid://d3ha0183w1cfa"]
 
 [ext_resource type="PackedScene" uid="uid://6j5mmrh2k7hp" path="res://store_clerk.tscn" id="1_akqtp"]
 [ext_resource type="PackedScene" uid="uid://crqba7aw5sw3h" path="res://custom/player.tscn" id="2_vwb8t"]
 [ext_resource type="Texture2D" uid="uid://ff3vdmd3tord" path="res://fishies_minimart_texture_07.png" id="3_esttp"]
+[ext_resource type="Script" path="res://scripts/shop/item_dropoff.gd" id="5_7wrod"]
 [ext_resource type="PackedScene" uid="uid://vxprete12rj0" path="res://assets/items/sign/bus_sign.glb" id="5_de0w2"]
+[ext_resource type="Script" path="res://scripts/trigger/shop_buy_trigger.gd" id="5_uojly"]
 [ext_resource type="PackedScene" uid="uid://cddrf2wntcvhe" path="res://custom/items/screwdriver.tscn" id="6_7oig2"]
-[ext_resource type="PackedScene" uid="uid://cw5j04u40nqg3" path="res://custom/items/bus.tscn" id="6_elmhp"]
+[ext_resource type="PackedScene" path="res://custom/items/bus.tscn" id="6_elmhp"]
+[ext_resource type="Script" path="res://scripts/items/grocery_component.gd" id="7_0fh0f"]
 [ext_resource type="Texture2D" uid="uid://qp2x8xdjt31a" path="res://maps/addons/fishies_minimart_textured_1_texture (61)_new.jpg" id="7_aeqij"]
 [ext_resource type="Texture2D" uid="uid://cnbpk5pelw175" path="res://maps/addons/fishies_minimart_textured_1_texture_07.png" id="8_lgjum"]
 [ext_resource type="Texture2D" uid="uid://btllwprq2383i" path="res://maps/addons/fishies_minimart_textured_1_texture (13).jpg" id="9_ky0gt"]
@@ -1099,6 +1102,12 @@ fog_light_energy = 0.25
 fog_density = 0.0397
 fog_height = -90.35
 fog_height_density = 5.6471
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nyq5l"]
+size = Vector3(0.511467, 0.781616, 0.396973)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_60q18"]
+size = Vector3(0.87964, 0.41514, 3.10364)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_he55l"]
 resource_name = "Material.031"
@@ -2731,8 +2740,62 @@ omni_attenuation = 13.355
 [node name="bus_sign" parent="." instance=ExtResource("5_de0w2")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 9.61941, -0.156375, 12.0688)
 
+[node name="BuyButton" type="StaticBody3D" parent="." node_paths=PackedStringArray("player", "item_dropoff", "bag_location")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.69351, 2.58931, 0.232932)
+collision_layer = 3
+script = ExtResource("5_uojly")
+player = NodePath("../Player")
+item_dropoff = NodePath("../ItemDropoff")
+bag_location = NodePath("BagLocation")
+
+[node name="BagLocation" type="Node3D" parent="BuyButton"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.975196, -0.809398, 0.615805)
+
+[node name="BuyTrigger" type="CollisionShape3D" parent="BuyButton"]
+transform = Transform3D(1, 7.45058e-09, 0, 7.45058e-09, 1, 5.12227e-09, 0, 2.79397e-09, 1, 0.0009408, -0.456676, 1.21387)
+shape = SubResource("BoxShape3D_nyq5l")
+
+[node name="ItemDropoff" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.36241, 1.72995, 0.927871)
+script = ExtResource("5_7wrod")
+
+[node name="DropoffZone" type="Area3D" parent="ItemDropoff"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.472076, 0)
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ItemDropoff/DropoffZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.126586, -0.272899, 0.551819)
+shape = SubResource("BoxShape3D_60q18")
+
+[node name="ItemLocations" type="Node3D" parent="ItemDropoff"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+
+[node name="Item1" type="Node3D" parent="ItemDropoff/ItemLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.266054, -0.339301, -0.395193)
+
+[node name="Item2" type="Node3D" parent="ItemDropoff/ItemLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.266054, -0.339301, 0.604807)
+
+[node name="Item3" type="Node3D" parent="ItemDropoff/ItemLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.266054, -0.339301, 1.60481)
+
+[node name="Item4" type="Node3D" parent="ItemDropoff/ItemLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.111889, -0.339301, -0.395193)
+
+[node name="Item5" type="Node3D" parent="ItemDropoff/ItemLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.111889, -0.339301, 0.604807)
+
+[node name="Item6" type="Node3D" parent="ItemDropoff/ItemLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.111889, -0.339301, 1.60481)
+
+[node name="ExpelLocation" type="Node3D" parent="ItemDropoff"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0.2, 0)
+
 [node name="Screwdriver" parent="." instance=ExtResource("6_7oig2")]
 transform = Transform3D(0.381119, 0, 0.924526, 0, 1, 0, -0.924526, 0, 0.381119, -5.76087, 1.4389, -4.00873)
+
+[node name="GroceryComponent" type="Node" parent="Screwdriver"]
+script = ExtResource("7_0fh0f")
 
 [node name="BUS" parent="." instance=ExtResource("6_elmhp")]
 transform = Transform3D(-0.0343064, 0, 0.999411, 0, 1, 0, -0.999411, 0, -0.0343064, 14.7146, -0.540756, 2.72914)
@@ -2874,3 +2937,6 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00416684, 0)
 mesh = SubResource("ArrayMesh_4or83")
 skeleton = NodePath("")
+
+[connection signal="body_shape_entered" from="ItemDropoff/DropoffZone" to="ItemDropoff" method="_on_area_3d_body_shape_entered"]
+[connection signal="body_shape_exited" from="ItemDropoff/DropoffZone" to="ItemDropoff" method="_on_area_3d_body_shape_exited"]
