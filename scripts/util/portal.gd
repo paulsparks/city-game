@@ -10,5 +10,7 @@ func _on_body_entered(body: Node3D) -> void:
 		
 		for node in body.get_children():
 			match node:
-				node when node is WalletComponent:
+				var wallet when wallet is WalletComponent:
 					PlayerData.money = node.get_money()
+				var inventory when inventory is InventoryComponent:
+					PlayerData.bags = node.get_bags().duplicate(true)

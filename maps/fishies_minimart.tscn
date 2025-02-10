@@ -1,4 +1,4 @@
-[gd_scene load_steps=214 format=4 uid="uid://d3ha0183w1cfa"]
+[gd_scene load_steps=218 format=4 uid="uid://d3ha0183w1cfa"]
 
 [ext_resource type="PackedScene" uid="uid://6j5mmrh2k7hp" path="res://store_clerk.tscn" id="1_akqtp"]
 [ext_resource type="PackedScene" uid="uid://crqba7aw5sw3h" path="res://custom/player.tscn" id="2_vwb8t"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://qp2x8xdjt31a" path="res://maps/addons/fishies_minimart_textured_1_texture (61)_new.jpg" id="7_aeqij"]
 [ext_resource type="Texture2D" uid="uid://cnbpk5pelw175" path="res://maps/addons/fishies_minimart_textured_1_texture_07.png" id="8_lgjum"]
 [ext_resource type="Texture2D" uid="uid://btllwprq2383i" path="res://maps/addons/fishies_minimart_textured_1_texture (13).jpg" id="9_ky0gt"]
+[ext_resource type="Script" path="res://scripts/items/item.gd" id="9_woshc"]
 [ext_resource type="Texture2D" uid="uid://ctuqptv04pgip" path="res://maps/addons/fishies_minimart_textured_1_texture (9).jpg" id="10_in0gy"]
 [ext_resource type="PackedScene" uid="uid://crm517otaufj5" path="res://custom/portal.tscn" id="10_pio2o"]
 [ext_resource type="Texture2D" uid="uid://dbcbe0gggmlmf" path="res://maps/addons/fishies_minimart_textured_1_texture (2).jpg" id="11_6peye"]
@@ -1109,6 +1110,17 @@ size = Vector3(0.511467, 0.781616, 0.396973)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_60q18"]
 size = Vector3(0.87964, 0.41514, 3.10364)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1mn2u"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_7a1w4"]
+material = SubResource("StandardMaterial3D_1mn2u")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_s4cu3"]
+radius = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_he55l"]
 resource_name = "Material.031"
@@ -2797,6 +2809,21 @@ transform = Transform3D(0.147837, 0.139329, 0.979149, -0.0618566, 0.989392, -0.1
 
 [node name="GroceryComponent" type="Node" parent="Screwdriver"]
 script = ExtResource("7_0fh0f")
+
+[node name="Apple" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.38285, 1.4389, -6.02193)
+collision_layer = 6
+script = ExtResource("9_woshc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Apple"]
+mesh = SubResource("SphereMesh_7a1w4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Apple"]
+shape = SubResource("SphereShape3D_s4cu3")
+
+[node name="GroceryComponent" type="Node" parent="Apple"]
+script = ExtResource("7_0fh0f")
+cost = 1.99
 
 [node name="BUS" parent="." instance=ExtResource("6_elmhp")]
 transform = Transform3D(-0.0343064, 0, 0.999411, 0, 1, 0, -0.999411, 0, -0.0343064, 14.7146, -0.540756, 2.72914)

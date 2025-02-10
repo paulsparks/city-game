@@ -11,10 +11,6 @@ func _ready():
 	_money = PlayerData.money
 
 
-func _save_wallet():
-	PlayerData.money = _money
-
-
 func _process(_delta):
 	if _money_label:
 		_money_label.text = "Money: " + str(_money)
@@ -27,7 +23,6 @@ func spend_money(amount: float) -> bool:
 		return false
 	
 	_money -= amount
-	_save_wallet()
 	return true
 
 

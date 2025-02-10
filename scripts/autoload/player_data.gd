@@ -4,3 +4,4 @@ extends Node
 
 
 var money: float = 20.0
+var bags: Array = []
