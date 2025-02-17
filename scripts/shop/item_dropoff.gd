@@ -1,5 +1,5 @@
-extends Node3D
 class_name ItemDropoff
+extends Node3D
 
 
 var item_locations: PackedVector3Array
@@ -15,18 +15,22 @@ func _ready() -> void:
 		item_locations.append(item_location.global_position)
 
 
-func _on_area_3d_body_shape_entered(_body_rid: RID, body: Node3D, _body_shape_index: int, _local_shape_index: int) -> void:
+func _on_area_3d_body_shape_entered(
+	_body_rid: RID, body: Node3D, _body_shape_index: int, _local_shape_index: int
+) -> void:
 	if body.find_child("GroceryComponent"):
-		
+
 		if len(items) == len(item_locations):
 			body.global_position = expel_location
 			return
-		
+
 		items.append(body)
 		_update_locations()
 
 
-func _on_area_3d_body_shape_exited(_body_rid: RID, body: Node3D, _body_shape_index: int, _local_shape_index: int) -> void:
+func _on_area_3d_body_shape_exited(
+	_body_rid: RID, body: Node3D, _body_shape_index: int, _local_shape_index: int
+) -> void:
 	if items.find(body) != -1:
 		items.remove_at(items.find(body))
 
@@ -36,4 +40,6 @@ func _on_area_3d_body_shape_exited(_body_rid: RID, body: Node3D, _body_shape_ind
 func _update_locations() -> void:
 	for i in len(items):
 		# HACK: using a magic number 0.1 for now
-		items[i].global_position = Vector3(item_locations[i].x, item_locations[i].y + 0.2, item_locations[i].z)
+		items[i].global_position = Vector3(
+			item_locations[i].x, item_locations[i].y + 0.2, item_locations[i].z
+		)

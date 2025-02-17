@@ -1,5 +1,5 @@
-extends Node
 class_name GroceryComponent
+extends Node
 ## Place this under an Item to make it purchasable.
 
 

@@ -1,10 +1,10 @@
-extends Node
 class_name WalletComponent
+extends Node
 ## Controls the players wallet
 
-var _money: float
-
 @export var _money_label: Label
+
+var _money: float
 
 
 func _ready():
@@ -21,7 +21,7 @@ func _process(_delta):
 func spend_money(amount: float) -> bool:
 	if not can_afford(amount):
 		return false
-	
+
 	_money -= amount
 	return true
 
@@ -31,7 +31,8 @@ func get_money() -> float:
 	return _money
 
 
-## Returns a boolean representing whether or not the wallet has enough money to afford the specified cost.
+## Returns a boolean representing whether or not
+## the wallet has enough money to afford the specified cost.
 func can_afford(cost: float) -> bool:
 	if cost > _money:
 		return false
