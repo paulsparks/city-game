@@ -1,12 +1,11 @@
 class_name ItemDropoff
 extends Node3D
 
-
 var item_locations: PackedVector3Array
 var items: Array
 
 @onready var item_locations_parent: Node3D = $ItemLocations
-@onready var expel_location: Vector3 = $ExpelLocation.global_position
+@onready var expel_location: Vector3 = ($ExpelLocation as Node3D).global_position
 
 
 # Called when the node enters the scene tree for the first time.
@@ -19,7 +18,6 @@ func _on_area_3d_body_shape_entered(
 	_body_rid: RID, body: Node3D, _body_shape_index: int, _local_shape_index: int
 ) -> void:
 	if body.find_child("GroceryComponent"):
-
 		if len(items) == len(item_locations):
 			body.global_position = expel_location
 			return
@@ -38,8 +36,8 @@ func _on_area_3d_body_shape_exited(
 
 
 func _update_locations() -> void:
-	for i in len(items):
-		# HACK: using a magic number 0.1 for now
+	for i: int in len(items):
+		# HACK: using a magic number 0.2 for now
 		items[i].global_position = Vector3(
 			item_locations[i].x, item_locations[i].y + 0.2, item_locations[i].z
 		)

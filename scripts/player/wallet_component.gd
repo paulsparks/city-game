@@ -7,11 +7,11 @@ extends Node
 var _money: float
 
 
-func _ready():
+func _ready() -> void:
 	_money = PlayerData.money
 
 
-func _process(_delta):
+func _process(_delta: float) -> void:
 	if _money_label:
 		_money_label.text = "Money: " + str(_money)
 
