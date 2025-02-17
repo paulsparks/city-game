@@ -1,5 +1,5 @@
-extends CharacterBody3D
 class_name PlayerController
+extends CharacterBody3D
 
 const WALK_SPEED = 4.5
 const CROUCH_SPEED = 2.5
@@ -63,7 +63,9 @@ func _physics_process(delta: float) -> void:
 
 	# Head bob
 	t_bob += delta * velocity.length() * float(is_on_floor())
-	camera.transform.origin = _headbob(t_bob) + (Vector3(0,1,0) if (can_stand and not Input.is_action_pressed("crouch")) else Vector3(0, 0.2, 0))
+	camera.transform.origin = _headbob(t_bob) + (Vector3(0,1,0)
+		if (can_stand and not Input.is_action_pressed("crouch"))
+		else Vector3(0, 0.2, 0))
 
 	move_and_slide()
 
@@ -88,7 +90,7 @@ func _process(_delta):
 		top_half_2.disabled = false
 		speed = WALK_SPEED
 	_handle_raycast()
-	
+
 
 func _handle_raycast() -> void:
 	var space_state = get_world_3d().direct_space_state
@@ -100,7 +102,7 @@ func _handle_raycast() -> void:
 	var query = PhysicsRayQueryParameters3D.create(origin, end, 2)
 	var result: Dictionary = space_state.intersect_ray(query)
 	var collider = result.get("collider")
-	
+
 	if Input.is_action_just_pressed("use"):
 		var item = inventory.equipped
 		match item:
@@ -109,7 +111,7 @@ func _handle_raycast() -> void:
 		var item = inventory.equipped
 		match item:
 			item when item is Bag: inventory.place_next_bag_item(place_pos, self)
-	
+
 	if held_prop != null:
 		held_prop.position = hold_pos
 		if not held_prop_y_rotation:
