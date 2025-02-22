@@ -49,7 +49,7 @@ func place_bag(pos: Vector3, source: Node3D) -> void:
 	remove_equipped_bag_from_inventory()
 	source.get_parent().add_child(bag)
 	bag.global_position = pos
-	bag = null
+	equipped = null
 
 
 func remove_equipped_bag_from_inventory() -> void:
@@ -69,4 +69,4 @@ func place_next_bag_item(pos: Vector3, source: Node3D) -> void:
 	if equipped_bag is GroceryBag and len(equipped_bag.items) == 0:
 		remove_equipped_bag_from_inventory()
 		equipped_bag.queue_free()
-		equipped_bag = null
+		equipped = null
