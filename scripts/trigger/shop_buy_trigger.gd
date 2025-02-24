@@ -20,7 +20,7 @@ func perform_task() -> bool:
 	if not player.wallet.can_afford(combined_price):
 		return false
 
-	var grocery_bag_scene: PackedScene = load("res://custom/grocery_bag.tscn")
+	var grocery_bag_scene: PackedScene = load("res://objects/bags/grocery_bag.tscn")
 	var grocery_bag: GroceryBag = grocery_bag_scene.instantiate()
 
 	# These two for loops need to be separated
