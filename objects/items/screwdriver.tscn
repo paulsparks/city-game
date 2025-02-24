@@ -48,12 +48,13 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ukrry")
 
 [node name="Screwdriver" instance=ExtResource("1_pi33y")]
+tooltip = "An oily screwdriver... smells like fish and cigarettes."
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.12365, -0.000101086, 0)
 shape = SubResource("BoxShape3D_3uipv")
 
 [node name="Cylinder" type="MeshInstance3D" parent="." index="1"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.17635, -0.000101086, 0)
+transform = Transform3D(-4.37114e-08, -1, 0, 0.426711, -1.86521e-08, -0.904388, 0.904388, -3.95321e-08, 0.426711, 0.17635, -0.000101086, 0)
 mesh = SubResource("ArrayMesh_f8qgk")
 skeleton = NodePath("")

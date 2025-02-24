@@ -1,4 +1,4 @@
-[gd_scene load_steps=219 format=4 uid="uid://d3ha0183w1cfa"]
+[gd_scene load_steps=219 format=4 uid="uid://k3ttmhbktf0u"]
 
 [ext_resource type="PackedScene" uid="uid://6j5mmrh2k7hp" path="res://objects/npc/store_clerk.tscn" id="1_sahi1"]
 [ext_resource type="PackedScene" uid="uid://crqba7aw5sw3h" path="res://objects/player.tscn" id="2_2qwuu"]
@@ -3001,31 +3001,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00416684, 0)
 mesh = SubResource("ArrayMesh_4or83")
 skeleton = NodePath("")
 
-[node name="promethazine" parent="." instance=ExtResource("11_ayf1h")]
+[node name="Promethazine" parent="." instance=ExtResource("11_ayf1h")]
 transform = Transform3D(0.999531, 0, 0, 0, 0.999531, 0, 0, 0, 0.999531, -5.85143, 1.43061, -4.51705)
 
-[node name="GroceryComponent" type="Node" parent="promethazine"]
+[node name="GroceryComponent" type="Node" parent="Promethazine"]
 script = ExtResource("8_qofej")
 cost = 1.0
 
-[node name="soda" parent="." instance=ExtResource("12_1l2y0")]
+[node name="Soda" parent="." instance=ExtResource("12_1l2y0")]
 transform = Transform3D(0.530215, 0, 0.847863, 0, 1, 0, -0.847863, 0, 0.530215, -5.89278, 1.60024, -5.05366)
 
-[node name="GroceryComponent" type="Node" parent="soda"]
+[node name="GroceryComponent" type="Node" parent="Soda"]
 script = ExtResource("8_qofej")
 cost = 1.0
 
-[node name="Foam_cut_bulk" parent="." instance=ExtResource("13_073bc")]
+[node name="FoamCups24pack" parent="." instance=ExtResource("13_073bc")]
 transform = Transform3D(-0.296858, 0, 0.954922, 0, 1, 0, -0.954922, 0, -0.296858, -5.90054, 1.65351, -5.62885)
 
-[node name="GroceryComponent" type="Node" parent="Foam_cut_bulk"]
+[node name="GroceryComponent" type="Node" parent="FoamCups24pack"]
 script = ExtResource("8_qofej")
 cost = 1.0
 
-[node name="candy" parent="." instance=ExtResource("14_rn052")]
+[node name="Candy" parent="." instance=ExtResource("14_rn052")]
 transform = Transform3D(0.408076, 0, 0.912948, 0, 1, 0, -0.912948, 0, 0.408076, -5.81635, 1.41888, -6.16239)
 
-[node name="GroceryComponent" type="Node" parent="candy"]
+[node name="GroceryComponent" type="Node" parent="Candy"]
 script = ExtResource("8_qofej")
 cost = 1.0
 

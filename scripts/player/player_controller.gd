@@ -25,6 +25,9 @@ var held_prop_y_rotation: Variant = null
 @onready var inventory: InventoryComponent = $InventoryComponent
 @onready var top_half_1: CollisionShape3D = $TopHalf1
 @onready var top_half_2: CollisionShape3D = $TopHalf2
+@onready var item_name_label: Label = $ItemName
+@onready var tooltip_label: Label = $Tooltip
+@onready var item_price_label: Label = $ItemPrice
 
 
 func _ready() -> void:
@@ -96,31 +99,48 @@ func _process(_delta: float) -> void:
 		top_half_1.disabled = false
 		top_half_2.disabled = false
 		speed = WALK_SPEED
-	_handle_raycast()
+
+	# Handle what the player is looking at
+	var hand_ray: Dictionary = _handle_raycast()
+
+	var collider: Variant = hand_ray.collider
+	var hold_pos: Vector3 = hand_ray.hold_pos
+	var place_pos: Vector3 = hand_ray.place_pos
+
+	_handle_clicks(place_pos)
+	_handle_pickup_and_grab(collider, hold_pos)
+	_handle_item_info_text(collider)
 
 
-func _handle_raycast() -> void:
-	var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
-	var mousepos: Vector2 = get_viewport().get_mouse_position()
-	var origin: Vector3 = camera.project_ray_origin(mousepos)
-	var end: Vector3 = origin + camera.project_ray_normal(mousepos) * REACH_DISTANCE
-	var hold_pos: Vector3 = origin + camera.project_ray_normal(mousepos) * REACH_DISTANCE / 2
-	var place_pos: Vector3 = origin + camera.project_ray_normal(mousepos) * REACH_DISTANCE / 3
-	var query: PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.create(origin, end, 2)
-	var result: Dictionary = space_state.intersect_ray(query)
-	var collider: Variant = result.get("collider")
+func _handle_item_info_text(collider: Variant) -> void:
+	if collider is Bag:
+		var bag: Bag = collider
+		item_name_label.text = bag.name.capitalize()
+		tooltip_label.text = ""
+		item_price_label.text = ""
+		return
 
-	if Input.is_action_just_pressed("use"):
-		var item: Variant = inventory.equipped
-		match item:
-			item when item is Bag:
-				inventory.place_bag(place_pos, self)
-	if Input.is_action_just_pressed("use_special"):
-		var item: Variant = inventory.equipped
-		match item:
-			item when item is Bag:
-				inventory.place_next_bag_item(place_pos, self)
+	if collider is not Item or held_prop != null:
+		item_name_label.text = ""
+		tooltip_label.text = ""
+		item_price_label.text = ""
+		return
 
+	var item: Item = collider
+
+	tooltip_label.text = item.tooltip
+	item_name_label.text = item.name.capitalize()
+
+	var grocery_component: GroceryComponent = HelperFunctions.find_child_with_func(
+		item, func(child: Node) -> bool: return child is GroceryComponent
+	)
+	if grocery_component == null:
+		item_price_label.text = "Owned"
+	else:
+		item_price_label.text = "$" + str(grocery_component.cost)
+
+
+func _handle_pickup_and_grab(collider: Variant, hold_pos: Vector3) -> void:
 	if held_prop != null:
 		held_prop.position = hold_pos
 		if not held_prop_y_rotation:
@@ -149,6 +169,19 @@ func _handle_raycast() -> void:
 					inventory.add_to_inventory(bag)
 
 
+func _handle_clicks(place_pos: Vector3) -> void:
+	if Input.is_action_just_pressed("use"):
+		var item: Variant = inventory.equipped
+		match item:
+			item when item is Bag:
+				inventory.place_bag(place_pos, self)
+	if Input.is_action_just_pressed("use_special"):
+		var item: Variant = inventory.equipped
+		match item:
+			item when item is Bag:
+				inventory.place_next_bag_item(place_pos, self)
+
+
 func _scroll_to_rotate(modifier: float) -> void:
 	if held_prop_y_rotation == null:
 		held_prop_y_rotation = rotation.y
@@ -171,3 +204,17 @@ func _on_top_half_area_body_entered(body: Node3D) -> void:
 func _on_top_half_area_body_exited(body: Node3D) -> void:
 	if not body is PlayerController:
 		can_stand = true
+
+
+func _handle_raycast() -> Dictionary:
+	var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
+	var mousepos: Vector2 = get_viewport().get_mouse_position()
+	var origin: Vector3 = camera.project_ray_origin(mousepos)
+	var end: Vector3 = origin + camera.project_ray_normal(mousepos) * REACH_DISTANCE
+	var hold_pos: Vector3 = origin + camera.project_ray_normal(mousepos) * REACH_DISTANCE / 2
+	var place_pos: Vector3 = origin + camera.project_ray_normal(mousepos) * REACH_DISTANCE / 3
+	var query: PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.create(origin, end, 2)
+	var result: Dictionary = space_state.intersect_ray(query)
+	var collider: Variant = result.get("collider")
+
+	return {"collider": collider, "hold_pos": hold_pos, "place_pos": place_pos}

@@ -1,16 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://dxle3qule8fls"]
 
-[ext_resource type="PackedScene" uid="uid://cue7hdncx561s" path="res://objects/bags/bag.tscn" id="1_1jwjb"]
+[ext_resource type="Script" path="res://scripts/items/grocery_bag.gd" id="1_g4jx4"]
 [ext_resource type="PackedScene" uid="uid://bd0c3w40rf2gv" path="res://assets/items/grocery_bag/fishies_bag.glb" id="2_n4jo3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0xqqi"]
 size = Vector3(0.707764, 0.737793, 0.304443)
 
-[node name="GroceryBag" instance=ExtResource("1_1jwjb")]
+[node name="GroceryBag" type="RigidBody3D"]
+collision_layer = 6
+script = ExtResource("1_g4jx4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00378418, 0.0520502, -0.0181885)
 shape = SubResource("BoxShape3D_0xqqi")
 
-[node name="CollisionShape3D2" parent="." index="1" instance=ExtResource("2_n4jo3")]
+[node name="CollisionShape3D2" parent="." instance=ExtResource("2_n4jo3")]
 transform = Transform3D(0.22, 0, 0, 0, 0.22, 0, 0, 0, 0.22, 0, -0.338775, 0)
