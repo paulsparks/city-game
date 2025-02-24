@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://crqba7aw5sw3h"]
+[gd_scene load_steps=12 format=3 uid="uid://crqba7aw5sw3h"]
 
 [ext_resource type="Script" path="res://scripts/player/player_controller.gd" id="1_u1fqc"]
 [ext_resource type="Script" path="res://scripts/player/wallet_component.gd" id="2_vl4rv"]
@@ -22,6 +22,17 @@ height = 1.4
 
 [sub_resource type="LabelSettings" id="LabelSettings_t2b47"]
 font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_lqic5"]
+font_color = Color(1, 1, 1, 0.705882)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6dlyx"]
+font_size = 12
+font_color = Color(1, 1, 1, 0.705882)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8bqtw"]
+font_size = 12
+font_color = Color(0.704643, 1, 0.687479, 0.705882)
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -49,20 +60,20 @@ shape = SubResource("CapsuleShape3D_rgylw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 fov = 81.9
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Crosshair" type="ColorRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -3.0
-offset_top = -3.0
-offset_right = 1.0
-offset_bottom = 1.0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(3.08037e-06, 0.974131, 0.913307, 1)
+color = Color(1, 1, 1, 0.705882)
 
 [node name="WalletComponent" type="Node" parent="." node_paths=PackedStringArray("_money_label")]
 script = ExtResource("2_vl4rv")
@@ -96,6 +107,56 @@ offset_top = 48.0
 offset_right = 103.0
 offset_bottom = 71.0
 horizontal_alignment = 1
+
+[node name="ItemName" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -12.0
+offset_right = 182.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "item name"
+label_settings = SubResource("LabelSettings_lqic5")
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="Tooltip" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = 17.0
+offset_right = 303.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "tooltip"
+label_settings = SubResource("LabelSettings_6dlyx")
+autowrap_mode = 2
+clip_text = true
+
+[node name="ItemPrice" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -33.0
+offset_right = 100.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "item price"
+label_settings = SubResource("LabelSettings_8bqtw")
+clip_text = true
 
 [connection signal="body_entered" from="TopHalfArea" to="." method="_on_top_half_area_body_entered"]
 [connection signal="body_exited" from="TopHalfArea" to="." method="_on_top_half_area_body_exited"]
