@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnkgjohernp7o"]
+
+[ext_resource type="Script" path="res://scripts/items/item.gd" id="1_d5q2q"]
+
+[node name="Item" type="RigidBody3D"]
+collision_layer = 6
+script = ExtResource("1_d5q2q")

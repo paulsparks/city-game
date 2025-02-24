@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cue7hdncx561s"]
+
+[ext_resource type="Script" path="res://scripts/items/bag.gd" id="1_b8xv6"]
+
+[node name="Bag" type="RigidBody3D"]
+collision_layer = 6
+script = ExtResource("1_b8xv6")
