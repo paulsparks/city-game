@@ -1,4 +1,4 @@
-[gd_scene load_steps=218 format=4 uid="uid://d3ha0183w1cfa"]
+[gd_scene load_steps=219 format=4 uid="uid://d3ha0183w1cfa"]
 
 [ext_resource type="PackedScene" uid="uid://6j5mmrh2k7hp" path="res://store_clerk.tscn" id="1_akqtp"]
 [ext_resource type="PackedScene" uid="uid://crqba7aw5sw3h" path="res://custom/player.tscn" id="2_vwb8t"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://qp2x8xdjt31a" path="res://maps/addons/fishies_minimart_textured_1_texture (61)_new.jpg" id="7_aeqij"]
 [ext_resource type="Texture2D" uid="uid://cnbpk5pelw175" path="res://maps/addons/fishies_minimart_textured_1_texture_07.png" id="8_lgjum"]
 [ext_resource type="Texture2D" uid="uid://btllwprq2383i" path="res://maps/addons/fishies_minimart_textured_1_texture (13).jpg" id="9_ky0gt"]
-[ext_resource type="Script" path="res://scripts/items/item.gd" id="9_woshc"]
 [ext_resource type="Texture2D" uid="uid://ctuqptv04pgip" path="res://maps/addons/fishies_minimart_textured_1_texture (9).jpg" id="10_in0gy"]
 [ext_resource type="PackedScene" uid="uid://crm517otaufj5" path="res://custom/portal.tscn" id="10_pio2o"]
 [ext_resource type="Texture2D" uid="uid://dbcbe0gggmlmf" path="res://maps/addons/fishies_minimart_textured_1_texture (2).jpg" id="11_6peye"]
@@ -28,6 +27,10 @@
 [ext_resource type="Texture2D" uid="uid://d2n6ingueio7q" path="res://maps/addons/fishies_minimart_textured_1_texture (11).jpg" id="21_22pki"]
 [ext_resource type="Texture2D" uid="uid://b1pvy0qylb3mx" path="res://maps/addons/fishies_minimart_textured_1_texture (14).jpg" id="22_0tyht"]
 [ext_resource type="Texture2D" uid="uid://cmmvef0rdlkjm" path="res://maps/addons/fishies_minimart_textured_1_texture (16).jpg" id="23_tybgj"]
+[ext_resource type="PackedScene" uid="uid://dj86i6vde6an3" path="res://custom/items/promethazine.tscn" id="29_8phm7"]
+[ext_resource type="PackedScene" uid="uid://dsd8bb0102j8a" path="res://custom/items/soda.tscn" id="30_d5qii"]
+[ext_resource type="PackedScene" uid="uid://cmvwhtotm6vbe" path="res://custom/items/foam_cut_bulk.tscn" id="31_w0o2k"]
+[ext_resource type="PackedScene" uid="uid://dcvice2yomytk" path="res://custom/items/candy.tscn" id="32_unyh0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n4lkc"]
 size = Vector3(23.0285, 1.08667, 95.0357)
@@ -1111,17 +1114,6 @@ size = Vector3(0.511467, 0.781616, 0.396973)
 [sub_resource type="BoxShape3D" id="BoxShape3D_60q18"]
 size = Vector3(0.87964, 0.41514, 3.10364)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1mn2u"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_7a1w4"]
-material = SubResource("StandardMaterial3D_1mn2u")
-radius = 0.1
-height = 0.2
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_s4cu3"]
-radius = 0.1
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_he55l"]
 resource_name = "Material.031"
 cull_mode = 2
@@ -1159,6 +1151,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_tr7oh")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m2cti"]
+size = Vector3(7.46735, 5.67712, 0.552185)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_30ms3"]
 resource_name = "Material.030"
@@ -2784,46 +2779,41 @@ shape = SubResource("BoxShape3D_60q18")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 
 [node name="Item1" type="Node3D" parent="ItemDropoff/ItemLocations"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.266054, -0.339301, -0.395193)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0923203, -0.157775, -0.587659)
 
 [node name="Item2" type="Node3D" parent="ItemDropoff/ItemLocations"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.266054, -0.339301, 0.604807)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.277815, -0.233216, -0.514138)
 
 [node name="Item3" type="Node3D" parent="ItemDropoff/ItemLocations"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.266054, -0.339301, 1.60481)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.156988, -0.329501, -0.429033)
 
 [node name="Item4" type="Node3D" parent="ItemDropoff/ItemLocations"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.111889, -0.339301, -0.395193)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.157925, -0.227463, -0.318378)
 
 [node name="Item5" type="Node3D" parent="ItemDropoff/ItemLocations"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.111889, -0.339301, 0.604807)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.096178, -0.191726, -0.177766)
 
 [node name="Item6" type="Node3D" parent="ItemDropoff/ItemLocations"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.111889, -0.339301, 1.60481)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.184473, -0.157775, 0.302248)
+
+[node name="Item7" type="Node3D" parent="ItemDropoff/ItemLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101258, -0.157775, 0.770271)
+
+[node name="Item8" type="Node3D" parent="ItemDropoff/ItemLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.236682, -0.157775, 1.14061)
+
+[node name="Item9" type="Node3D" parent="ItemDropoff/ItemLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.111192, -0.157775, 1.2462)
 
 [node name="ExpelLocation" type="Node3D" parent="ItemDropoff"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0.2, 0)
 
 [node name="Screwdriver" parent="." instance=ExtResource("6_7oig2")]
-transform = Transform3D(0.147837, 0.139329, 0.979149, -0.0618566, 0.989392, -0.131447, -0.987076, -0.0411341, 0.154887, -5.60555, 1.4389, -3.98082)
+transform = Transform3D(0.147837, 0.139329, 0.979149, -0.0618566, 0.989392, -0.131447, -0.987076, -0.0411341, 0.154887, -5.96835, 1.33576, -3.98082)
 
 [node name="GroceryComponent" type="Node" parent="Screwdriver"]
 script = ExtResource("7_0fh0f")
-
-[node name="Apple" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.38285, 1.4389, -6.02193)
-collision_layer = 6
-script = ExtResource("9_woshc")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Apple"]
-mesh = SubResource("SphereMesh_7a1w4")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Apple"]
-shape = SubResource("SphereShape3D_s4cu3")
-
-[node name="GroceryComponent" type="Node" parent="Apple"]
-script = ExtResource("7_0fh0f")
-cost = 1.99
+cost = 5.99
 
 [node name="BUS" parent="." instance=ExtResource("6_elmhp")]
 transform = Transform3D(-0.0343064, 0, 0.999411, 0, 1, 0, -0.999411, 0, -0.0343064, 14.7146, -0.540756, 2.72914)
@@ -2837,6 +2827,12 @@ destination = "res://maps/player_traphouse.tscn"
 [node name="Cube_001" type="MeshInstance3D" parent="fishies_minimart_textured_1"]
 mesh = SubResource("ArrayMesh_fqq6p")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="fishies_minimart_textured_1/Cube_001"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fishies_minimart_textured_1/Cube_001/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.29137, 2.33856, 1.52978)
+shape = SubResource("BoxShape3D_m2cti")
 
 [node name="Cube_003" type="MeshInstance3D" parent="fishies_minimart_textured_1"]
 mesh = SubResource("ArrayMesh_rdqlf")
@@ -2919,6 +2915,7 @@ mesh = SubResource("ArrayMesh_3wmea")
 skeleton = NodePath("")
 
 [node name="wall_010" type="MeshInstance3D" parent="fishies_minimart_textured_1"]
+visible = false
 mesh = SubResource("ArrayMesh_bageh")
 skeleton = NodePath("")
 
@@ -2969,6 +2966,34 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00416684, 0)
 mesh = SubResource("ArrayMesh_4or83")
 skeleton = NodePath("")
+
+[node name="promethazine" parent="." instance=ExtResource("29_8phm7")]
+transform = Transform3D(0.999531, 0, 0, 0, 0.999531, 0, 0, 0, 0.999531, -5.85143, 1.43061, -4.51705)
+
+[node name="GroceryComponent" type="Node" parent="promethazine"]
+script = ExtResource("7_0fh0f")
+cost = 1.0
+
+[node name="soda" parent="." instance=ExtResource("30_d5qii")]
+transform = Transform3D(0.530215, 0, 0.847863, 0, 1, 0, -0.847863, 0, 0.530215, -5.89278, 1.60024, -5.05366)
+
+[node name="GroceryComponent" type="Node" parent="soda"]
+script = ExtResource("7_0fh0f")
+cost = 1.0
+
+[node name="Foam_cut_bulk" parent="." instance=ExtResource("31_w0o2k")]
+transform = Transform3D(-0.296858, 0, 0.954922, 0, 1, 0, -0.954922, 0, -0.296858, -5.90054, 1.65351, -5.62885)
+
+[node name="GroceryComponent" type="Node" parent="Foam_cut_bulk"]
+script = ExtResource("7_0fh0f")
+cost = 1.0
+
+[node name="candy" parent="." instance=ExtResource("32_unyh0")]
+transform = Transform3D(0.408076, 0, 0.912948, 0, 1, 0, -0.912948, 0, 0.408076, -5.81635, 1.41888, -6.16239)
+
+[node name="GroceryComponent" type="Node" parent="candy"]
+script = ExtResource("7_0fh0f")
+cost = 1.0
 
 [connection signal="body_shape_entered" from="ItemDropoff/DropoffZone" to="ItemDropoff" method="_on_area_3d_body_shape_entered"]
 [connection signal="body_shape_exited" from="ItemDropoff/DropoffZone" to="ItemDropoff" method="_on_area_3d_body_shape_exited"]

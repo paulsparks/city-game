@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ct3n0is55qq5m"
-path.s3tc="res://.godot/imported/lap_ray.png-8defae7f48e79a9fd8e7d97d4568734a.s3tc.ctex"
+uid="uid://cpnv7gf54540o"
+path.s3tc="res://.godot/imported/Untitled_Artwork.png-b2a43872c29f5a2949157444da26fa72.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/lap_ray.png"
-dest_files=["res://.godot/imported/lap_ray.png-8defae7f48e79a9fd8e7d97d4568734a.s3tc.ctex"]
+source_file="res://textures/projector/Untitled_Artwork.png"
+dest_files=["res://.godot/imported/Untitled_Artwork.png-b2a43872c29f5a2949157444da26fa72.s3tc.ctex"]
 
 [params]
 

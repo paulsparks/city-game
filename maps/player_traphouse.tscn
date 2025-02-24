@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://crqba7aw5sw3h" path="res://custom/player.tscn" id="2_744yp"]
 [ext_resource type="Texture2D" uid="uid://b2qgc47bxs77b" path="res://textures/projector/window light.jpeg" id="3_jea60"]
-[ext_resource type="Texture2D" uid="uid://cpnv7gf54540o" path="res://textures/Untitled_Artwork.png" id="4_0c0db"]
-[ext_resource type="Texture2D" uid="uid://ct3n0is55qq5m" path="res://textures/lap_ray.png" id="5_dcr7j"]
+[ext_resource type="Texture2D" uid="uid://cpnv7gf54540o" path="res://textures/projector/Untitled_Artwork.png" id="4_0c0db"]
+[ext_resource type="Texture2D" uid="uid://ct3n0is55qq5m" path="res://textures/projector/lap_ray.png" id="5_dcr7j"]
 [ext_resource type="PackedScene" uid="uid://crm517otaufj5" path="res://custom/portal.tscn" id="6_cp0h0"]
 [ext_resource type="Texture2D" uid="uid://ckfnrvrt077v7" path="res://maps/player_house1991s_fixed_scale_texture_08.png" id="6_m0qip"]
 

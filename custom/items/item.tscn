@@ -2,12 +2,14 @@
 
 [ext_resource type="Script" path="res://scripts/items/item.gd" id="1_yiaau"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_70ooo"]
-size = Vector3(0.084668, 0.6, 0.166357)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ah7bm"]
+height = 0.64615
+radius = 0.115496
 
 [node name="Item" type="RigidBody3D"]
 collision_layer = 6
 script = ExtResource("1_yiaau")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_70ooo")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.323692, 0)
+shape = SubResource("CylinderShape3D_ah7bm")
