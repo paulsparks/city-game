@@ -48,6 +48,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_f5wkh")
 
 [node name="Promethazine" instance=ExtResource("1_7b7lx")]
+tooltip = "Allergy and sleep medicine."
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.71316e-05, 0.0371138, -0.000140429)

@@ -88,6 +88,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7fhyx")
 
 [node name="FoamCups24Pack" instance=ExtResource("1_mmkkw")]
+tooltip = "One less dish you have to wash."
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0098877, 0.00708514, 0.00756836)
