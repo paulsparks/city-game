@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/player/player_controller.gd" id="1_u1fqc"]
 [ext_resource type="Script" path="res://scripts/player/wallet_component.gd" id="2_vl4rv"]
-[ext_resource type="Script" path="res://scripts/player/inventory_component.gd" id="3_vudaf"]
+[ext_resource type="PackedScene" uid="uid://bkmkcgmbaxr7u" path="res://objects/ui/InventoryComponent.tscn" id="3_yaovw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3nt6g"]
 radius = 0.3
@@ -87,27 +87,6 @@ offset_bottom = 57.0
 text = "Money: 0"
 label_settings = SubResource("LabelSettings_t2b47")
 
-[node name="InventoryComponent" type="Node" parent="." node_paths=PackedStringArray("bag_label")]
-script = ExtResource("3_vudaf")
-bag_label = NodePath("../ReferenceRect/BagLabel")
-
-[node name="ReferenceRect" type="ReferenceRect" parent="."]
-offset_left = 173.0
-offset_top = 847.0
-offset_right = 293.0
-offset_bottom = 967.0
-border_color = Color(0.743082, 0.6164, 0.929512, 1)
-border_width = 4.0
-editor_only = false
-
-[node name="BagLabel" type="Label" parent="ReferenceRect"]
-layout_mode = 0
-offset_left = 21.0
-offset_top = 48.0
-offset_right = 103.0
-offset_bottom = 71.0
-horizontal_alignment = 1
-
 [node name="ItemName" type="Label" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
@@ -120,7 +99,6 @@ offset_right = 182.0
 offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "item name"
 label_settings = SubResource("LabelSettings_lqic5")
 clip_text = true
 text_overrun_behavior = 3
@@ -137,7 +115,6 @@ offset_right = 303.0
 offset_bottom = 58.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "tooltip"
 label_settings = SubResource("LabelSettings_6dlyx")
 autowrap_mode = 2
 clip_text = true
@@ -154,9 +131,10 @@ offset_right = 100.0
 offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "item price"
 label_settings = SubResource("LabelSettings_8bqtw")
 clip_text = true
+
+[node name="InventoryComponent" parent="." instance=ExtResource("3_yaovw")]
 
 [connection signal="body_entered" from="TopHalfArea" to="." method="_on_top_half_area_body_entered"]
 [connection signal="body_exited" from="TopHalfArea" to="." method="_on_top_half_area_body_exited"]

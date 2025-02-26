@@ -1,9 +1,9 @@
-class_name InventoryComponent
+# class_name InventoryComponent
 extends Node
 
 const MAX_BAGS: int = 1
 
-@export var bag_label: Label
+# @export var bag_label: Label
 var equipped: Variant = null
 
 var _bags: Array = []
@@ -19,8 +19,8 @@ func get_bags() -> Array:
 	return _bags
 
 
-func _process(_delta: float) -> void:
-	bag_label.text = str(equipped)
+# func _process(_delta: float) -> void:
+# bag_label.text = str(equipped)
 
 
 ## Delete bag prop and add it to the inventory.
