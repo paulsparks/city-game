@@ -15,4 +15,4 @@ func _on_body_entered(body: Node3D) -> void:
 					PlayerData.money = wallet.get_money()
 				node when node is InventoryComponent:
 					var inventory: InventoryComponent = node
-					PlayerData.bags = inventory.get_bags().duplicate(true)
+					PlayerData.inventory = inventory

@@ -1,8 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkmkcgmbaxr7u"]
+[gd_scene load_steps=3 format=3 uid="uid://bkmkcgmbaxr7u"]
 
 [ext_resource type="Script" path="res://scripts/ui/inventory_component.gd" id="1_f6li5"]
-[ext_resource type="Script" path="res://scripts/ui/ui_item.gd" id="2_0qlrm"]
-[ext_resource type="Script" path="res://scripts/ui/backpack_section.gd" id="2_cxmf3"]
 [ext_resource type="Script" path="res://scripts/ui/backpack_square.gd" id="3_17t18"]
 
 [node name="InventoryComponent" type="Node"]
@@ -38,7 +36,6 @@ offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 3
-script = ExtResource("2_cxmf3")
 
 [node name="ColorRect" type="ColorRect" parent="InventoryUI/TestBackpack/Grid1"]
 layout_mode = 2
@@ -46,25 +43,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(1, 1, 1, 0.705882)
 script = ExtResource("3_17t18")
-
-[node name="TestItem" type="ColorRect" parent="InventoryUI/TestBackpack/Grid1/ColorRect"]
-z_index = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -23.0
-offset_top = -23.0
-offset_right = 23.0
-offset_bottom = 23.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color(1, 0, 1, 0.705882)
-script = ExtResource("2_0qlrm")
 
 [node name="ColorRect2" type="ColorRect" parent="InventoryUI/TestBackpack/Grid1"]
 layout_mode = 2

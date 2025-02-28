@@ -169,17 +169,17 @@ func _handle_pickup_and_grab(collider: Variant, hold_pos: Vector3) -> void:
 		# 			inventory.add_to_inventory(bag)
 
 
-func _handle_clicks(place_pos: Vector3) -> void:
-	if Input.is_action_just_pressed("use"):
-		var item: Variant = inventory.equipped
-		match item:
-			item when item is Bag:
-				inventory.place_bag(place_pos, self)
-	if Input.is_action_just_pressed("use_special"):
-		var item: Variant = inventory.equipped
-		match item:
-			item when item is Bag:
-				inventory.place_next_bag_item(place_pos, self)
+# func _handle_clicks(place_pos: Vector3) -> void:
+# 	if Input.is_action_just_pressed("use"):
+# 		var item: Variant = inventory.equipped
+# 		match item:
+# 			item when item is Bag:
+# 				inventory.place_bag(place_pos, self)
+# 	if Input.is_action_just_pressed("use_special"):
+# 		var item: Variant = inventory.equipped
+# 		match item:
+# 			item when item is Bag:
+# 				inventory.place_next_bag_item(place_pos, self)
 
 
 func _scroll_to_rotate(modifier: float) -> void:

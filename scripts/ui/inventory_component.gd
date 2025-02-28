@@ -11,11 +11,13 @@ var inventory_opened: bool = false
 
 func _ready() -> void:
 	_set_inventory_opened(false)
+	for grid: Node in backpack_layout.get_children():
+		for square: BackpackSquare in grid.get_children():
+			square.item_state_changed.connect(_on_backpack_square_item_state_changed)
 
 
-func _gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		pass
+func _on_backpack_square_item_state_changed(item: UIItem) -> void:
+	print(item)
 
 
 func _input(event: InputEvent) -> void:
