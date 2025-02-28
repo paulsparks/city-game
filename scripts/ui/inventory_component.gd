@@ -4,7 +4,7 @@ extends Node
 var inventory_opened: bool = false
 
 @onready var inventory_menu: Control = $InventoryUI
-@onready var backpack_layout: Control = $InventoryUI/BackpackGrids
+@onready var backpack_layout: Control = $InventoryUI/TestBackpack
 @onready var player: PlayerController = get_parent()
 @onready var crosshair: ColorRect = player.find_child("Crosshair")
 
