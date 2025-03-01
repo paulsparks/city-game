@@ -25,7 +25,6 @@ func add_to_inventory(item: Item) -> void:
 			if len(square.get_children()) == 0:
 				var ui_item_scene: PackedScene = load("res://objects/ui/UIItem.tscn")
 				var ui_item: UIItem = ui_item_scene.instantiate()
-				print(item)
 				ui_item.set_item(item.duplicate() as Item)
 				square.add_child(ui_item)
 				item.queue_free()
