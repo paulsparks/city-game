@@ -105,11 +105,13 @@ func _process(_delta: float) -> void:
 
 	var collider: Variant = hand_ray.collider
 	var hold_pos: Vector3 = hand_ray.hold_pos
-	var place_pos: Vector3 = hand_ray.place_pos
+	# var place_pos: Vector3 = hand_ray.place_pos
 
-	_handle_clicks(place_pos)
+	# _handle_clicks(place_pos)
 	_handle_pickup_and_grab(collider, hold_pos)
-	_handle_item_info_text(collider)
+
+	if not inventory.inventory_opened:
+		_handle_item_info_text(collider)
 
 
 func _handle_item_info_text(collider: Variant) -> void:
@@ -164,22 +166,22 @@ func _handle_pickup_and_grab(collider: Variant, hold_pos: Vector3) -> void:
 					trigger.perform_task()
 		if Input.is_action_just_pressed("pocket"):
 			match collider:
-				collider when collider is Bag:
-					var bag: Bag = collider
-					inventory.add_to_inventory(bag)
+				collider when collider is Item:
+					var item: Item = collider
+					inventory.add_to_inventory(item)
 
 
-func _handle_clicks(place_pos: Vector3) -> void:
-	if Input.is_action_just_pressed("use"):
-		var item: Variant = inventory.equipped
-		match item:
-			item when item is Bag:
-				inventory.place_bag(place_pos, self)
-	if Input.is_action_just_pressed("use_special"):
-		var item: Variant = inventory.equipped
-		match item:
-			item when item is Bag:
-				inventory.place_next_bag_item(place_pos, self)
+# func _handle_clicks(place_pos: Vector3) -> void:
+# 	if Input.is_action_just_pressed("use"):
+# 		var item: Variant = inventory.equipped
+# 		match item:
+# 			item when item is Bag:
+# 				inventory.place_bag(place_pos, self)
+# 	if Input.is_action_just_pressed("use_special"):
+# 		var item: Variant = inventory.equipped
+# 		match item:
+# 			item when item is Bag:
+# 				inventory.place_next_bag_item(place_pos, self)
 
 
 func _scroll_to_rotate(modifier: float) -> void:

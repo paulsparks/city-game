@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cidjwxcavag2j"]
+
+[ext_resource type="Texture2D" uid="uid://nbxrqumytka3" path="res://assets/ui/items/screwdriver_temp.png" id="1_c2ojk"]
+[ext_resource type="Script" path="res://scripts/ui/ui_item.gd" id="2_k6q4g"]
+
+[node name="TextureRect" type="TextureRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -23.0
+offset_right = 23.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_c2ojk")
+expand_mode = 1
+script = ExtResource("2_k6q4g")
