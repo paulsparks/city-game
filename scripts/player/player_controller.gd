@@ -109,7 +109,9 @@ func _process(_delta: float) -> void:
 
 	# _handle_clicks(place_pos)
 	_handle_pickup_and_grab(collider, hold_pos)
-	_handle_item_info_text(collider)
+
+	if not inventory.inventory_opened:
+		_handle_item_info_text(collider)
 
 
 func _handle_item_info_text(collider: Variant) -> void:
@@ -162,11 +164,11 @@ func _handle_pickup_and_grab(collider: Variant, hold_pos: Vector3) -> void:
 				collider when collider is Trigger:
 					var trigger: Trigger = collider
 					trigger.perform_task()
-		# if Input.is_action_just_pressed("pocket"):
-		# 	match collider:
-		# 		collider when collider is Bag:
-		# 			var bag: Bag = collider
-		# 			inventory.add_to_inventory(bag)
+		if Input.is_action_just_pressed("pocket"):
+			match collider:
+				collider when collider is Item:
+					var item: Item = collider
+					inventory.add_to_inventory(item)
 
 
 # func _handle_clicks(place_pos: Vector3) -> void:

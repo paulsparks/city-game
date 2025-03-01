@@ -88,6 +88,7 @@ text = "Money: 0"
 label_settings = SubResource("LabelSettings_t2b47")
 
 [node name="ItemName" type="Label" parent="."]
+z_index = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -104,6 +105,7 @@ clip_text = true
 text_overrun_behavior = 3
 
 [node name="Tooltip" type="Label" parent="."]
+z_index = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -120,6 +122,7 @@ autowrap_mode = 2
 clip_text = true
 
 [node name="ItemPrice" type="Label" parent="."]
+z_index = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

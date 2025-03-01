@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=4 uid="uid://d21ugm1ryi0i7"]
+[gd_scene load_steps=127 format=4 uid="uid://d21ugm1ryi0i7"]
 
 [ext_resource type="PackedScene" uid="uid://crqba7aw5sw3h" path="res://objects/player.tscn" id="2_744yp"]
 [ext_resource type="Texture2D" uid="uid://b2qgc47bxs77b" path="res://assets/misc/projector/window light.jpeg" id="3_jea60"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ct3n0is55qq5m" path="res://assets/misc/projector/lap_ray.png" id="5_dcr7j"]
 [ext_resource type="PackedScene" uid="uid://crm517otaufj5" path="res://objects/portal.tscn" id="6_cp0h0"]
 [ext_resource type="Texture2D" uid="uid://ckfnrvrt077v7" path="res://assets/maps/house/player_house1991s_fixed_scale_texture_08.png" id="6_m0qip"]
+[ext_resource type="PackedScene" uid="uid://btbwyyeci50cw" path="res://objects/items/screwdriver.tscn" id="7_noik2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n5m23"]
 resource_name = "Material.002"
@@ -2163,3 +2164,9 @@ texture = ExtResource("5_dcr7j")
 [node name="Portal" parent="." instance=ExtResource("6_cp0h0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9, 0.9, -3.7)
 destination = "res://maps/fishys_minimart.tscn"
+
+[node name="Screwdriver" parent="." instance=ExtResource("7_noik2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.03915, 0.109467, -1.32099)
+
+[node name="Screwdriver2" parent="." instance=ExtResource("7_noik2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70021, 0.109467, -2.20541)

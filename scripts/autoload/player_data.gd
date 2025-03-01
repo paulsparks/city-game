@@ -3,4 +3,4 @@ extends Node
 ## the server or save file later.
 
 var money: float = 100.0
-var inventory: InventoryComponent = null
+var inventory_items: Array = []

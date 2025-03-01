@@ -16,18 +16,14 @@ func _ready() -> void:
 	var scale_factor: float = 1
 	if height > width:
 		scale_factor = float(height) / float(width)
-		print(scale_factor)
 		size.y = size.y * scale_factor
 		size = size * width
 	elif width > height:
 		scale_factor = float(width) / float(height)
-		print(scale_factor)
 		size.x = size.x * scale_factor
 		size = size * height
 	elif width == height:
 		size = size * height
-
-	print(size)
 
 	var squares: int = width * height
 	for _i: int in range(squares):
