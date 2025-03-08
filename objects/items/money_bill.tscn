@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://qpdw56prfouu"]
+
+[ext_resource type="PackedScene" uid="uid://dnkgjohernp7o" path="res://objects/items/item.tscn" id="1_2mv83"]
+[ext_resource type="PackedScene" uid="uid://c6dtia8cms42f" path="res://assets/items/money_bill/money_bill.glb" id="2_cvpdr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ary6a"]
+size = Vector3(0.252441, 0.0166245, 0.103882)
+
+[node name="money_bill" instance=ExtResource("1_2mv83")]
+
+[node name="money_bill" parent="." index="0" instance=ExtResource("2_cvpdr")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00195313, 0.00107193, -0.000183105)
+shape = SubResource("BoxShape3D_ary6a")
