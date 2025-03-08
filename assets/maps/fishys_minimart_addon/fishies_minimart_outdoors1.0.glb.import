@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bfixc7ykrfx24"
-path="res://.godot/imported/fishies_minimart_outdoors1.0.glb-7eb160335fb95ba7b00a9c437b3cea07.scn"
+path="res://.godot/imported/fishies_minimart_outdoors1.0.glb-b4f6fe1bdfe742236d5d8da2b2b86643.scn"
 
 [deps]
 
-source_file="res://assets/map_addon/fishies_minimart_outdoors1.0.glb"
-dest_files=["res://.godot/imported/fishies_minimart_outdoors1.0.glb-7eb160335fb95ba7b00a9c437b3cea07.scn"]
+source_file="res://assets/maps/fishys_minimart_addon/fishies_minimart_outdoors1.0.glb"
+dest_files=["res://.godot/imported/fishies_minimart_outdoors1.0.glb-b4f6fe1bdfe742236d5d8da2b2b86643.scn"]
 
 [params]
 

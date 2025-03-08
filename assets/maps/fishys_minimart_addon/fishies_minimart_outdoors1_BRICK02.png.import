@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iai0gyltsj8c"
-path.s3tc="res://.godot/imported/fishies_minimart_outdoors1_BUILD083.png-2262e8ee1594be29f75fb30b177f2905.s3tc.ctex"
+uid="uid://bawp6lrvni66g"
+path.s3tc="res://.godot/imported/fishies_minimart_outdoors1_BRICK02.png-4f346f91b1d1098c744964f39c850587.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "b1b751176aae146cf82e8825de17efd5"
+"md5": "e70344618edbe43f82d1fb0daafa89b1"
 }
 
 [deps]
 
-source_file="res://assets/map_addon/fishies_minimart_outdoors1_BUILD083.png"
-dest_files=["res://.godot/imported/fishies_minimart_outdoors1_BUILD083.png-2262e8ee1594be29f75fb30b177f2905.s3tc.ctex"]
+source_file="res://assets/maps/fishys_minimart_addon/fishies_minimart_outdoors1_BRICK02.png"
+dest_files=["res://.godot/imported/fishies_minimart_outdoors1_BRICK02.png-4f346f91b1d1098c744964f39c850587.s3tc.ctex"]
 
 [params]
 

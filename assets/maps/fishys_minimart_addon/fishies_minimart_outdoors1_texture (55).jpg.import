@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://26uikop5j0e7"
-path.s3tc="res://.godot/imported/fishies_minimart_outdoors1_texture (75).jpg-905c6949b5771fa4139a1fd7b1922a6c.s3tc.ctex"
+uid="uid://bdqjpfhdyemk8"
+path.s3tc="res://.godot/imported/fishies_minimart_outdoors1_texture (55).jpg-62a01a4bbfa3915c143998c1e97dde38.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "c21b7f85deec337dbba8d8325d9618ad"
+"md5": "406a5eab1fc00f108a301b5618ffbbd6"
 }
 
 [deps]
 
-source_file="res://assets/map_addon/fishies_minimart_outdoors1_texture (75).jpg"
-dest_files=["res://.godot/imported/fishies_minimart_outdoors1_texture (75).jpg-905c6949b5771fa4139a1fd7b1922a6c.s3tc.ctex"]
+source_file="res://assets/maps/fishys_minimart_addon/fishies_minimart_outdoors1_texture (55).jpg"
+dest_files=["res://.godot/imported/fishies_minimart_outdoors1_texture (55).jpg-62a01a4bbfa3915c143998c1e97dde38.s3tc.ctex"]
 
 [params]
 

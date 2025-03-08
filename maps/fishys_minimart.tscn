@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b7lcx2oy6blkx" path="res://objects/items/sprit.tscn" id="12_1l2y0"]
 [ext_resource type="PackedScene" uid="uid://y04vwlvhr0s0" path="res://objects/items/foam_cups_24_pack.tscn" id="13_073bc"]
 [ext_resource type="PackedScene" uid="uid://dhj3yh7ah628v" path="res://objects/items/jolly_ranglers.tscn" id="14_rn052"]
-[ext_resource type="PackedScene" uid="uid://bfixc7ykrfx24" path="res://assets/map_addon/fishies_minimart_outdoors1.0.glb" id="15_ndegd"]
+[ext_resource type="PackedScene" uid="uid://bfixc7ykrfx24" path="res://assets/maps/fishys_minimart_addon/fishies_minimart_outdoors1.0.glb" id="15_ndegd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n4lkc"]
 size = Vector3(23.0285, 1.08667, 95.0357)
@@ -1945,8 +1945,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.288
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.734281, -0.525513, -34.3145)
 shape = SubResource("BoxShape3D_n4lkc")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="collision"]
-
 [node name="StaticBody3D3" type="StaticBody3D" parent="collision"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="collision/StaticBody3D3"]
@@ -1986,10 +1984,6 @@ shape = SubResource("ConcavePolygonShape3D_7olis")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="collision/StaticBody3D11"]
 shape = SubResource("ConvexPolygonShape3D_lofar")
-
-[node name="StaticBody3D12" type="StaticBody3D" parent="collision"]
-
-[node name="StaticBody3D13" type="StaticBody3D" parent="collision"]
 
 [node name="shelf" type="StaticBody3D" parent="collision"]
 
@@ -2077,10 +2071,6 @@ shape = SubResource("ConvexPolygonShape3D_lcg4a")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="collision/StaticBody3D28"]
 shape = SubResource("ConvexPolygonShape3D_rkf3e")
-
-[node name="StaticBody3D29" type="StaticBody3D" parent="collision"]
-
-[node name="StaticBody3D30" type="StaticBody3D" parent="collision"]
 
 [node name="StaticBody3D33" type="StaticBody3D" parent="collision"]
 
