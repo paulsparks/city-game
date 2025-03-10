@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://ci720du0fxe1i"
+path.s3tc="res://.godot/imported/fishies_minimartretextured1_texture (11).jpg-4d8e89770bf9bfce69ee931ce435fa34.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "f52977fc3a919e0c29595a315059cf5c"
+}
+
+[deps]
+
+source_file="res://assets/maps/fishys_minimart_retextured1.2/fishies_minimartretextured1_texture (11).jpg"
+dest_files=["res://.godot/imported/fishies_minimartretextured1_texture (11).jpg-4d8e89770bf9bfce69ee931ce435fa34.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
