@@ -1,8 +1,8 @@
 class_name PlayerDataResource
 extends Resource
 
-var inventory_items: Array
-var money: float
+@export var inventory_items: Array
+@export var money: float
 
 
 func _init(p_inventory_items: Array = [], p_money: float = 0) -> void:
