@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://ct3n0is55qq5m" path="res://assets/misc/projector/lap_ray.png" id="5_dcr7j"]
 [ext_resource type="PackedScene" uid="uid://crm517otaufj5" path="res://objects/portal.tscn" id="6_cp0h0"]
 [ext_resource type="Texture2D" uid="uid://ckfnrvrt077v7" path="res://assets/maps/house/player_house1991s_fixed_scale_texture_08.png" id="6_m0qip"]
-[ext_resource type="PackedScene" uid="uid://btbwyyeci50cw" path="res://objects/items/screwdriver.tscn" id="7_noik2"]
 [ext_resource type="PackedScene" uid="uid://qpdw56prfouu" path="res://objects/items/money_bill.tscn" id="8_8kc7r"]
+[ext_resource type="PackedScene" uid="uid://btbwyyeci50cw" path="res://objects/items/tools/screwdriver.tscn" id="8_d4xt6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n5m23"]
 resource_name = "Material.002"
@@ -2167,11 +2167,11 @@ texture = ExtResource("5_dcr7j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9, 0.9, -3.7)
 destination = "res://maps/fishys_minimart.tscn"
 
-[node name="Screwdriver" parent="." instance=ExtResource("7_noik2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.03915, 0.109467, -1.32099)
-
-[node name="Screwdriver2" parent="." instance=ExtResource("7_noik2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70021, 0.109467, -2.20541)
-
 [node name="money_bill" parent="." instance=ExtResource("8_8kc7r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0766066, 0)
+
+[node name="Screwdriver" parent="." instance=ExtResource("8_d4xt6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07786, 0.153421, -0.577397)
+
+[node name="Screwdriver2" parent="." instance=ExtResource("8_d4xt6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.238342, 0.153421, -1.66716)

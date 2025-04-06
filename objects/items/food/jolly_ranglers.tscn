@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://dhj3yh7ah628v"]
+[gd_scene load_steps=8 format=4 uid="uid://dhj3yh7ah628v"]
 
 [ext_resource type="PackedScene" uid="uid://dnkgjohernp7o" path="res://objects/items/item.tscn" id="1_vmff3"]
+[ext_resource type="Script" path="res://scripts/items/food/jolly_ranglers.gd" id="2_57fhr"]
 [ext_resource type="Texture2D" uid="uid://dom77yagdwp7t" path="res://assets/items/candy/candy_f6abddfbaaa945d2d92e51bb3c5ac26d.jpg" id="2_vkhyy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a3nds"]
@@ -47,7 +48,7 @@ shadow_mesh = SubResource("ArrayMesh_kmqoq")
 size = Vector3(0.124664, 0.319977, 0.274658)
 
 [node name="JollyRanglers" instance=ExtResource("1_vmff3")]
-tooltip = "Your favorite candy."
+script = ExtResource("2_57fhr")
 
 [node name="Plane" type="MeshInstance3D" parent="." index="0"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00901794, -0.162465, 0.00535584)

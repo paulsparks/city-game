@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://btbwyyeci50cw"]
+[gd_scene load_steps=8 format=4 uid="uid://btbwyyeci50cw"]
 
 [ext_resource type="PackedScene" uid="uid://dnkgjohernp7o" path="res://objects/items/item.tscn" id="1_pi33y"]
 [ext_resource type="Texture2D" uid="uid://bt4ou3mkil2ua" path="res://assets/items/screwdriver/screwdriver_20250203_162006.png" id="2_4musr"]
+[ext_resource type="Script" path="res://scripts/items/tools/screwdriver.gd" id="2_a3xua"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3uipv"]
 size = Vector3(0.08, 0.6, 0.08)
@@ -48,7 +49,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ukrry")
 
 [node name="Screwdriver" instance=ExtResource("1_pi33y")]
-tooltip = "An oily screwdriver... smells like fish and cigarettes."
+script = ExtResource("2_a3xua")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.12365, -0.000101086, 0)

@@ -59,7 +59,7 @@ func _input(event: InputEvent) -> void:
 		var mouse_motion: InputEventMouseMotion = event
 
 		if _hover:
-			item_name_label.text = _item.name
+			item_name_label.text = _item.display_name
 			item_name_label.label_settings.font_color.a = 1.0
 			item_name_label.global_position = mouse_motion.global_position + Vector2(28, 0)
 
