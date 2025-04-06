@@ -3,6 +3,6 @@ extends Item
 
 
 func _init() -> void:
-	id = 3
+	id = "foam_cups_24_pack"
 	display_name = "Foam Cups 24 Pack"
 	tooltip = ""

@@ -21,9 +21,9 @@ func _ready() -> void:
 		set_inventory(PlayerData.inventory_items)
 
 
-## Set the inventory to an array of values of type <int item id> or <false>.
+## Set the inventory to an array of values of type <String item id> or <false>.
 ## Every inventory slot should be in the array in ascending order.
-## Elements of type <int item id> are put into the slot in that position,
+## Elements of type <String item id> are put into the slot in that position,
 ## and elements of type false will be an empty inventory square.
 func set_inventory(item_array: Array) -> void:
 	# Remove all items from inventory
@@ -37,13 +37,12 @@ func set_inventory(item_array: Array) -> void:
 		var backpack_squares: Array = grid.get_children()
 		for i: int in len(backpack_squares):
 			var backpack_square: BackpackSquare = backpack_squares[i]
-			if item_array[i] is int:
-				var item_id: int = item_array[i]
-				if item_id > 0:
-					var item: Item = CreateItem.create_item(item_id)
-					var ui_item: UIItem = _ui_item_scene.instantiate()
-					ui_item.set_item(item)
-					backpack_square.add_child(ui_item)
+			if item_array[i] is String and item_array[i] != "":
+				var item_id: String = item_array[i]
+				var item: Item = CreateItem.create_item(item_id)
+				var ui_item: UIItem = _ui_item_scene.instantiate()
+				ui_item.set_item(item)
+				backpack_square.add_child(ui_item)
 
 
 func add_to_inventory(item: Item) -> void:
