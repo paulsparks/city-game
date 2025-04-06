@@ -40,7 +40,7 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 3
 
-[node name="ReferenceRect" type="ReferenceRect" parent="InventoryUI/TestBackpack/Grid1"]
+[node name="slot0" type="ReferenceRect" parent="InventoryUI/TestBackpack/Grid1"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -49,7 +49,7 @@ border_width = 4.0
 editor_only = false
 script = ExtResource("3_17t18")
 
-[node name="ReferenceRect2" type="ReferenceRect" parent="InventoryUI/TestBackpack/Grid1"]
+[node name="slot1" type="ReferenceRect" parent="InventoryUI/TestBackpack/Grid1"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -58,7 +58,7 @@ border_width = 4.0
 editor_only = false
 script = ExtResource("3_17t18")
 
-[node name="ReferenceRect3" type="ReferenceRect" parent="InventoryUI/TestBackpack/Grid1"]
+[node name="slot2" type="ReferenceRect" parent="InventoryUI/TestBackpack/Grid1"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -67,7 +67,7 @@ border_width = 4.0
 editor_only = false
 script = ExtResource("3_17t18")
 
-[node name="ReferenceRect4" type="ReferenceRect" parent="InventoryUI/TestBackpack/Grid1"]
+[node name="slot3" type="ReferenceRect" parent="InventoryUI/TestBackpack/Grid1"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -76,7 +76,7 @@ border_width = 4.0
 editor_only = false
 script = ExtResource("3_17t18")
 
-[node name="ReferenceRect5" type="ReferenceRect" parent="InventoryUI/TestBackpack/Grid1"]
+[node name="slot4" type="ReferenceRect" parent="InventoryUI/TestBackpack/Grid1"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -85,7 +85,7 @@ border_width = 4.0
 editor_only = false
 script = ExtResource("3_17t18")
 
-[node name="ReferenceRect6" type="ReferenceRect" parent="InventoryUI/TestBackpack/Grid1"]
+[node name="slot5" type="ReferenceRect" parent="InventoryUI/TestBackpack/Grid1"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -94,7 +94,7 @@ border_width = 4.0
 editor_only = false
 script = ExtResource("3_17t18")
 
-[node name="ReferenceRect7" type="ReferenceRect" parent="InventoryUI/TestBackpack/Grid1"]
+[node name="slot6" type="ReferenceRect" parent="InventoryUI/TestBackpack/Grid1"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -103,7 +103,7 @@ border_width = 4.0
 editor_only = false
 script = ExtResource("3_17t18")
 
-[node name="ReferenceRect8" type="ReferenceRect" parent="InventoryUI/TestBackpack/Grid1"]
+[node name="slot7" type="ReferenceRect" parent="InventoryUI/TestBackpack/Grid1"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -112,7 +112,7 @@ border_width = 4.0
 editor_only = false
 script = ExtResource("3_17t18")
 
-[node name="ReferenceRect9" type="ReferenceRect" parent="InventoryUI/TestBackpack/Grid1"]
+[node name="slot8" type="ReferenceRect" parent="InventoryUI/TestBackpack/Grid1"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

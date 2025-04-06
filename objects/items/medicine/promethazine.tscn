@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://w8tf1m8hyih2"]
+[gd_scene load_steps=8 format=4 uid="uid://w8tf1m8hyih2"]
 
 [ext_resource type="PackedScene" uid="uid://dnkgjohernp7o" path="res://objects/items/item.tscn" id="1_7b7lx"]
 [ext_resource type="Texture2D" uid="uid://jhhqunnl3je6" path="res://assets/items/promethazine/promethazine_Promethazine_VC_Oral_v3-1024x1024.jpg" id="2_3piig"]
+[ext_resource type="Script" path="res://scripts/items/medicine/promethazine.gd" id="2_ul1gv"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_xl4ov"]
 height = 0.375614
@@ -48,7 +49,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_f5wkh")
 
 [node name="Promethazine" instance=ExtResource("1_7b7lx")]
-tooltip = "Allergy and sleep medicine."
+script = ExtResource("2_ul1gv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.71316e-05, 0.0371138, -0.000140429)

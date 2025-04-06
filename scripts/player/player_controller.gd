@@ -131,7 +131,7 @@ func _handle_item_info_text(collider: Variant) -> void:
 	var item: Item = collider
 
 	tooltip_label.text = item.tooltip
-	item_name_label.text = item.name.capitalize()
+	item_name_label.text = item.display_name
 
 	var grocery_component: GroceryComponent = HelperFunctions.find_child_with_func(
 		item, func(child: Node) -> bool: return child is GroceryComponent

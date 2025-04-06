@@ -10,7 +10,7 @@ var _bags: Array = []
 
 
 func _ready() -> void:
-	_bags = PlayerData.bags
+	# _bags = PlayerData.bags
 	if len(_bags) > 0:
 		equip(_bags[0])
 

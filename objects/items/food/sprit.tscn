@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://b7lcx2oy6blkx"]
+[gd_scene load_steps=8 format=4 uid="uid://b7lcx2oy6blkx"]
 
 [ext_resource type="PackedScene" uid="uid://dnkgjohernp7o" path="res://objects/items/item.tscn" id="1_yq5ud"]
+[ext_resource type="Script" path="res://scripts/items/food/sprit.gd" id="2_5raso"]
 [ext_resource type="Texture2D" uid="uid://cor5l4euc8cdw" path="res://assets/items/soda/sprite_41MD13Rg7JL.jpg" id="2_v2i60"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mc47o"]
@@ -48,7 +49,7 @@ height = 0.65
 radius = 0.119
 
 [node name="Sprit" instance=ExtResource("1_yq5ud")]
-tooltip = "Sprit Soda. 120g of sugar per serving."
+script = ExtResource("2_5raso")
 
 [node name="bottle" type="MeshInstance3D" parent="." index="0"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.320939, 0)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://y04vwlvhr0s0"]
+[gd_scene load_steps=11 format=4 uid="uid://y04vwlvhr0s0"]
 
 [ext_resource type="PackedScene" uid="uid://dnkgjohernp7o" path="res://objects/items/item.tscn" id="1_mmkkw"]
 [ext_resource type="Texture2D" uid="uid://b65vv8mnkhgle" path="res://assets/items/foam_cups_24_pack/foam_cup_stackl_texture (75).jpg" id="2_ddgt6"]
+[ext_resource type="Script" path="res://scripts/items/kitchen/foam_cups_24_pack.gd" id="2_yrnxp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8f3i8"]
 size = Vector3(0.153076, 0.761353, 0.29834)
@@ -88,7 +89,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7fhyx")
 
 [node name="FoamCups24Pack" instance=ExtResource("1_mmkkw")]
-tooltip = "One less dish you have to wash."
+script = ExtResource("2_yrnxp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0098877, 0.00708514, 0.00756836)
