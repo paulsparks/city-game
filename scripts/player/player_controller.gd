@@ -28,6 +28,7 @@ var held_prop_y_rotation: Variant = null
 @onready var item_name_label: Label = $ItemName
 @onready var tooltip_label: Label = $Tooltip
 @onready var item_price_label: Label = $ItemPrice
+@onready var item_text_background: ColorRect = $ItemTextBackground
 
 
 func _ready() -> void:

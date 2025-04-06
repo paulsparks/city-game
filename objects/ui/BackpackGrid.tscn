@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/ui/backpack_grid.gd" id="1_4erhb"]
 
 [node name="TestingBackpack" type="GridContainer"]
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
