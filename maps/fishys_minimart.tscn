@@ -6,14 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://vxprete12rj0" path="res://assets/items/bus_sign/bus_sign.glb" id="4_was64"]
 [ext_resource type="Script" path="res://scripts/trigger/shop_buy_trigger.gd" id="5_a5ag3"]
 [ext_resource type="Script" path="res://scripts/shop/item_dropoff.gd" id="6_tx713"]
-[ext_resource type="PackedScene" uid="uid://btbwyyeci50cw" path="res://objects/items/screwdriver.tscn" id="7_4lr8x"]
+[ext_resource type="PackedScene" uid="uid://btbwyyeci50cw" path="res://objects/items/tools/screwdriver.tscn" id="7_4lr8x"]
 [ext_resource type="Script" path="res://scripts/items/grocery_component.gd" id="8_qofej"]
 [ext_resource type="PackedScene" uid="uid://cw5j04u40nqg3" path="res://objects/bus.tscn" id="9_niwa5"]
 [ext_resource type="PackedScene" uid="uid://crm517otaufj5" path="res://objects/portal.tscn" id="10_qpswt"]
-[ext_resource type="PackedScene" uid="uid://w8tf1m8hyih2" path="res://objects/items/promethazine.tscn" id="11_ayf1h"]
-[ext_resource type="PackedScene" uid="uid://b7lcx2oy6blkx" path="res://objects/items/sprit.tscn" id="12_1l2y0"]
-[ext_resource type="PackedScene" uid="uid://y04vwlvhr0s0" path="res://objects/items/foam_cups_24_pack.tscn" id="13_073bc"]
-[ext_resource type="PackedScene" uid="uid://dhj3yh7ah628v" path="res://objects/items/jolly_ranglers.tscn" id="14_rn052"]
+[ext_resource type="PackedScene" uid="uid://w8tf1m8hyih2" path="res://objects/items/medicine/promethazine.tscn" id="11_ayf1h"]
+[ext_resource type="PackedScene" uid="uid://b7lcx2oy6blkx" path="res://objects/items/food/sprit.tscn" id="12_1l2y0"]
+[ext_resource type="PackedScene" uid="uid://y04vwlvhr0s0" path="res://objects/items/kitchen/foam_cups_24_pack.tscn" id="13_073bc"]
+[ext_resource type="PackedScene" uid="uid://dhj3yh7ah628v" path="res://objects/items/food/jolly_ranglers.tscn" id="14_rn052"]
 [ext_resource type="PackedScene" uid="uid://d4dge45i24027" path="res://maps/map_meshes/fishies_minimartretextured_1_2.tscn" id="15_ee303"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n4lkc"]
@@ -529,7 +529,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0.2, 0)
 
 [node name="Screwdriver" parent="." instance=ExtResource("7_4lr8x")]
 transform = Transform3D(0.147837, 0.139329, 0.979149, -0.0618566, 0.989392, -0.131447, -0.987076, -0.0411341, 0.154887, -5.96835, 1.33576, -3.98082)
-tooltip = "An oily screwdriver... smells of fish and cigarettes."
 
 [node name="GroceryComponent" type="Node" parent="Screwdriver"]
 script = ExtResource("8_qofej")

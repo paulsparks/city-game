@@ -156,5 +156,10 @@ color = Color(0.0567, 0.07, 0.0589167, 1)
 
 [node name="InventoryComponent" parent="." instance=ExtResource("3_yaovw")]
 
+[node name="ResetSaveDataText" type="Label" parent="."]
+offset_right = 150.0
+offset_bottom = 23.0
+text = "F4: Reset Save Data"
+
 [connection signal="body_entered" from="TopHalfArea" to="." method="_on_top_half_area_body_entered"]
 [connection signal="body_exited" from="TopHalfArea" to="." method="_on_top_half_area_body_exited"]
