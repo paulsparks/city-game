@@ -69,17 +69,17 @@ func _input(event: InputEvent) -> void:
 			item_name_label.global_position = mouse_motion.global_position + Vector2(28, 0)
 
 			tooltip_label.text = _item.tooltip
-			tooltip_label.label_settings.font_color.a = 1.0
+			tooltip_label.label_settings.font_color.a = 0.7
 			tooltip_label.global_position = mouse_motion.global_position + Vector2(28, 24)
 
 			item_text_background.visible = true
 			item_text_background.global_position = mouse_motion.global_position + Vector2(20, -26)
-			item_text_background.size.x = max(item_name_label.size.x, tooltip_label.size.x)
+			item_text_background.size.x = max(item_name_label.size.x, tooltip_label.size.x) + 8
 			item_text_background.size.y = (
 				item_name_label.size.y
 				+ (tooltip_label.size.y if tooltip_label.text != "" else 0.0)
 				+ item_price_label.size.y
-				+ 16
+				+ 12
 			)
 
 			# TODO: For the love of god please make it so I'm not copy-pasting this
