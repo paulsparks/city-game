@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://crqba7aw5sw3h"]
+[gd_scene load_steps=14 format=3 uid="uid://crqba7aw5sw3h"]
 
 [ext_resource type="Script" path="res://scripts/player/player_controller.gd" id="1_u1fqc"]
 [ext_resource type="Script" path="res://scripts/player/wallet_component.gd" id="2_vl4rv"]
 [ext_resource type="PackedScene" uid="uid://bkmkcgmbaxr7u" path="res://objects/ui/InventoryComponent.tscn" id="3_yaovw"]
+[ext_resource type="Script" path="res://scripts/ui/right_click_menu.gd" id="4_b62it"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3nt6g"]
 radius = 0.3
@@ -33,6 +34,9 @@ font_color = Color(1, 1, 1, 0.705882)
 [sub_resource type="LabelSettings" id="LabelSettings_8bqtw"]
 font_size = 12
 font_color = Color(0.704643, 1, 0.687479, 0.705882)
+
+[sub_resource type="LabelSettings" id="LabelSettings_56ir1"]
+font_color = Color(1, 1, 1, 0.705882)
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -154,12 +158,56 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 color = Color(0.0567, 0.07, 0.0589167, 1)
 
-[node name="InventoryComponent" parent="." instance=ExtResource("3_yaovw")]
-
 [node name="ResetSaveDataText" type="Label" parent="."]
 offset_right = 150.0
 offset_bottom = 23.0
 text = "F4: Reset Save Data"
+
+[node name="InventoryComponent" parent="." instance=ExtResource("3_yaovw")]
+
+[node name="RightclickMenu" type="Control" parent="."]
+z_index = 2
+layout_mode = 3
+anchors_preset = 0
+offset_right = 100.0
+offset_bottom = 62.0
+mouse_filter = 1
+script = ExtResource("4_b62it")
+
+[node name="DropButton" type="ColorRect" parent="RightclickMenu"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+color = Color(0.13287, 0.159429, 0.139504, 1)
+
+[node name="Label" type="Label" parent="RightclickMenu/DropButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Drop"
+label_settings = SubResource("LabelSettings_56ir1")
+
+[node name="Background" type="ColorRect" parent="RightclickMenu"]
+z_index = 1
+layout_mode = 1
+offset_right = 100.0
+offset_bottom = 31.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+color = Color(0.0567, 0.07, 0.0589167, 1)
 
 [connection signal="body_entered" from="TopHalfArea" to="." method="_on_top_half_area_body_entered"]
 [connection signal="body_exited" from="TopHalfArea" to="." method="_on_top_half_area_body_exited"]
