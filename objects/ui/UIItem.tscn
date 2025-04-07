@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cidjwxcavag2j"]
+[gd_scene load_steps=4 format=3 uid="uid://cidjwxcavag2j"]
 
-[ext_resource type="Texture2D" uid="uid://nbxrqumytka3" path="res://assets/ui/items/screwdriver_temp.png" id="1_c2ojk"]
+[ext_resource type="Texture2D" uid="uid://e1in5bhwexnv" path="res://assets/ui/items/items.png" id="1_72unh"]
 [ext_resource type="Script" path="res://scripts/ui/ui_item.gd" id="2_k6q4g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayij5"]
+resource_local_to_scene = true
+atlas = ExtResource("1_72unh")
+region = Rect2(0, 0, 122, 122)
 
 [node name="TextureRect" type="TextureRect"]
 anchors_preset = 8
@@ -15,6 +20,6 @@ offset_right = 23.0
 offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_c2ojk")
+texture = SubResource("AtlasTexture_ayij5")
 expand_mode = 1
 script = ExtResource("2_k6q4g")

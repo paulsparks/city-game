@@ -20,6 +20,8 @@ var held_prop_mesh: MeshInstance3D = null
 var can_stand: bool = true
 var held_prop_y_rotation: Variant = null
 
+var _place_pos: Vector3
+
 @onready var camera: Camera3D = $Camera3D
 @onready var wallet: WalletComponent = $WalletComponent
 @onready var inventory: InventoryComponent = $InventoryComponent
@@ -29,6 +31,7 @@ var held_prop_y_rotation: Variant = null
 @onready var tooltip_label: Label = $Tooltip
 @onready var item_price_label: Label = $ItemPrice
 @onready var item_text_background: ColorRect = $ItemTextBackground
+@onready var right_click_menu: RightClickMenu = $RightclickMenu
 
 
 func _ready() -> void:
@@ -106,7 +109,7 @@ func _process(_delta: float) -> void:
 
 	var collider: Variant = hand_ray.collider
 	var hold_pos: Vector3 = hand_ray.hold_pos
-	# var place_pos: Vector3 = hand_ray.place_pos
+	_place_pos = hand_ray.place_pos
 
 	# _handle_clicks(place_pos)
 	_handle_pickup_and_grab(collider, hold_pos)
@@ -183,6 +186,11 @@ func _handle_pickup_and_grab(collider: Variant, hold_pos: Vector3) -> void:
 # 		match item:
 # 			item when item is Bag:
 # 				inventory.place_next_bag_item(place_pos, self)
+
+
+func drop_in_front(prop: Prop) -> void:
+	get_parent().add_child(prop)
+	prop.global_position = _place_pos
 
 
 func _scroll_to_rotate(modifier: float) -> void:
