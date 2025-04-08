@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b543fyh21eca"
-path.s3tc="res://.godot/imported/player_house_textured_texture_08.png-8b00cf9c50797bcebd6b1c08866ab68c.s3tc.ctex"
+path.s3tc="res://.godot/imported/player_house_textured_texture_08.png-2999c163a66c87ada513dc55f14c871a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://textures/player_house_textured_texture_08.png"
-dest_files=["res://.godot/imported/player_house_textured_texture_08.png-8b00cf9c50797bcebd6b1c08866ab68c.s3tc.ctex"]
+source_file="res://assets/maps/house/player_house_textured_texture_08.png"
+dest_files=["res://.godot/imported/player_house_textured_texture_08.png-2999c163a66c87ada513dc55f14c871a.s3tc.ctex"]
 
 [params]
 

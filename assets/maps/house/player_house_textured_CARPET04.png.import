@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx3xcnp2gl8yu"
-path.s3tc="res://.godot/imported/player_house_textured_CEDFENCE.jpg-b77e2c2773a22b798c2d6c9b72f6359d.s3tc.ctex"
+uid="uid://drswbbsdlarjs"
+path.s3tc="res://.godot/imported/player_house_textured_CARPET04.png-367b6069430bdc60b21008056118b970.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "21e3b095a7a19bcadd48672610cb6aec"
+"md5": "1e79508eb1a02007bb8e424a429ea484"
 }
 
 [deps]
 
-source_file="res://textures/player_house_textured_CEDFENCE.jpg"
-dest_files=["res://.godot/imported/player_house_textured_CEDFENCE.jpg-b77e2c2773a22b798c2d6c9b72f6359d.s3tc.ctex"]
+source_file="res://assets/maps/house/player_house_textured_CARPET04.png"
+dest_files=["res://.godot/imported/player_house_textured_CARPET04.png-367b6069430bdc60b21008056118b970.s3tc.ctex"]
 
 [params]
 
