@@ -11,3 +11,7 @@ static func find_child_with_func(node: Node, filter: Callable) -> Node:
 			return child
 
 	return null
+
+
+static func has_child(node: Node, filter: Callable) -> bool:
+	return find_child_with_func(node, filter) != null

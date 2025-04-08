@@ -1,12 +1,12 @@
 class_name InventoryComponent
-extends Node
+extends Control
 
 var inventory_opened: bool = false
 
 var _ui_item_scene: PackedScene = preload("res://objects/ui/UIItem.tscn")
 
-@onready var inventory_menu: Panel = $InventoryUI
-@onready var backpack_layout: Control = $InventoryUI/TestBackpack
+@onready
+var backpack_layout: Control = $Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer
 @onready var player: PlayerController = get_parent()
 @onready var crosshair: ColorRect = player.find_child("Crosshair")
 
@@ -29,26 +29,29 @@ func set_inventory(item_array: Array) -> void:
 	# Remove all items from inventory
 	for grid: Node in backpack_layout.get_children():
 		for square: BackpackSquare in grid.get_children():
-			for ui_item: UIItem in square.get_children():
-				ui_item.get_parent().remove_child(ui_item)
+			for node: Node in square.get_children():
+				if node is UIItem:
+					node.get_parent().remove_child(node)
+
+	var inventory_location: int = 0
 
 	# Fill inventory with items in array
 	for grid: Node in backpack_layout.get_children():
 		var backpack_squares: Array = grid.get_children()
-		for i: int in len(backpack_squares):
-			var backpack_square: BackpackSquare = backpack_squares[i]
-			if item_array[i] is String and item_array[i] != "":
-				var item_id: String = item_array[i]
+		for backpack_square: BackpackSquare in backpack_squares:
+			if item_array[inventory_location] is String and item_array[inventory_location] != "":
+				var item_id: String = item_array[inventory_location]
 				var item: Item = CreateItem.create_item(item_id)
 				var ui_item: UIItem = _ui_item_scene.instantiate()
 				ui_item.set_item(item)
 				backpack_square.add_child(ui_item)
+			inventory_location += 1
 
 
 func add_to_inventory(item: Item) -> void:
 	for grid: Node in backpack_layout.get_children():
 		for square: BackpackSquare in grid.get_children():
-			if len(square.get_children()) == 0:
+			if not square.has_item():
 				var ui_item: UIItem = _ui_item_scene.instantiate()
 				ui_item.set_item(item.duplicate() as Item)
 				square.add_child(ui_item)
@@ -62,8 +65,10 @@ func get_inventory_items() -> Array:
 
 	for grid: Node in backpack_layout.get_children():
 		for square: BackpackSquare in grid.get_children():
-			if len(square.get_children()) > 0:
-				var ui_item: UIItem = square.get_children()[0]
+			if square.has_item():
+				var ui_item: UIItem = HelperFunctions.find_child_with_func(
+					square, func x(child: Node) -> bool: return child is UIItem
+				)
 				inventory_items.append(ui_item.get_item().duplicate())
 			else:
 				inventory_items.append(false)
@@ -83,8 +88,8 @@ func get_inventory_ids() -> Array:
 	return item_array
 
 
-func _on_backpack_square_item_state_changed(item: UIItem) -> void:
-	print(item)
+func _on_backpack_square_item_state_changed(_item: UIItem) -> void:
+	pass
 
 
 func _input(event: InputEvent) -> void:
@@ -101,11 +106,11 @@ func _set_inventory_opened(opened: bool) -> void:
 
 	if inventory_opened:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		inventory_menu.show()
+		show()
 		crosshair.hide()
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		inventory_menu.hide()
+		hide()
 		crosshair.show()
 
 
