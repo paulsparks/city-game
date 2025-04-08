@@ -29,17 +29,17 @@ func draw_world_tooltip(object: Variant, is_holding_prop: bool) -> void:
 	_draw_grocery_value(item)
 
 
-func _draw_mouse_tooltip(item: Item, mouse_motion: InputEventMouseMotion) -> void:
+func _draw_mouse_tooltip(item: Item, location: InputEventMouse) -> void:
 	item_name_label.text = item.display_name
 	item_name_label.label_settings.font_color.a = 1.0
-	item_name_label.global_position = mouse_motion.global_position + Vector2(28, 0)
+	item_name_label.global_position = location.global_position + Vector2(28, 0)
 
 	tooltip_label.text = item.tooltip
 	tooltip_label.label_settings.font_color.a = 0.7
-	tooltip_label.global_position = mouse_motion.global_position + Vector2(28, 24)
+	tooltip_label.global_position = location.global_position + Vector2(28, 24)
 
 	item_text_background.visible = true
-	item_text_background.global_position = mouse_motion.global_position + Vector2(20, -26)
+	item_text_background.global_position = location.global_position + Vector2(20, -26)
 	item_text_background.size.x = max(item_name_label.size.x, tooltip_label.size.x) + 8
 	item_text_background.size.y = (
 		item_name_label.size.y
@@ -51,7 +51,7 @@ func _draw_mouse_tooltip(item: Item, mouse_motion: InputEventMouseMotion) -> voi
 	_draw_grocery_value(item)
 
 	item_price_label.label_settings.font_color.a = 1.0
-	item_price_label.global_position = (mouse_motion.global_position + Vector2(28, -18))
+	item_price_label.global_position = (location.global_position + Vector2(28, -18))
 
 
 func _draw_grocery_value(object: Node) -> void:

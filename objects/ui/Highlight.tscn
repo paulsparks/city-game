@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://nov1fwxqhwxs"]
+
+[node name="Highlight" type="ColorRect"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.853875, 0.99, 0.8415, 0.313726)

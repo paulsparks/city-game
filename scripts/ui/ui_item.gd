@@ -50,6 +50,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 func _on_mouse_entered() -> void:
 	_hover = true
 	PlayerUi.ui_canvas.add_child(_item_tooltip)
+	_item_tooltip.visible = false
 
 
 func _on_mouse_exited() -> void:
@@ -66,6 +67,8 @@ func _input(event: InputEvent) -> void:
 
 	if event is InputEventMouseMotion:
 		var mouse_motion: InputEventMouseMotion = event
+
+		_item_tooltip.visible = true
 		_item_tooltip._draw_mouse_tooltip(_item, mouse_motion)
 
 

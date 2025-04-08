@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/player/player_controller.gd" id="1_u1fqc"]
 [ext_resource type="Script" path="res://scripts/player/wallet_component.gd" id="2_vl4rv"]
 [ext_resource type="PackedScene" uid="uid://bkmkcgmbaxr7u" path="res://objects/ui/InventoryComponent.tscn" id="3_yaovw"]
-[ext_resource type="PackedScene" uid="uid://dihmtlsqotvsp" path="res://objects/ui/item_tooltip.tscn" id="4_k2i1m"]
+[ext_resource type="PackedScene" path="res://objects/ui/item_tooltip.tscn" id="4_k2i1m"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3nt6g"]
 radius = 0.3
