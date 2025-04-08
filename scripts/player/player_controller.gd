@@ -27,11 +27,6 @@ var _place_pos: Vector3
 @onready var inventory: InventoryComponent = $InventoryComponent
 @onready var top_half_1: CollisionShape3D = $TopHalf1
 @onready var top_half_2: CollisionShape3D = $TopHalf2
-@onready var item_name_label: Label = $ItemName
-@onready var tooltip_label: Label = $Tooltip
-@onready var item_price_label: Label = $ItemPrice
-@onready var item_text_background: ColorRect = $ItemTextBackground
-@onready var right_click_menu: RightClickMenu = $RightclickMenu
 
 
 func _ready() -> void:
@@ -115,35 +110,7 @@ func _process(_delta: float) -> void:
 	_handle_pickup_and_grab(collider, hold_pos)
 
 	if not inventory.inventory_opened:
-		_handle_item_info_text(collider)
-
-
-func _handle_item_info_text(collider: Variant) -> void:
-	if collider is Bag:
-		var bag: Bag = collider
-		item_name_label.text = bag.name.capitalize()
-		tooltip_label.text = ""
-		item_price_label.text = ""
-		return
-
-	if collider is not Item or held_prop != null:
-		item_name_label.text = ""
-		tooltip_label.text = ""
-		item_price_label.text = ""
-		return
-
-	var item: Item = collider
-
-	tooltip_label.text = item.tooltip
-	item_name_label.text = item.display_name
-
-	var grocery_component: GroceryComponent = HelperFunctions.find_child_with_func(
-		item, func(child: Node) -> bool: return child is GroceryComponent
-	)
-	if grocery_component == null:
-		item_price_label.text = "Owned"
-	else:
-		item_price_label.text = "$" + str(grocery_component.cost)
+		PlayerUi.item_tooltip.draw_world_tooltip(collider, held_prop != null)
 
 
 func _handle_pickup_and_grab(collider: Variant, hold_pos: Vector3) -> void:

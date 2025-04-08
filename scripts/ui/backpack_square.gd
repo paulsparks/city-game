@@ -12,4 +12,7 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 
 
 func _can_drop_data(_at_position: Vector2, _data: Variant) -> bool:
-	return true
+	if len(get_children()) == 0:
+		return true
+
+	return false
