@@ -14,17 +14,27 @@ func _ready() -> void:
 
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	var ui_item: UIItem = data
+
+	if has_item():
+		var current_item: UIItem = get_item()
+		remove_child(current_item)
+		ui_item.get_parent().add_child(current_item)
+
 	ui_item.get_parent().remove_child(ui_item)
+
 	add_child(ui_item)
 	item_state_changed.emit(ui_item)
 
 
 func _can_drop_data(_at_position: Vector2, _data: Variant) -> bool:
-	if not has_item():
-		return true
-
-	return false
+	return true
 
 
 func has_item() -> bool:
 	return HelperFunctions.has_child(self, func x(child: Node) -> bool: return child is UIItem)
+
+
+func get_item() -> UIItem:
+	return HelperFunctions.find_child_with_func(
+		self, func x(child: Node) -> bool: return child is UIItem
+	)
