@@ -108,6 +108,7 @@ func _set_inventory_opened(opened: bool) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		show()
 		crosshair.hide()
+		PlayerUi.item_tooltip.clear_world_tooltip()
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		hide()

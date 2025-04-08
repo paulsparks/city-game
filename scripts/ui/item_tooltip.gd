@@ -29,6 +29,12 @@ func draw_world_tooltip(object: Variant, is_holding_prop: bool) -> void:
 	_draw_grocery_value(item)
 
 
+func clear_world_tooltip() -> void:
+	item_name_label.text = ""
+	tooltip_label.text = ""
+	item_price_label.text = ""
+
+
 func _draw_mouse_tooltip(item: Item, location: InputEventMouse) -> void:
 	item_name_label.text = item.display_name
 	item_name_label.label_settings.font_color.a = 1.0
