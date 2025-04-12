@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2e45aj36sfjy"
-path.s3tc="res://.godot/imported/money_bill_20250228_212934.jpg-74aa756a6aa611f511040773a3a77b6e.s3tc.ctex"
+uid="uid://bwb7pvg767gqa"
+path.s3tc="res://.godot/imported/fishies_minimart2025_20250410_121124.jpg-41f6dfe66ac3cdbba7504c6cbb38a3c1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "932ac7bb00d4c8e4911575a1091cb93d"
+}
 
 [deps]
 
-source_file="res://assets/items/money_bill/money_bill_20250228_212934.jpg"
-dest_files=["res://.godot/imported/money_bill_20250228_212934.jpg-74aa756a6aa611f511040773a3a77b6e.s3tc.ctex"]
+source_file="res://maps/map_meshes/fishies_minimart2025_20250410_121124.jpg"
+dest_files=["res://.godot/imported/fishies_minimart2025_20250410_121124.jpg-41f6dfe66ac3cdbba7504c6cbb38a3c1.s3tc.ctex"]
 
 [params]
 
