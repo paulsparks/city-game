@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6bh8cnku4mfv"]
+
+[ext_resource type="Script" path="res://scripts/ui/right_click_menu.gd" id="1_xhm4i"]
+
+[node name="RightClickMenu" type="PanelContainer"]
+offset_right = 100.0
+offset_bottom = 40.0
+script = ExtResource("1_xhm4i")
+
+[node name="DropButton" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.104086, 0.149274, 0.0959556, 1)
+
+[node name="DropLabel" type="Label" parent="DropButton"]
+layout_mode = 2
+offset_left = 30.0
+offset_top = 8.0
+offset_right = 69.0
+offset_bottom = 31.0
+size_flags_horizontal = 4
+text = "Drop"

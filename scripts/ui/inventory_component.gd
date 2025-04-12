@@ -4,6 +4,9 @@ extends Control
 var inventory_opened: bool = false
 
 var _ui_item_scene: PackedScene = preload("res://objects/ui/UIItem.tscn")
+var _right_click_menu: RightClickMenu = (
+	preload("res://objects/ui/RightClickMenu.tscn").instantiate()
+)
 
 @onready
 var backpack_layout: Control = $Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer
@@ -115,6 +118,12 @@ func _set_inventory_opened(opened: bool) -> void:
 		crosshair.show()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+func _gui_input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"):
+		accept_event()
+	if event.is_action_pressed("pocket"):
+		pass
+	if event.is_action_pressed("scroll_up"):
+		pass
+	if event.is_action_pressed("scroll_down"):
+		pass
