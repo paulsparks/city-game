@@ -116,6 +116,7 @@ func _input(event: InputEvent) -> void:
 
 func _toggle_inventory() -> void:
 	_set_inventory_opened(!PlayerUi.inventory_opened)
+	PlayerUi.right_click_menu.visible = false
 
 
 func _set_inventory_opened(opened: bool) -> void:
