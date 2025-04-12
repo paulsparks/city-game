@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b7lcx2oy6blkx" path="res://objects/items/food/sprit.tscn" id="12_1l2y0"]
 [ext_resource type="PackedScene" uid="uid://y04vwlvhr0s0" path="res://objects/items/kitchen/foam_cups_24_pack.tscn" id="13_073bc"]
 [ext_resource type="PackedScene" uid="uid://dhj3yh7ah628v" path="res://objects/items/food/jolly_ranglers.tscn" id="14_rn052"]
-[ext_resource type="PackedScene" uid="uid://d4dge45i24027" path="res://maps/map_meshes/fishies_minimartretextured_1_2.tscn" id="15_ee303"]
+[ext_resource type="PackedScene" uid="uid://b7v6uc2wd8w76" path="res://maps/map_meshes/fishies_minimart2025.glb" id="15_bsp28"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n4lkc"]
 size = Vector3(23.0285, 1.08667, 95.0357)
@@ -582,7 +582,7 @@ transform = Transform3D(0.408076, 0, 0.912948, 0, 1, 0, -0.912948, 0, 0.408076, 
 script = ExtResource("8_qofej")
 cost = 1.99
 
-[node name="fishies_minimartretextured1_2" parent="." instance=ExtResource("15_ee303")]
+[node name="fishies_minimart2025" parent="." instance=ExtResource("15_bsp28")]
 
 [connection signal="body_shape_entered" from="ItemDropoff/DropoffZone" to="ItemDropoff" method="_on_area_3d_body_shape_entered"]
 [connection signal="body_shape_exited" from="ItemDropoff/DropoffZone" to="ItemDropoff" method="_on_area_3d_body_shape_exited"]

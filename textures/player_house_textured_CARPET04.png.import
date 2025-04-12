@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2e45aj36sfjy"
-path.s3tc="res://.godot/imported/money_bill_20250228_212934.jpg-74aa756a6aa611f511040773a3a77b6e.s3tc.ctex"
+uid="uid://drswbbsdlarjs"
+path.s3tc="res://.godot/imported/player_house_textured_CARPET04.png-28ae0d87ebd0b333931217b5fb4a231c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "1e79508eb1a02007bb8e424a429ea484"
+}
 
 [deps]
 
-source_file="res://assets/items/money_bill/money_bill_20250228_212934.jpg"
-dest_files=["res://.godot/imported/money_bill_20250228_212934.jpg-74aa756a6aa611f511040773a3a77b6e.s3tc.ctex"]
+source_file="res://textures/player_house_textured_CARPET04.png"
+dest_files=["res://.godot/imported/player_house_textured_CARPET04.png-28ae0d87ebd0b333931217b5fb4a231c.s3tc.ctex"]
 
 [params]
 
