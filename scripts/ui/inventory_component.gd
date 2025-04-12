@@ -1,12 +1,7 @@
 class_name InventoryComponent
 extends Control
 
-var inventory_opened: bool = false
-
 var _ui_item_scene: PackedScene = preload("res://objects/ui/UIItem.tscn")
-var _right_click_menu: RightClickMenu = (
-	preload("res://objects/ui/RightClickMenu.tscn").instantiate()
-)
 
 @onready
 var backpack_layout: Control = $Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer
@@ -15,13 +10,36 @@ var backpack_layout: Control = $Background/MarginContainer/Inventory/StorageSect
 
 
 func _ready() -> void:
+	PlayerUi.right_click_menu.connect("drop_item", _drop_item)
+
 	_set_inventory_opened(false)
-	for grid: Node in backpack_layout.get_children():
-		for square: BackpackSquare in grid.get_children():
-			square.item_state_changed.connect(_on_backpack_square_item_state_changed)
 
 	if len(PlayerData.inventory_items) > 0:
 		set_inventory(PlayerData.inventory_items)
+
+
+func _drop_data(_at_position: Vector2, data: Variant) -> void:
+	if data is not UIItem:
+		return
+
+	var ui_item: UIItem = data
+
+	PlayerUi.right_click_menu.drop_item.emit(ui_item)
+
+
+func _can_drop_data(_at_position: Vector2, _data: Variant) -> bool:
+	return true
+
+
+func _drop_item(ui_item: UIItem) -> void:
+	for grid: Node in backpack_layout.get_children():
+		for square: BackpackSquare in grid.get_children():
+			for node: Node in square.get_children():
+				if node == ui_item:
+					var item: Item = ui_item.get_item()
+					item.global_position = player.hand_ray.hold_pos
+					player.get_parent().add_child(item)
+					node.queue_free()
 
 
 ## Set the inventory to an array of values of type <String item id> or <false>.
@@ -91,23 +109,19 @@ func get_inventory_ids() -> Array:
 	return item_array
 
 
-func _on_backpack_square_item_state_changed(_item: UIItem) -> void:
-	pass
-
-
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("inventory"):
 		_toggle_inventory()
 
 
 func _toggle_inventory() -> void:
-	_set_inventory_opened(!inventory_opened)
+	_set_inventory_opened(!PlayerUi.inventory_opened)
 
 
 func _set_inventory_opened(opened: bool) -> void:
-	inventory_opened = opened
+	PlayerUi.inventory_opened = opened
 
-	if inventory_opened:
+	if PlayerUi.inventory_opened:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		show()
 		crosshair.hide()
@@ -116,14 +130,3 @@ func _set_inventory_opened(opened: bool) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		hide()
 		crosshair.show()
-
-
-func _gui_input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"):
-		accept_event()
-	if event.is_action_pressed("pocket"):
-		pass
-	if event.is_action_pressed("scroll_up"):
-		pass
-	if event.is_action_pressed("scroll_down"):
-		pass

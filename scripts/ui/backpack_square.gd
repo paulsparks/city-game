@@ -1,8 +1,6 @@
 class_name BackpackSquare
 extends Control
 
-signal item_state_changed
-
 @onready var highlight: ColorRect = preload("res://objects/ui/Highlight.tscn").instantiate()
 
 
@@ -13,9 +11,12 @@ func _ready() -> void:
 
 
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
+	if data is not UIItem:
+		return
+
 	var ui_item: UIItem = data
 
-	if has_item():
+	if has_item() and get_item() != ui_item:
 		var current_item: UIItem = get_item()
 		remove_child(current_item)
 		ui_item.get_parent().add_child(current_item)
@@ -23,7 +24,6 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	ui_item.get_parent().remove_child(ui_item)
 
 	add_child(ui_item)
-	item_state_changed.emit(ui_item)
 
 
 func _can_drop_data(_at_position: Vector2, _data: Variant) -> bool:

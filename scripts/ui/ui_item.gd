@@ -15,7 +15,6 @@ var _hover: bool = false
 func _ready() -> void:
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
-	call_deferred("_post_ready")
 
 
 func _update_texture() -> void:
@@ -24,19 +23,7 @@ func _update_texture() -> void:
 	atlas_texture.region.position.y = CreateItem.texture_map[_item.id].y
 
 
-func _post_ready() -> void:
-	pass
-	# player.right_click_menu.drop_item.connect(_drop_item)
-
-
-func _drop_item() -> void:
-	pass
-	# player.drop_in_front(_item)
-	# queue_free()
-
-
 func _get_drag_data(_at_position: Vector2) -> Variant:
-	remove_child(_item_tooltip)
 	var item_preview: Control = Control.new()
 	item_preview.add_child(self.duplicate())
 	item_preview.position = item_preview.size * -0.5
@@ -59,6 +46,9 @@ func _on_mouse_exited() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("use_special"):
+		_item_tooltip.visible = false
+
 	if event.is_action_released("use"):
 		visible = true
 
@@ -69,7 +59,7 @@ func _input(event: InputEvent) -> void:
 		var mouse_motion: InputEventMouseMotion = event
 
 		_item_tooltip.visible = true
-		_item_tooltip._draw_mouse_tooltip(_item, mouse_motion)
+		_item_tooltip.draw_mouse_tooltip(_item, mouse_motion)
 
 
 func _init(item: Item = Screwdriver.new()) -> void:
@@ -84,3 +74,13 @@ func get_item() -> Item:
 func set_item(item: Item) -> void:
 	_item = item
 	_update_texture()
+
+
+func _on_gui_input(event: InputEvent) -> void:
+	if not PlayerUi.inventory_opened or event is not InputEventMouseButton:
+		return
+
+	var mouse_event: InputEventMouseButton = event
+
+	if event.is_action_pressed("use_special"):
+		PlayerUi.right_click_menu.open(mouse_event.global_position, self)

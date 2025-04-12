@@ -35,7 +35,7 @@ func clear_world_tooltip() -> void:
 	item_price_label.text = ""
 
 
-func _draw_mouse_tooltip(item: Item, location: InputEventMouse) -> void:
+func draw_mouse_tooltip(item: Item, location: InputEventMouse) -> void:
 	item_name_label.text = item.display_name
 	item_name_label.label_settings.font_color.a = 1.0
 	item_name_label.global_position = location.global_position + Vector2(28, 0)

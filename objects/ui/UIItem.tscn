@@ -24,3 +24,5 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_ayij5")
 expand_mode = 1
 script = ExtResource("2_k6q4g")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

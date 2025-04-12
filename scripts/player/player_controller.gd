@@ -20,7 +20,7 @@ var held_prop_mesh: MeshInstance3D = null
 var can_stand: bool = true
 var held_prop_y_rotation: Variant = null
 
-var _hand_ray: Dictionary = {"collider": null, "hold_pos": null}
+var hand_ray: Dictionary = {"collider": null, "hold_pos": null}
 
 @onready var camera: Camera3D = $Camera3D
 @onready var wallet: WalletComponent = $WalletComponent
@@ -34,7 +34,7 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if inventory.inventory_opened:
+	if PlayerUi.inventory_opened:
 		return
 
 	if event is InputEventMouseButton:
@@ -54,28 +54,28 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
-	if inventory.inventory_opened:
+	if PlayerUi.inventory_opened:
 		return
 
 	if event is not InputEventKey:
 		return
 
-	# When _hand_ray is fully populated and a prop is not being held
-	if not held_prop and not _hand_ray.values().has(null):
+	# When hand_ray is fully populated and a prop is not being held
+	if not held_prop and not hand_ray.values().has(null):
 		if event.is_action_pressed("interact"):
-			match _hand_ray.collider:
-				_hand_ray.collider when _hand_ray.collider is Prop:
-					var prop: Prop = _hand_ray.collider
+			match hand_ray.collider:
+				hand_ray.collider when hand_ray.collider is Prop:
+					var prop: Prop = hand_ray.collider
 					_handle_prop_pickup(prop)
 
-				_hand_ray.collider when _hand_ray.collider is Trigger:
-					var trigger: Trigger = _hand_ray.collider
+				hand_ray.collider when hand_ray.collider is Trigger:
+					var trigger: Trigger = hand_ray.collider
 					trigger.perform_task()
 
 		if event.is_action_pressed("pocket"):
-			match _hand_ray.collider:
-				_hand_ray.collider when _hand_ray.collider is Item:
-					var item: Item = _hand_ray.collider
+			match hand_ray.collider:
+				hand_ray.collider when hand_ray.collider is Item:
+					var item: Item = hand_ray.collider
 					inventory.add_to_inventory(item)
 		return
 
@@ -143,21 +143,21 @@ func _process(_delta: float) -> void:
 		speed = WALK_SPEED
 
 	# Handle what the player is looking at
-	_hand_ray = _handle_raycast()
+	hand_ray = _handle_raycast()
 
 	if held_prop:
-		held_prop.position = _hand_ray.hold_pos
+		held_prop.position = hand_ray.hold_pos
 		if not held_prop_y_rotation:
 			held_prop.rotation.y = rotation.y
 			# held_prop.rotation.x = camera.rotation.x
 
-	if not inventory.inventory_opened:
-		PlayerUi.item_tooltip.draw_world_tooltip(_hand_ray.collider, held_prop != null)
+	if not PlayerUi.inventory_opened:
+		PlayerUi.item_tooltip.draw_world_tooltip(hand_ray.collider, held_prop != null)
 
 
 func drop_in_front(prop: Prop) -> void:
 	get_parent().add_child(prop)
-	prop.global_position = _hand_ray.hold_pos
+	prop.global_position = hand_ray.hold_pos
 
 
 func _scroll_to_rotate(modifier: float) -> void:
@@ -187,7 +187,7 @@ func _on_top_half_area_body_exited(body: Node3D) -> void:
 func _handle_raycast() -> Dictionary:
 	var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 	var mousepos: Vector2 = get_viewport().get_mouse_position()
-	if inventory.inventory_opened:
+	if PlayerUi.inventory_opened:
 		mousepos = get_viewport().get_visible_rect().size / 2
 	var origin: Vector3 = camera.project_ray_origin(mousepos)
 	var end: Vector3 = origin + camera.project_ray_normal(mousepos) * REACH_DISTANCE
