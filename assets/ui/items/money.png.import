@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nbxrqumytka3"
-path="res://.godot/imported/screwdriver_temp.png-253c22199b2fb0c463d14c7bcb3e31c1.ctex"
+uid="uid://te3i5apk0tan"
+path="res://.godot/imported/money.png-ad4acb7584ccf8fc349e21aedff79d23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/items/screwdriver_temp.png"
-dest_files=["res://.godot/imported/screwdriver_temp.png-253c22199b2fb0c463d14c7bcb3e31c1.ctex"]
+source_file="res://assets/ui/items/money.png"
+dest_files=["res://.godot/imported/money.png-ad4acb7584ccf8fc349e21aedff79d23.ctex"]
 
 [params]
 

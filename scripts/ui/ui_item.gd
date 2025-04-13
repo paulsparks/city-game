@@ -18,9 +18,8 @@ func _ready() -> void:
 
 
 func _update_texture() -> void:
-	var atlas_texture: AtlasTexture = texture
-	atlas_texture.region.position.x = CreateItem.texture_map[_item.id].x
-	atlas_texture.region.position.y = CreateItem.texture_map[_item.id].y
+	var texture_path: String = CreateItem.ITEM_TEXTURES_PATH % _item.id
+	texture = load(texture_path)
 
 
 func _get_drag_data(_at_position: Vector2) -> Variant:

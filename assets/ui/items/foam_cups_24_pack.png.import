@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e1in5bhwexnv"
-path="res://.godot/imported/items.png-c226a869b2fa66da977a39e2edbaf832.ctex"
+uid="uid://dtwmjyvs50u54"
+path="res://.godot/imported/foam_cups_24_pack.png-12c4e0643b5cbdd0d49cf08ac334f85d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/items/items.png"
-dest_files=["res://.godot/imported/items.png-c226a869b2fa66da977a39e2edbaf832.ctex"]
+source_file="res://assets/ui/items/foam_cups_24_pack.png"
+dest_files=["res://.godot/imported/foam_cups_24_pack.png-12c4e0643b5cbdd0d49cf08ac334f85d.ctex"]
 
 [params]
 

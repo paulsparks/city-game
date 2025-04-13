@@ -1,28 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://cidjwxcavag2j"]
+[gd_scene load_steps=2 format=3 uid="uid://cidjwxcavag2j"]
 
-[ext_resource type="Texture2D" uid="uid://e1in5bhwexnv" path="res://assets/ui/items/items.png" id="1_72unh"]
 [ext_resource type="Script" path="res://scripts/ui/ui_item.gd" id="2_k6q4g"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ayij5"]
-resource_local_to_scene = true
-atlas = ExtResource("1_72unh")
-region = Rect2(0, 0, 122, 122)
-
 [node name="UIItem" type="TextureRect"]
+z_index = 1
 custom_minimum_size = Vector2(70, 70)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -23.0
-offset_top = -23.0
-offset_right = 23.0
-offset_bottom = 23.0
+offset_left = -35.0
+offset_top = -35.0
+offset_right = 35.0
+offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_ayij5")
 expand_mode = 1
+stretch_mode = 5
 script = ExtResource("2_k6q4g")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -70.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.343255, 0.79, 0.1027, 0.27451)
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
