@@ -21,7 +21,8 @@
     "MainStorage": [
       {
         "item": "jolly_ranglers",
-        "coords": [[0,0], [1,1]]
+        "note": "the below structure is: [top_left_coord, bottom_right_coord]",
+        "coords": [{"x": 0, "y": 0}, {"x": 1, "y": 1}]
       },
       {
         "item": "jolly_ranglers",

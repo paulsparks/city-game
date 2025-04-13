@@ -10,18 +10,12 @@ func _ready() -> void:
 
 
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
-	if data is not UIItem:
+	if has_item() or data is not UIItem:
 		return
 
 	var ui_item: UIItem = data
 
-	if has_item() and get_item() != ui_item:
-		var current_item: UIItem = get_item()
-		remove_child(current_item)
-		ui_item.get_parent().add_child(current_item)
-
 	ui_item.get_parent().remove_child(ui_item)
-
 	add_child(ui_item)
 
 
@@ -45,7 +39,8 @@ func _on_backpack_square_collision_area_entered(area: Area2D) -> void:
 	if parent is not UIItem:
 		return
 
-	var ui_item: UIItem = parent
+	# var ui_item: UIItem = parent
+
 	highlight.visible = true
 
 

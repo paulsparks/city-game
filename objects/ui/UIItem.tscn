@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/ui/ui_item.gd" id="2_k6q4g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cb5jq"]
+resource_local_to_scene = true
 size = Vector2(70, 70)
 
 [node name="UIItem" type="TextureRect"]
@@ -19,6 +20,7 @@ offset_right = 35.0
 offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("2_k6q4g")

@@ -8,8 +8,8 @@ var item_name_label: Label
 var tooltip_label: Label
 var item_price_label: Label
 var item_text_background: ColorRect
-var grid_w: int = SMALLEST_ITEM_SQUARE_PIXELS
-var grid_h: int = SMALLEST_ITEM_SQUARE_PIXELS
+var grid_w: int = 1
+var grid_h: int = 1
 
 var _item: Item = null
 var _hover: bool = false
@@ -51,8 +51,25 @@ func _set_size_based_on_image_resolution() -> void:
 
 	size = SMALLEST_ITEM_SQUARE_PIXELS * scale_factor
 
+	var size_correction: Vector2 = Vector2.ZERO
+	# I really don't know why I have to do this part but this is the solution I came up with
+	if grid_w > 1:
+		size_correction += Vector2(grid_w * (grid_w + 1), 0)
+	if grid_h > 1:
+		size_correction += Vector2(0, grid_h * (grid_h + 1))
+
+	size += size_correction
+
 	var rectangle_shape: RectangleShape2D = collision_shape.shape
 	rectangle_shape.size = SMALLEST_ITEM_SQUARE_PIXELS * scale_factor
+
+	if grid_w > 1:
+		collision_shape.position.x = rectangle_shape.size.x / grid_w * 0.5
+	if grid_h > 1:
+		collision_shape.position.y = rectangle_shape.size.y / grid_h * 0.5
+
+	rectangle_shape.size += size_correction
+	collision_shape.position += size_correction * 0.5
 
 
 func _update_texture() -> void:
@@ -61,12 +78,16 @@ func _update_texture() -> void:
 
 
 func _get_drag_data(_at_position: Vector2) -> Variant:
-	var item_preview: Control = Control.new()
-	item_preview.add_child(self.duplicate())
+	var c: Control = Control.new()
+
+	var ui_item_preview: UIItem = self.duplicate()
+
+	c.add_child(ui_item_preview)
+	ui_item_preview.position = -0.5 * ui_item_preview.size
 
 	visible = false
 
-	set_drag_preview(item_preview)
+	set_drag_preview(c)
 	return self
 
 
