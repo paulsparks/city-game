@@ -31,6 +31,36 @@ func _can_drop_data(_at_position: Vector2, _data: Variant) -> bool:
 	return true
 
 
+func get_backpacks() -> Dictionary:
+	var backpacks: Dictionary
+
+	for grid: GridContainer in backpack_layout.get_children():
+		var squares_2d: Array = []
+
+		var squares: Array = grid.get_children()
+
+		var columns: int = grid.columns
+		@warning_ignore("integer_division")
+		var rows: int = len(squares) / columns
+
+		# Populates a 2D array, with the first level of the array representing the column number,
+		# and the second level of the array representing the row number.
+		# The value being held in each grid slot is the BackpackSquare in that location.
+		for col: int in range(columns):
+			var increment: int = columns
+			var i: int = 0
+
+			squares_2d.append([])
+			for row: int in range(rows):
+				@warning_ignore("unsafe_method_access")
+				squares_2d[col].append(squares[i])
+				i += increment
+
+		backpacks[grid.name] = squares_2d
+
+	return backpacks
+
+
 func _drop_item(ui_item: UIItem) -> void:
 	for grid: Node in backpack_layout.get_children():
 		for square: BackpackSquare in grid.get_children():
@@ -117,6 +147,7 @@ func _input(event: InputEvent) -> void:
 func _toggle_inventory() -> void:
 	_set_inventory_opened(!PlayerUi.inventory_opened)
 	PlayerUi.right_click_menu.visible = false
+	print(get_backpacks())
 
 
 func _set_inventory_opened(opened: bool) -> void:
