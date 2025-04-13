@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1o0eqn8cc80e"]
+
+[ext_resource type="Script" path="res://scripts/ui/backpack_square.gd" id="1_25l0r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfxmf"]
+size = Vector2(2, 2)
+
+[node name="Slot0" type="ReferenceRect"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+border_color = Color(0.443312, 0.909884, 0, 1)
+border_width = 4.0
+editor_only = false
+script = ExtResource("1_25l0r")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.71652, 0.84, 0.6888, 0.235294)
+
+[node name="BackpackSquareCollision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackpackSquareCollision"]
+position = Vector2(36, 39)
+shape = SubResource("RectangleShape2D_yfxmf")
+
+[connection signal="area_entered" from="BackpackSquareCollision" to="." method="_on_backpack_square_collision_area_entered"]
+[connection signal="area_exited" from="BackpackSquareCollision" to="." method="_on_backpack_square_collision_area_exited"]

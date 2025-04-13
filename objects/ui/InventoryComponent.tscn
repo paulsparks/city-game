@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkmkcgmbaxr7u"]
 
 [ext_resource type="Script" path="res://scripts/ui/inventory_component.gd" id="1_f6li5"]
-[ext_resource type="Script" path="res://scripts/ui/backpack_square.gd" id="3_17t18"]
+[ext_resource type="PackedScene" uid="uid://c1o0eqn8cc80e" path="res://objects/ui/BackpackSquare.tscn" id="2_7d2hu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3082u"]
 bg_color = Color(0, 0.0117647, 0, 0.705882)
@@ -68,81 +68,17 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.1
 theme_override_constants/v_separation = 0
 
-[node name="Slot0" type="ReferenceRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/LeftStorage"]
+[node name="Slot0" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/LeftStorage" instance=ExtResource("2_7d2hu")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-border_color = Color(0.443312, 0.909884, 0, 1)
-border_width = 4.0
-editor_only = false
-script = ExtResource("3_17t18")
 
-[node name="Background" type="ColorRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/LeftStorage/Slot0"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.71652, 0.84, 0.6888, 0.235294)
-
-[node name="Slot1" type="ReferenceRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/LeftStorage"]
+[node name="Slot1" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/LeftStorage" instance=ExtResource("2_7d2hu")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-border_color = Color(0.443312, 0.909884, 0, 1)
-border_width = 4.0
-editor_only = false
-script = ExtResource("3_17t18")
 
-[node name="Background" type="ColorRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/LeftStorage/Slot1"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.71652, 0.84, 0.6888, 0.235294)
-
-[node name="Slot2" type="ReferenceRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/LeftStorage"]
+[node name="Slot2" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/LeftStorage" instance=ExtResource("2_7d2hu")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-border_color = Color(0.443312, 0.909884, 0, 1)
-border_width = 4.0
-editor_only = false
-script = ExtResource("3_17t18")
 
-[node name="Background" type="ColorRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/LeftStorage/Slot2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.71652, 0.84, 0.6888, 0.235294)
-
-[node name="Slot3" type="ReferenceRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/LeftStorage"]
+[node name="Slot3" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/LeftStorage" instance=ExtResource("2_7d2hu")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-border_color = Color(0.443312, 0.909884, 0, 1)
-border_width = 4.0
-editor_only = false
-script = ExtResource("3_17t18")
-
-[node name="Background" type="ColorRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/LeftStorage/Slot3"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.71652, 0.84, 0.6888, 0.235294)
 
 [node name="MainStorage" type="GridContainer" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer"]
 layout_mode = 2
@@ -152,309 +88,53 @@ theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 4
 
-[node name="Slot0" type="ReferenceRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage"]
+[node name="Slot0" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage" instance=ExtResource("2_7d2hu")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-border_color = Color(0.443312, 0.909884, 0, 1)
-border_width = 4.0
-editor_only = false
-script = ExtResource("3_17t18")
 
-[node name="Background" type="ColorRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage/Slot0"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.71652, 0.84, 0.6888, 0.235294)
-
-[node name="Slot1" type="ReferenceRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage"]
+[node name="Slot1" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage" instance=ExtResource("2_7d2hu")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-border_color = Color(0.443312, 0.909884, 0, 1)
-border_width = 4.0
-editor_only = false
-script = ExtResource("3_17t18")
 
-[node name="Background" type="ColorRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage/Slot1"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.71652, 0.84, 0.6888, 0.235294)
-
-[node name="Slot2" type="ReferenceRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage"]
+[node name="Slot2" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage" instance=ExtResource("2_7d2hu")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-border_color = Color(0.443312, 0.909884, 0, 1)
-border_width = 4.0
-editor_only = false
-script = ExtResource("3_17t18")
 
-[node name="Background" type="ColorRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage/Slot2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.71652, 0.84, 0.6888, 0.235294)
-
-[node name="Slot3" type="ReferenceRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage"]
+[node name="Slot3" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage" instance=ExtResource("2_7d2hu")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-border_color = Color(0.443312, 0.909884, 0, 1)
-border_width = 4.0
-editor_only = false
-script = ExtResource("3_17t18")
 
-[node name="Background" type="ColorRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage/Slot3"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.71652, 0.84, 0.6888, 0.235294)
-
-[node name="Slot4" type="ReferenceRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage"]
+[node name="Slot4" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage" instance=ExtResource("2_7d2hu")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-border_color = Color(0.443312, 0.909884, 0, 1)
-border_width = 4.0
-editor_only = false
-script = ExtResource("3_17t18")
 
-[node name="Background" type="ColorRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage/Slot4"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.71652, 0.84, 0.6888, 0.235294)
-
-[node name="Slot5" type="ReferenceRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage"]
+[node name="Slot5" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage" instance=ExtResource("2_7d2hu")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-border_color = Color(0.443312, 0.909884, 0, 1)
-border_width = 4.0
-editor_only = false
-script = ExtResource("3_17t18")
 
-[node name="Background" type="ColorRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage/Slot5"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.71652, 0.84, 0.6888, 0.235294)
-
-[node name="Slot6" type="ReferenceRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage"]
+[node name="Slot6" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage" instance=ExtResource("2_7d2hu")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-border_color = Color(0.443312, 0.909884, 0, 1)
-border_width = 4.0
-editor_only = false
-script = ExtResource("3_17t18")
 
-[node name="Background" type="ColorRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage/Slot6"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.71652, 0.84, 0.6888, 0.235294)
-
-[node name="Slot7" type="ReferenceRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage"]
+[node name="Slot7" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage" instance=ExtResource("2_7d2hu")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-border_color = Color(0.443312, 0.909884, 0, 1)
-border_width = 4.0
-editor_only = false
-script = ExtResource("3_17t18")
 
-[node name="Background" type="ColorRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage/Slot7"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.71652, 0.84, 0.6888, 0.235294)
-
-[node name="Slot8" type="ReferenceRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage"]
+[node name="Slot8" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage" instance=ExtResource("2_7d2hu")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-border_color = Color(0.443312, 0.909884, 0, 1)
-border_width = 4.0
-editor_only = false
-script = ExtResource("3_17t18")
 
-[node name="Background" type="ColorRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage/Slot8"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.71652, 0.84, 0.6888, 0.235294)
-
-[node name="Slot9" type="ReferenceRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage"]
+[node name="Slot9" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage" instance=ExtResource("2_7d2hu")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-border_color = Color(0.443312, 0.909884, 0, 1)
-border_width = 4.0
-editor_only = false
-script = ExtResource("3_17t18")
 
-[node name="Background" type="ColorRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage/Slot9"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.71652, 0.84, 0.6888, 0.235294)
-
-[node name="Slot10" type="ReferenceRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage"]
+[node name="Slot10" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage" instance=ExtResource("2_7d2hu")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-border_color = Color(0.443312, 0.909884, 0, 1)
-border_width = 4.0
-editor_only = false
-script = ExtResource("3_17t18")
 
-[node name="Background" type="ColorRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage/Slot10"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.71652, 0.84, 0.6888, 0.235294)
-
-[node name="Slot11" type="ReferenceRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage"]
+[node name="Slot11" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage" instance=ExtResource("2_7d2hu")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-border_color = Color(0.443312, 0.909884, 0, 1)
-border_width = 4.0
-editor_only = false
-script = ExtResource("3_17t18")
 
-[node name="Background" type="ColorRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage/Slot11"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.71652, 0.84, 0.6888, 0.235294)
-
-[node name="Slot12" type="ReferenceRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage"]
+[node name="Slot12" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage" instance=ExtResource("2_7d2hu")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-border_color = Color(0.443312, 0.909884, 0, 1)
-border_width = 4.0
-editor_only = false
-script = ExtResource("3_17t18")
 
-[node name="Background" type="ColorRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage/Slot12"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.71652, 0.84, 0.6888, 0.235294)
-
-[node name="Slot13" type="ReferenceRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage"]
+[node name="Slot13" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage" instance=ExtResource("2_7d2hu")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-border_color = Color(0.443312, 0.909884, 0, 1)
-border_width = 4.0
-editor_only = false
-script = ExtResource("3_17t18")
 
-[node name="Background" type="ColorRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage/Slot13"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.71652, 0.84, 0.6888, 0.235294)
-
-[node name="Slot14" type="ReferenceRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage"]
+[node name="Slot14" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage" instance=ExtResource("2_7d2hu")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-border_color = Color(0.443312, 0.909884, 0, 1)
-border_width = 4.0
-editor_only = false
-script = ExtResource("3_17t18")
 
-[node name="Background" type="ColorRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage/Slot14"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.71652, 0.84, 0.6888, 0.235294)
-
-[node name="Slot15" type="ReferenceRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage"]
+[node name="Slot15" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage" instance=ExtResource("2_7d2hu")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-border_color = Color(0.443312, 0.909884, 0, 1)
-border_width = 4.0
-editor_only = false
-script = ExtResource("3_17t18")
-
-[node name="Background" type="ColorRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/MainStorage/Slot15"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.71652, 0.84, 0.6888, 0.235294)
 
 [node name="RightStorage" type="GridContainer" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer"]
 layout_mode = 2
@@ -462,78 +142,14 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.1
 theme_override_constants/v_separation = 0
 
-[node name="Slot0" type="ReferenceRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/RightStorage"]
+[node name="Slot0" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/RightStorage" instance=ExtResource("2_7d2hu")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-border_color = Color(0.443312, 0.909884, 0, 1)
-border_width = 4.0
-editor_only = false
-script = ExtResource("3_17t18")
 
-[node name="Background" type="ColorRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/RightStorage/Slot0"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.71652, 0.84, 0.6888, 0.235294)
-
-[node name="Slot1" type="ReferenceRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/RightStorage"]
+[node name="Slot1" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/RightStorage" instance=ExtResource("2_7d2hu")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-border_color = Color(0.443312, 0.909884, 0, 1)
-border_width = 4.0
-editor_only = false
-script = ExtResource("3_17t18")
 
-[node name="Background" type="ColorRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/RightStorage/Slot1"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.71652, 0.84, 0.6888, 0.235294)
-
-[node name="Slot2" type="ReferenceRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/RightStorage"]
+[node name="Slot2" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/RightStorage" instance=ExtResource("2_7d2hu")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-border_color = Color(0.443312, 0.909884, 0, 1)
-border_width = 4.0
-editor_only = false
-script = ExtResource("3_17t18")
 
-[node name="Background" type="ColorRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/RightStorage/Slot2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.71652, 0.84, 0.6888, 0.235294)
-
-[node name="Slot3" type="ReferenceRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/RightStorage"]
+[node name="Slot3" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/RightStorage" instance=ExtResource("2_7d2hu")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-border_color = Color(0.443312, 0.909884, 0, 1)
-border_width = 4.0
-editor_only = false
-script = ExtResource("3_17t18")
-
-[node name="Background" type="ColorRect" parent="Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer/RightStorage/Slot3"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.71652, 0.84, 0.6888, 0.235294)
