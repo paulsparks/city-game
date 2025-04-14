@@ -24,7 +24,6 @@ var hand_ray: Dictionary = {"collider": null, "hold_pos": null}
 
 @onready var camera: Camera3D = $Camera3D
 @onready var wallet: WalletComponent = $WalletComponent
-@onready var inventory: InventoryComponent = $InventoryComponent
 @onready var top_half_1: CollisionShape3D = $TopHalf1
 @onready var top_half_2: CollisionShape3D = $TopHalf2
 
@@ -34,7 +33,7 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if PlayerUi.inventory_opened:
+	if PlayerUi.inventory.opened:
 		return
 
 	if event is InputEventMouseButton:
@@ -54,7 +53,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
-	if PlayerUi.inventory_opened:
+	if PlayerUi.inventory.opened:
 		return
 
 	if event is not InputEventKey:
@@ -76,7 +75,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			match hand_ray.collider:
 				hand_ray.collider when hand_ray.collider is Item:
 					var item: Item = hand_ray.collider
-					inventory.add_to_inventory(item)
+					PlayerUi.inventory.add_to_inventory(item)
 		return
 
 	if held_prop:
@@ -151,7 +150,7 @@ func _process(_delta: float) -> void:
 			held_prop.rotation.y = rotation.y
 			# held_prop.rotation.x = camera.rotation.x
 
-	if not PlayerUi.inventory_opened:
+	if not PlayerUi.inventory.opened:
 		PlayerUi.item_tooltip.draw_world_tooltip(hand_ray.collider, held_prop != null)
 
 
@@ -187,7 +186,7 @@ func _on_top_half_area_body_exited(body: Node3D) -> void:
 func _handle_raycast() -> Dictionary:
 	var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 	var mousepos: Vector2 = get_viewport().get_mouse_position()
-	if PlayerUi.inventory_opened:
+	if PlayerUi.inventory.opened:
 		mousepos = get_viewport().get_visible_rect().size / 2
 	var origin: Vector3 = camera.project_ray_origin(mousepos)
 	var end: Vector3 = origin + camera.project_ray_normal(mousepos) * REACH_DISTANCE

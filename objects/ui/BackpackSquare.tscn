@@ -8,7 +8,7 @@ size = Vector2(2, 2)
 [node name="Slot0" type="ReferenceRect"]
 size_flags_horizontal = 3
 size_flags_vertical = 3
-mouse_filter = 1
+mouse_filter = 2
 border_color = Color(0.443312, 0.909884, 0, 1)
 border_width = 4.0
 editor_only = false
@@ -29,6 +29,3 @@ color = Color(0.71652, 0.84, 0.6888, 0.235294)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackpackSquareCollision"]
 position = Vector2(36, 39)
 shape = SubResource("RectangleShape2D_yfxmf")
-
-[connection signal="area_entered" from="BackpackSquareCollision" to="." method="_on_backpack_square_collision_area_entered"]
-[connection signal="area_exited" from="BackpackSquareCollision" to="." method="_on_backpack_square_collision_area_exited"]

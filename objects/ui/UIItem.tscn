@@ -34,7 +34,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-color = Color(0.343255, 0.79, 0.1027, 0.27451)
+color = Color(0.343255, 0.79, 0.1027, 0.196078)
 
 [node name="UIItemCollision" type="Area2D" parent="."]
 position = Vector2(35, 35)
@@ -43,3 +43,5 @@ position = Vector2(35, 35)
 shape = SubResource("RectangleShape2D_cb5jq")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="area_entered" from="UIItemCollision" to="." method="_on_ui_item_collision_area_entered"]
+[connection signal="area_exited" from="UIItemCollision" to="." method="_on_ui_item_collision_area_exited"]

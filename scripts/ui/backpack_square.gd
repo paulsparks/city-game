@@ -1,6 +1,8 @@
 class_name BackpackSquare
 extends Control
 
+var occupied: bool = false
+
 @onready var highlight: ColorRect = preload("res://objects/ui/Highlight.tscn").instantiate()
 @onready var collision: CollisionObject2D = $BackpackSquareCollision
 
@@ -9,18 +11,16 @@ func _ready() -> void:
 	add_child(highlight)
 
 
-func _drop_data(_at_position: Vector2, data: Variant) -> void:
-	if has_item() or data is not UIItem:
+func place_item_on_square(ui_item: UIItem) -> void:
+	if has_item():
+		print("has " + get_item().get_item().name)
 		return
 
-	var ui_item: UIItem = data
+	print(ui_item.get_item().name)
 
+	# ui_item_parent_backpack_square.occupied = false
 	ui_item.get_parent().remove_child(ui_item)
-	add_child(ui_item)
-
-
-func _can_drop_data(_at_position: Vector2, _data: Variant) -> bool:
-	return true
+	# add_child(ui_item)
 
 
 func has_item() -> bool:
@@ -31,18 +31,3 @@ func get_item() -> UIItem:
 	return HelperFunctions.find_child_with_func(
 		self, func x(child: Node) -> bool: return child is UIItem
 	)
-
-
-func _on_backpack_square_collision_area_entered(area: Area2D) -> void:
-	var parent: Node = area.get_parent()
-
-	if parent is not UIItem:
-		return
-
-	# var ui_item: UIItem = parent
-
-	highlight.visible = true
-
-
-func _on_backpack_square_collision_area_exited(_area: Area2D) -> void:
-	highlight.visible = false

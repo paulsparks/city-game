@@ -10,9 +10,12 @@ var item_price_label: Label
 var item_text_background: ColorRect
 var grid_w: int = 1
 var grid_h: int = 1
+var hovered_backpack_squares: Array
 
+var _unoccupied_backpack_squares: Array
 var _item: Item = null
 var _hover: bool = false
+var _dragging: bool = false
 
 @onready var collision: CollisionObject2D = $UIItemCollision
 @onready var collision_shape: CollisionShape2D = $UIItemCollision/CollisionShape2D
@@ -88,6 +91,8 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	visible = false
 
 	set_drag_preview(c)
+	_dragging = true
+
 	return self
 
 
@@ -108,6 +113,14 @@ func _input(event: InputEvent) -> void:
 
 	if event.is_action_released("use"):
 		visible = true
+
+		if not hovered_backpack_squares.is_empty() and _dragging:
+			for square: BackpackSquare in hovered_backpack_squares:
+				square.occupied = true
+
+			var first_square: BackpackSquare = hovered_backpack_squares[0]
+			first_square.place_item_on_square(self)
+			_dragging = false
 
 	if !_hover:
 		return
@@ -134,10 +147,60 @@ func set_item(item: Item) -> void:
 
 
 func _on_gui_input(event: InputEvent) -> void:
-	if not PlayerUi.inventory_opened or event is not InputEventMouseButton:
+	if not PlayerUi.inventory.opened or event is not InputEventMouseButton:
 		return
 
 	var mouse_event: InputEventMouseButton = event
 
 	if event.is_action_pressed("use_special"):
 		PlayerUi.right_click_menu.open(mouse_event.global_position, self)
+
+
+func _on_ui_item_collision_area_entered(area: Area2D) -> void:
+	if area.get_parent() is not BackpackSquare:
+		return
+
+	var backpack_square: BackpackSquare = area.get_parent()
+
+	if not backpack_square.occupied:
+		_unoccupied_backpack_squares.append(backpack_square)
+		_handle_available_squares()
+
+
+func _on_ui_item_collision_area_exited(area: Area2D) -> void:
+	if area.get_parent() is not BackpackSquare:
+		return
+
+	var backpack_square: BackpackSquare = area.get_parent()
+
+	if not backpack_square.occupied:
+		if len(_unoccupied_backpack_squares) == 1:
+			_unoccupied_backpack_squares[0].highlight.visible = false
+		_unoccupied_backpack_squares.erase(backpack_square)
+
+		_handle_available_squares()
+
+
+func _handle_available_squares() -> void:
+	print(hovered_backpack_squares)
+	for square: BackpackSquare in _unoccupied_backpack_squares:
+		if not hovered_backpack_squares.has(square):
+			hovered_backpack_squares.append(square)
+
+		square.highlight.visible = true
+
+	if _unoccupied_backpack_squares.is_empty():
+		return
+
+	var first_square: BackpackSquare = _unoccupied_backpack_squares[0]
+	var same_storage_grid: bool = _unoccupied_backpack_squares.all(
+		func x(square: Node) -> bool: return square.get_parent() == first_square.get_parent()
+	)
+
+	if not len(_unoccupied_backpack_squares) == (grid_w * grid_h) or not same_storage_grid:
+		for square: BackpackSquare in PlayerUi.inventory.get_backpack_squares():
+			square.highlight.visible = false
+			if hovered_backpack_squares.has(square):
+				hovered_backpack_squares.erase(square)
+
+		return

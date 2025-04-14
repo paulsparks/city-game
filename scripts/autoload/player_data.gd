@@ -7,6 +7,8 @@ var inventory_items: Array
 
 var _timer: Timer
 
+@onready var player: PlayerController = get_tree().get_first_node_in_group("player")
+
 
 func _init() -> void:
 	_timer = Timer.new()

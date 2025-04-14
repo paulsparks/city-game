@@ -1,18 +1,18 @@
 class_name InventoryComponent
 extends Control
 
+var opened: bool = false
+
 var _ui_item_scene: PackedScene = preload("res://objects/ui/UIItem.tscn")
 
 @onready
 var backpack_layout: Control = $Background/MarginContainer/Inventory/StorageSection/AspectRatioContainer/HBoxContainer
-@onready var player: PlayerController = get_parent()
-@onready var crosshair: ColorRect = player.find_child("Crosshair")
 
 
 func _ready() -> void:
-	PlayerUi.right_click_menu.connect("drop_item", _drop_item)
+	visible = false
 
-	_set_inventory_opened(false)
+	PlayerUi.right_click_menu.connect("drop_item", _drop_item)
 
 	if len(PlayerData.inventory_items) > 0:
 		set_inventory(PlayerData.inventory_items)
@@ -31,15 +31,22 @@ func _can_drop_data(_at_position: Vector2, _data: Variant) -> bool:
 	return true
 
 
-func get_ui_item_location(ui_item: UIItem) -> Dictionary:
+## Returns { "grid": "grid_name", "coords": (x, y) } or null if the item is not found
+func get_grid_location(node: Node) -> Variant:
 	for grid: GridContainer in backpack_layout.get_children():
-		for col: Array in get_backpacks()[grid.name]:
-			for row: int in len(col):
-				var backpack_square: BackpackSquare = col[row]
-				if backpack_square.get_item() == ui_item:
-					return {"name": grid.name, "square": col[row]}
+		for col: int in range(len(get_backpacks()[grid.name])):
+			for row: int in range(len(get_backpacks()[grid.name][col])):
+				var square: BackpackSquare = get_backpacks()[grid.name][col][row]
+				var location: Dictionary = {"grid": grid.name, "coords": Vector2(col, row)}
 
-	return {}
+				if node is UIItem:
+					if square.get_item() == node:
+						return location
+				if node is BackpackSquare:
+					if square == node:
+						return location
+
+	return null
 
 
 func get_backpacks() -> Dictionary:
@@ -54,18 +61,22 @@ func get_backpacks() -> Dictionary:
 		@warning_ignore("integer_division")
 		var rows: int = len(squares) / columns
 
+		var starting_index: int = 0
+
 		# Populates a 2D array, with the first level of the array representing the column number,
 		# and the second level of the array representing the row number.
 		# The value being held in each grid slot is the BackpackSquare in that location.
 		for col: int in range(columns):
 			var increment: int = columns
-			var i: int = 0
+			var i: int = starting_index
 
 			squares_2d.append([])
 			for row: int in range(rows):
 				@warning_ignore("unsafe_method_access")
 				squares_2d[col].append(squares[i])
 				i += increment
+
+			starting_index += 1
 
 		backpacks[grid.name] = squares_2d
 
@@ -78,8 +89,8 @@ func _drop_item(ui_item: UIItem) -> void:
 			for node: Node in square.get_children():
 				if node == ui_item:
 					var item: Item = ui_item.get_item()
-					item.global_position = player.hand_ray.hold_pos
-					player.get_parent().add_child(item)
+					item.global_position = PlayerData.player.hand_ray.hold_pos
+					PlayerData.player.get_parent().add_child(item)
 					node.queue_free()
 
 
@@ -107,6 +118,38 @@ func set_inventory(item_array: Array) -> void:
 				var ui_item: UIItem = _ui_item_scene.instantiate()
 				ui_item.set_item(item)
 				backpack_square.add_child(ui_item)
+				backpack_square.occupied = true
+
+				# var data: Dictionary = get_grid_location(backpack_square)
+				# var grid_name: String = data["grid"]
+				# var location: Vector2 = data["coords"]
+
+				# print(item.name + ": ")
+				# print("w: " + str(ui_item.grid_w))
+				# print("h: " + str(ui_item.grid_h))
+
+				# var adjacent_squares: Array = []
+
+				# var grid_table: Array = get_backpacks()[grid_name]
+				# var corner_coord: Vector2 = Vector2(
+				# 	location.x + ui_item.grid_w - 1, location.y + ui_item.grid_h - 1
+				# )
+
+				# for i: int in range(ui_item.grid_h - 1):
+				# 	var next_square_down_from_origin: Vector2 = (
+				# 		location - Vector2(0, location.y + i + 1)
+				# 	)
+				# 	print(next_square_down_from_origin)
+				# 	var next_square_up_from_corner: Vector2 = (
+				# 		location + Vector2(0, corner_coord.y + i + 1)
+				# 	)
+				# 	print(next_square_up_from_corner)
+				# print(
+				# 	get_backpacks()[location["grid"]][location["coords"].x + i][
+				# 		location["coords"].y
+				# 	]
+				# )
+
 			inventory_location += 1
 
 
@@ -138,6 +181,17 @@ func get_inventory_items() -> Array:
 	return inventory_items
 
 
+## Returns all the BackpackSquare nodes in the InventoryComponent
+func get_backpack_squares() -> Array:
+	var backpack_squares: Array = []
+
+	for grid: Node in backpack_layout.get_children():
+		for square: BackpackSquare in grid.get_children():
+			backpack_squares.append(square)
+
+	return backpack_squares
+
+
 func get_inventory_ids() -> Array:
 	var item_array: Array = get_inventory_items()
 
@@ -156,19 +210,19 @@ func _input(event: InputEvent) -> void:
 
 
 func _toggle_inventory() -> void:
-	_set_inventory_opened(!PlayerUi.inventory_opened)
+	_set_inventory_opened(!opened)
 	PlayerUi.right_click_menu.visible = false
 
 
-func _set_inventory_opened(opened: bool) -> void:
-	PlayerUi.inventory_opened = opened
+func _set_inventory_opened(p_opened: bool) -> void:
+	opened = p_opened
 
-	if PlayerUi.inventory_opened:
+	if opened:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		show()
-		crosshair.hide()
+		# crosshair.hide()
 		PlayerUi.item_tooltip.clear_world_tooltip()
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		hide()
-		crosshair.show()
+		# crosshair.show()

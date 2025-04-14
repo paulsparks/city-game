@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://crqba7aw5sw3h"]
+[gd_scene load_steps=9 format=3 uid="uid://crqba7aw5sw3h"]
 
 [ext_resource type="Script" path="res://scripts/player/player_controller.gd" id="1_u1fqc"]
 [ext_resource type="Script" path="res://scripts/player/wallet_component.gd" id="2_vl4rv"]
-[ext_resource type="PackedScene" uid="uid://bkmkcgmbaxr7u" path="res://objects/ui/InventoryComponent.tscn" id="3_yaovw"]
 [ext_resource type="PackedScene" uid="uid://bi8bn1oflu7dq" path="res://objects/ui/item_tooltip.tscn" id="4_k2i1m"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3nt6g"]
@@ -27,8 +26,6 @@ font_size = 32
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_u1fqc")
-
-[node name="InventoryComponent" parent="." instance=ExtResource("3_yaovw")]
 
 [node name="TopHalf1" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
