@@ -13,10 +13,7 @@ func _ready() -> void:
 
 func place_item_on_square(ui_item: UIItem) -> void:
 	if has_item():
-		print("has " + get_item().get_item().name)
 		return
-
-	print(ui_item.get_item().name)
 
 	# ui_item_parent_backpack_square.occupied = false
 	ui_item.get_parent().remove_child(ui_item)

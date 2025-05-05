@@ -14,6 +14,7 @@ func _ready() -> void:
 
 	PlayerUi.right_click_menu.connect("drop_item", _drop_item)
 
+	print(PlayerData.inventory_items)
 	if len(PlayerData.inventory_items) > 0:
 		set_inventory(PlayerData.inventory_items)
 

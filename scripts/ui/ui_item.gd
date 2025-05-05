@@ -182,7 +182,6 @@ func _on_ui_item_collision_area_exited(area: Area2D) -> void:
 
 
 func _handle_available_squares() -> void:
-	print(hovered_backpack_squares)
 	for square: BackpackSquare in _unoccupied_backpack_squares:
 		if not hovered_backpack_squares.has(square):
 			hovered_backpack_squares.append(square)
